@@ -50,7 +50,7 @@ export default {
   methods: {
     fetchPost() {
       this.loading = true;
-      fetch(`http://localhost:8888/wp-json/wp/v2/Posts/?slug=${this.$route.params.title}`)
+      fetch(`${this.$hostname.name}Posts/?slug=${this.$route.params.title}`)
         .then(response => response.json())
         .then(json => {
           this.post = json[0];
