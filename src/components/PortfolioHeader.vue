@@ -1,0 +1,363 @@
+<template lang="pug">
+
+
+  header
+    a(href="#").menu-icon(@click.prevent="$eventBus.$emit('openMenu')")
+     svg(width='40', height='40', viewBox='0 0 33 33', xmlns='http://www.w3.org/2000/svg')
+      g(fill-rule='nonzero', fill='#FFF')
+        path(d='M16.5 33C7.402 33 0 25.598 0 16.5 0 7.402 7.402 0 16.5 0 25.598 0 33 7.402 33 16.5 33 25.598 25.598 33 16.5 33zm0-32C7.953 1 1 7.953 1 16.5S7.953 32 16.5 32 32 25.047 32 16.5 25.047 1 16.5 1z')
+        path(d='M16.5 33a16.38 16.38 0 0 1-9.549-3.06.5.5 0 1 1 .116-.876c4.146-1.535 4.815-2.781 4.815-5.169 0-.631-.142-.838-.398-1.214-.339-.494-.803-1.171-1.129-2.939-.048-.254-.089-.274-.316-.384-.606-.292-1.163-.712-1.309-2.628 0-.928.32-1.441.585-1.708-.058-.33-.153-.899-.242-1.519-.453-2.777-.473-6.178 3.433-7.759 3.404-1.38 6.121-.626 6.974.273.604.019 2.162.177 3.246 1.438 1.668 1.94 1.137 6.363.955 7.562.266.261.589.767.589 1.675-.146 1.954-.703 2.375-1.31 2.666-.228.11-.269.129-.316.384-.326 1.768-.789 2.445-1.128 2.939-.257.375-.398.583-.398 1.214 0 2.388.669 3.634 4.815 5.169a.498.498 0 0 1 .116.876A16.38 16.38 0 0 1 16.5 33zm-8.183-3.349A15.362 15.362 0 0 0 16.5 32c2.911 0 5.721-.809 8.183-2.349-3.474-1.426-4.565-2.864-4.565-5.755 0-.941.278-1.348.573-1.779.304-.444.682-.996.971-2.556.139-.754.576-.964.865-1.103.311-.149.631-.303.744-1.803-.001-.764-.344-.972-.358-.98a.533.533 0 0 1-.264-.537c.248-1.329.656-5.474-.681-7.031-.913-1.062-2.352-1.091-2.626-1.08-.046-.004-.091-.005-.134-.016-.13-.033-.35-.146-.417-.262-.272-.466-2.641-1.403-5.91-.08-3.231 1.308-3.238 4.112-2.819 6.682.138.957.289 1.784.29 1.788a.5.5 0 0 1-.283.544c.003 0-.339.209-.339 1.008.112 1.461.433 1.616.743 1.765.289.139.727.349.866 1.103.288 1.56.666 2.112.97 2.556.296.431.574.838.574 1.779 0 2.894-1.091 4.332-4.566 5.757z')
+
+
+    a(href="https://github.com/benjvmin" target="blank").github-link
+      svg(viewBox='0 0 24 24', width="40px" height="40px" xmlns='http://www.w3.org/2000/svg' fill="rgba(255, 255, 255, 0.9)")
+        title#github-icon
+        path(d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12')
+
+    .introduction-wrapper
+      .introduction
+        .introduction__photo
+        .introduction__information()
+          h1.introduction__information--name Benjamin Taylor
+          h2.introduction__information--title Front End Designer & Developer
+
+    .nav-wrapper
+      nav
+        div.logo
+          svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 159.68 159.68' width="45px" height="45px")
+            rect(width='159.68', height='159.68', rx='12', ry='12', fill='#293130')
+            g
+              path(d='M4078.38-1094.22a22.23,22.23,0,0,0,.46,4.82,18.5,18.5,0,0,0,1.08,3.43,14.13,14.13,0,0,0,1.18,2.2c0.38,0.55.67,1,.87,1.33q-5.74,0-9-2.92t-3.28-9a18.9,18.9,0,0,1,2.61-9.64,26.08,26.08,0,0,1,7.08-7.84,35.72,35.72,0,0,1,10.46-5.28,41,41,0,0,1,12.76-1.95,33.29,33.29,0,0,1,10.51,1.49,21.18,21.18,0,0,1,7.38,4,16.57,16.57,0,0,1,4.36,5.85,16.68,16.68,0,0,1,1.44,6.76,16.29,16.29,0,0,1-2.05,7.74,18.25,18.25,0,0,1-5.95,6.51,18.73,18.73,0,0,1,12.67,6.26q4.76,5.43,4.77,15.17a46.22,46.22,0,0,1-.72,7.54,29.13,29.13,0,0,1-2.62,8.1,18.77,18.77,0,0,1-5.28,6.51,13.51,13.51,0,0,1-8.61,2.67,16.22,16.22,0,0,1-4.31-.57,12.26,12.26,0,0,1-3.64-1.64,7.82,7.82,0,0,1-2.51-2.77,7.88,7.88,0,0,1-.92-3.84c0-.41,0-1,0.1-1.7a10.13,10.13,0,0,1,.31-1.79,7.63,7.63,0,0,0,3.59,3.13,10.61,10.61,0,0,0,4,.87,6.35,6.35,0,0,0,4.25-1.44,9.37,9.37,0,0,0,2.61-3.69,20,20,0,0,0,1.28-5,40.59,40.59,0,0,0,.36-5.38q0-9.74-3.72-14t-10.36-4.31c-0.82,0-1.52,0-2.75.1s-1.26.17-3.26,0.31V-1043h-11v-64.86l11-1.54v22.4h0.8a10.53,10.53,0,0,0,5.34-1,14.16,14.16,0,0,0,4.33-3.45,17.26,17.26,0,0,0,2.85-4.88,15.1,15.1,0,0,0,1-5.34,12.91,12.91,0,0,0-4.1-9.87q-4.1-3.84-12.2-3.83a29.39,29.39,0,0,0-8.61,1.29,21.79,21.79,0,0,0-7.44,3.9,19.15,19.15,0,0,0-5.18,6.61A21.08,21.08,0,0,0,4078.38-1094.22Z', transform='translate(-4048.33 1163.86)', fill='#fff')
+              path(d='M4175.81-1113.44a44.94,44.94,0,0,1-7.69-.72c-2.84-.48-5.62-1.06-8.62-1.74v65.9h-10v-67.54c-3-.14-3.13-1.46-3.78-1.46h-2a23,23,0,0,0-13.17,3.75c-3,2.08-4.56,6.17-4.56,11.64,0,4.1.46,7.38,1.4,9.54a19.13,19.13,0,0,0,2.84,4.95,14.36,14.36,0,0,1-4.78-.73,9.44,9.44,0,0,1-3.85-2.49,11.9,11.9,0,0,1-2.57-4.55,22.75,22.75,0,0,1-.92-7,20.59,20.59,0,0,1,1.64-8.1,18.15,18.15,0,0,1,5.3-6.92,27.85,27.85,0,0,1,9.45-4.87,47.45,47.45,0,0,1,14.23-1.85,70.1,70.1,0,0,1,7.45.36q3.34,0.36,6.26.82t5.79,0.82a48.71,48.71,0,0,0,6,.36,32.86,32.86,0,0,0,7.23-.67,29.41,29.41,0,0,0,4.87-1.49,21.48,21.48,0,0,1,.31,3.49Q4186.68-1113.44,4175.81-1113.44Z', transform='translate(-4048.33 1163.86)', fill='#fff')
+
+        div.information
+          a(href="#").button.button-blue RESUME
+          a(href="#" @click.prevent="$eventBus.$emit('activateForm')").button.button-blue CONTACT
+
+        div.navigation
+          div.navigation-links
+            router-link(to='/', @click.native="showProjectState()") Projects
+            router-link(to='/posts', @click.native="showPostState()") Posts
+          .selected
+            .selected__bar(:style="projectState")
+        
+    div.tablet-navigation
+      div.navigation-links
+        router-link(to='/', @click.native="showProjectState()") Projects
+        router-link(to='/posts', @click.native="showPostState()") Posts
+      .selected
+        .selected__bar
+  
+</template>
+
+<script>
+export default {
+  name: "PortfolioHeader",
+  data() {
+    return {
+      greeting: "HI",
+      projectState: " "
+    };
+  },
+  methods: {
+    showProjectState() {
+      // this.projectState = "--translate-x: 0%";
+    },
+
+    showPostState() {
+      // this.projectState = "--translate-x: 100%";
+    },
+
+    logSomething() {
+      console.log("Vue.JS component Method");
+    }
+  },
+  mounted() {} //End Mounted Lifecycle,
+};
+</script>
+
+<style lang="scss">
+
+header {
+
+  width: 100%;
+  height: 525px;
+  background-color: slategray;
+  background-image: url("../assets/moonlight.jpg");
+  background-size: cover;
+  background-position: 70% 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+
+  @include respond-to("min-width", medium) {
+    height: 450px;
+  }
+
+  @include respond-to("min-width", large) {
+    height: 400px;
+  }
+
+  @include respond-to("min-width", 900px) {
+    background-position: center center;
+  }
+
+  & .menu-icon {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+  }
+
+  & .github-link {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  & .introduction-wrapper {
+    margin: 0 auto;
+    width: 100%;
+
+    & .introduction {
+      display: flex;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+
+      @include respond-to("max-width", 580px) {
+        flex-direction: column;
+      }
+
+      &__photo {
+
+        width: 220px;
+        height: 220px;
+        min-height: 75px;
+        min-width: 75px;
+        background-color: darkgray;
+        background-image: url('../assets/tprofile.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+
+        border: 6px solid white;
+        margin-bottom: -46px;
+        z-index: 2;
+
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        @include respond-to("max-width", 1460px) {
+          margin-left: 40px;
+        }
+
+        @include respond-to("max-width", 580px) {
+          margin: 0 auto 20px;
+        }
+
+        @include respond-to("max-width", medium) {
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      &__information {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-left: 50px;
+
+        @include respond-to("max-width", 700px) {
+          padding-left: 30px;
+        }
+
+        @include respond-to("max-width", 590px) {
+          padding: 0;
+          text-align: center;
+        }
+
+        & h1,
+        h2 {
+          color: white;
+        }
+
+        & h1 {
+
+          padding: 0 0 10px 0;
+          font-weight: 700;
+          transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        & h2 {
+          padding: 0 0 35px 0;
+          transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          @include respond-to("max-width", 590px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        &--title {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  & .nav-wrapper {
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    // box-shadow: 0px 4px 9px 1px rgba(0,0,0,0.05); 
+    
+    @include respond-to("min-width", 600px) {
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    @include respond-to("min-width", large) {
+      height: 70px;
+    }
+
+    & nav {
+      --columns: 240px repeat(5, 1fr);
+      width: 100%;
+      height: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      
+
+      display: grid;
+      grid-template-columns: var(--columns);
+
+      @include respond-to("max-width", 580px) {
+        display: flex;
+      }
+
+
+      @include respond-to("min-width", medium) {
+        --columns: 320px repeat(5, 1fr);
+      }
+
+      @include respond-to("min-width", 1460px) {
+        --columns: 280px repeat(5, 1fr);
+        background-color: white;
+      }
+
+      & .logo {
+        display: none;
+
+        @include respond-to("min-width", 955px) {
+          display: initial;
+          position: absolute;
+          top: 15px;
+          left: 20px;
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+      }
+
+      & .information {
+        grid-column: 2 / 5;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        @include respond-to("max-width", 580px) {
+          margin: 0 auto;
+        }
+
+        & a:nth-child(2) {
+          margin-left: 10px;
+          @include respond-to("max-width", 970px) {
+            margin-left: 20px;
+          }
+        }
+      }
+
+      & .navigation {
+        grid-column: 5 / 7;
+        display: flex;
+        flex-direction: column;
+
+
+        @include respond-to("max-width", 970px) {
+          display: none;
+        }
+
+        & .navigation-links {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          height: calc(100% - 5px);
+
+          & a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #404040;
+          }
+
+          & a:nth-child(1) {
+          }
+        }
+
+        & .selected {
+          width: 100%;
+          height: 5px;
+
+          &__bar {
+            --translate-x: 0%;
+
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateX(var(--translate-x));
+            height: 100%;
+            width: 50%;
+            background-color: rgba(64, 64, 64, 0.9);
+          }
+        }
+      }
+    }
+  }
+
+  & .tablet-navigation {
+    height: 60px;
+    background-color: white;
+
+    @include respond-to("min-width", 970px) {
+      display: none;
+    }
+
+    & .navigation-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      height: calc(100% - 4px);
+
+      & a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #404040;
+      }
+    }
+
+    & .selected {
+      width: 100%;
+      height: 4px;
+
+      &__bar {
+        --translate-x: 0%;
+
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateX(var(--translate-x));
+        height: 100%;
+        width: 50%;
+        background-color: rgba(64, 64, 64, 0.9);
+      }
+    }
+  }
+}
+</style>

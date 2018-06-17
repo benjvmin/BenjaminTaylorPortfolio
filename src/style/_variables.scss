@@ -1,0 +1,29 @@
+
+//Breakpoints
+$breakpoints: (
+    small: 375px,
+    medium: 768px,
+    large: 1050px,
+    xlarge: 1440px,
+    xxlarge: 1920px
+);
+
+//Breakpoint Mixin
+@mixin respond-to($condition, $breakpoint) { 
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (#{$condition}: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else if map-has-key($breakpoints, $breakpoint) == false {
+    @media (#{$condition}: #{$breakpoint}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+//Button List
+$buttons: 'button', '.button', 'a.button', '[type=submit]','[type=button]';
