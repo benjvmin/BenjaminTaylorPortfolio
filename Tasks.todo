@@ -4,22 +4,24 @@ ToDo:
     ☐ Add All Projects @high
 
   App.js:
-  ☐ Develop REST API object that supports argument as an instance method to reference inside component
+  ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
 
   Header Component:
     ☐ Add opacity animations for header on load @low
 
   Projects Component:
     ☐ Add loading spinner and markup
-    ☐ Add Animations on Load
+    ☐ Add Performant Animations on Load
     ☐ Build Out Responsive Images
 
   
-  
 
   Single Project/Post Component:
-
     ✔ Create single portfolio/post component @done(18-06-17 18:37)
+
+  Footer Component:
+    ☐ Build out Rest of Footer Component
+
     
 Archive:
   ✔ Create Posts component @done(18-06-17 18:37) @project(ToDo.Posts)
