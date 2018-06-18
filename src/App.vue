@@ -43,13 +43,11 @@ export default {
     unlockScrolling() {}
   },
 
-	created() {},
+	created() {
+		
+	},
 	
 	mounted() {
-		// console.log(this.$hostname.returnProjects());
-		// console.log(this.$hostname.returnPosts());
-		// console.log(this.$hostname.returnProjects(10));
-		// console.log(this.$hostname.returnPosts(3));
 	}
 };
 </script>

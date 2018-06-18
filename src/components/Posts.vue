@@ -91,7 +91,6 @@ export default {
   margin: 0;
   padding: 0;
   width: calc(100% - 20px);
-
   display: grid;
   grid-gap: 10px;
   padding: 10px;

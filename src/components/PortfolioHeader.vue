@@ -16,10 +16,10 @@
 
     .introduction-wrapper
       .introduction
-        .introduction__photo
+        .introduction__photo(:class=" { 'active': isActive } ")
         .introduction__information()
-          h1.introduction__information--name Benjamin Taylor
-          h2.introduction__information--title Front End Designer & Developer
+          h1.introduction__information--name(:class="{ 'active':isActive}") Benjamin Taylor
+          h2.introduction__information--title(:class="{ 'active':isActive}") Front End Designer & Developer
 
     .nav-wrapper
       nav
@@ -31,8 +31,8 @@
               path(d='M4175.81-1113.44a44.94,44.94,0,0,1-7.69-.72c-2.84-.48-5.62-1.06-8.62-1.74v65.9h-10v-67.54c-3-.14-3.13-1.46-3.78-1.46h-2a23,23,0,0,0-13.17,3.75c-3,2.08-4.56,6.17-4.56,11.64,0,4.1.46,7.38,1.4,9.54a19.13,19.13,0,0,0,2.84,4.95,14.36,14.36,0,0,1-4.78-.73,9.44,9.44,0,0,1-3.85-2.49,11.9,11.9,0,0,1-2.57-4.55,22.75,22.75,0,0,1-.92-7,20.59,20.59,0,0,1,1.64-8.1,18.15,18.15,0,0,1,5.3-6.92,27.85,27.85,0,0,1,9.45-4.87,47.45,47.45,0,0,1,14.23-1.85,70.1,70.1,0,0,1,7.45.36q3.34,0.36,6.26.82t5.79,0.82a48.71,48.71,0,0,0,6,.36,32.86,32.86,0,0,0,7.23-.67,29.41,29.41,0,0,0,4.87-1.49,21.48,21.48,0,0,1,.31,3.49Q4186.68-1113.44,4175.81-1113.44Z', transform='translate(-4048.33 1163.86)', fill='#fff')
 
         div.information
-          a(href="#").button.button-blue RESUME
-          a(href="#" @click.prevent="$eventBus.$emit('activateForm')").button.button-blue CONTACT
+          a(href="#" :class=" { 'active': isActive } ").button.button-blue RESUME
+          a(href="#" @click.prevent="$eventBus.$emit('activateForm')", :class=" { 'active': isActive } ").button.button-blue CONTACT
 
         div.navigation
           div.navigation-links
@@ -56,10 +56,16 @@ export default {
   data() {
     return {
       greeting: "HI",
+      isActive: false,
       projectState: " "
     };
   },
   methods: {
+    activateAnimations() {
+      setTimeout(() => {
+        this.isActive = true;
+      }, 0);
+    },
     showProjectState() {
       // this.projectState = "--translate-x: 0%";
     },
@@ -72,14 +78,14 @@ export default {
       console.log("Vue.JS component Method");
     }
   },
-  mounted() {} //End Mounted Lifecycle,
+  mounted() {
+    this.activateAnimations();
+  }
 };
 </script>
 
 <style lang="scss">
-
 header {
-
   width: 100%;
   height: 525px;
   background-color: slategray;
@@ -130,13 +136,12 @@ header {
       }
 
       &__photo {
-
         width: 220px;
         height: 220px;
         min-height: 75px;
         min-width: 75px;
         background-color: darkgray;
-        background-image: url('../assets/tprofile.jpg');
+        background-image: url("../assets/tprofile.jpg");
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
@@ -145,8 +150,16 @@ header {
         border: 6px solid white;
         margin-bottom: -46px;
         z-index: 2;
+        transform: scale(0);
+        opacity: 0;
+        transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition-delay: 200ms;
+        will-change: transform;
 
-        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        &.active {
+          transform: scale(1);
+          opacity: 1;
+        }
 
         @include respond-to("max-width", 1460px) {
           margin-left: 40px;
@@ -180,18 +193,27 @@ header {
         & h1,
         h2 {
           color: white;
+          transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transform: translateY(-25%);
+          opacity: 0;
+          will-change: transform;
+
+          &.active {
+            transform: translateX(0px);
+            opacity: 1;
+          }
         }
 
         & h1 {
-
           padding: 0 0 10px 0;
           font-weight: 700;
-          transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-delay: 200ms;
         }
 
         & h2 {
           padding: 0 0 35px 0;
-          transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-delay: 225ms;
           @include respond-to("max-width", 590px) {
             font-size: 1.5rem;
           }
@@ -208,10 +230,10 @@ header {
     width: 100%;
     height: 75px;
     background-color: white;
-    // box-shadow: 0px 4px 9px 1px rgba(0,0,0,0.05); 
-    
+    // box-shadow: 0px 4px 9px 1px rgba(0,0,0,0.05);
+
     @include respond-to("min-width", 600px) {
-      border-bottom: 1px solid #EEEEEE;
+      border-bottom: 1px solid #eeeeee;
     }
 
     @include respond-to("min-width", large) {
@@ -225,7 +247,6 @@ header {
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
-      
 
       display: grid;
       grid-template-columns: var(--columns);
@@ -233,7 +254,6 @@ header {
       @include respond-to("max-width", 580px) {
         display: flex;
       }
-
 
       @include respond-to("min-width", medium) {
         --columns: 320px repeat(5, 1fr);
@@ -268,8 +288,22 @@ header {
           margin: 0 auto;
         }
 
+        & a {
+          transform: scale(0);
+          opacity: 0;
+          transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-delay: 250ms;
+          // will-change: transform;
+
+          &.active {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
         & a:nth-child(2) {
           margin-left: 10px;
+          transition-delay: 300ms;
           @include respond-to("max-width", 970px) {
             margin-left: 20px;
           }
@@ -280,7 +314,6 @@ header {
         grid-column: 5 / 7;
         display: flex;
         flex-direction: column;
-
 
         @include respond-to("max-width", 970px) {
           display: none;

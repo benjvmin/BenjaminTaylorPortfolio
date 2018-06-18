@@ -29,6 +29,12 @@ Vue.directive("formatDate", {
   inserted: el => el.textContent = new Date(el.textContent).toDateString()
 });
 
+Vue.directive("lazyLoadImg", {
+  inserted: (el) => {
+    el.addEventListener("click", function() { console.log("loaded") });
+  }
+});
+
 
 /* eslint-disable no-new */
 new Vue({

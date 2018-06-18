@@ -177,6 +177,7 @@ export default {
     right: 10px;
     opacity: 0;
     transition: 0.4s ease-in-out;
+    will-change: opacity;
     // cursor: pointer;
 
     @include respond-to("min-width", medium) {
@@ -206,19 +207,11 @@ export default {
   }
 
   & .info-module {
-    position: relative;
     z-index: 1;
-    width: 100%;
-    margin: 0 auto;
     transform: translate3d(-300px, 0px, 0px);
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     will-change: transform;
-    // background-color: #494949;
-
-    // background-color: rgba(255, 255, 255,);
-    // padding: 20px 30px;
-    // border-radius: 4px;
 
     @include respond-to("min-width", small) {
       width: 100%;
@@ -276,9 +269,7 @@ export default {
       @include respond-to("min-width", small) {
         font-weight: 600;
         text-align: left;
-        // margin: 0 auto;
       }
-      // margin: 20px 0 15px;
     }
 
     &__subtitle {
@@ -291,7 +282,6 @@ export default {
       flex-flow: row;
       margin: 0;
       justify-content: center;
-      // background-color: pink;
 
       @include respond-to("min-width", small) {
         justify-content: flex-start;
@@ -378,15 +368,15 @@ export default {
   }
 
   & .info-module:nth-child(1) {
-    transition-delay: 140ms;
+    transition-delay: 130ms;
   }
 
   & .info-module:nth-child(2) {
-    transition-delay: 190ms;
+    transition-delay: 180ms;
   }
 
   & .info-module:nth-child(3) {
-    transition-delay: 210ms;
+    transition-delay: 200ms;
   }
 }
 </style>
