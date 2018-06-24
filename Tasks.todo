@@ -1,12 +1,10 @@
 
 ToDo:
-  All:
   ☐ Reduce Complexity Of CSS Selectors, remove inception level nesting
 
   BackEnd:
     ☐ Add All Projects @high
 
-  App.js:
   ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
 
   Header Component:
@@ -18,19 +16,14 @@ ToDo:
     ☐ Add loading spinner and markup
     ☐ Add Performant Animations on Load
     ☐ Build Out Responsive Images
-    ☐ Add Lazy Load Directive
-    ☐ Add Opacity Animations For Images On Load @started(18-06-23 15:27)
-
-  
-  Single Project/Post Component:
-    ✔ Create single portfolio/post component @done(18-06-17 18:37)
 
   Footer Component:
     ☐ Build out Rest of Footer Component
     ☐ Add Hiring Banner
 
-    
 Archive:
+  ✔ Add Lazy Load/Opacity Animations For Images On Load @started(18-06-23 15:27) @done(18-06-23 20:25) @lasted(4h58m6s) @project(ToDo.Projects Component)
+  ✔ Create single portfolio/post component @done(18-06-17 18:37) @project(ToDo.Single Project/Post Component)
   ✔ Create Posts component @done(18-06-17 18:37) @project(ToDo.Posts)
   ✘ Add scroll animations to truncate header when scrolling / Sticky Nav State for mobile users @cancelled(18-06-17 18:07) @project(ToDo.Header Component)
   ✔ Add Settings / Openable Nav @done(18-06-17 18:06) @project(ToDo.Header Component)
