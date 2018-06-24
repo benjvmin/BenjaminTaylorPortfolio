@@ -11,7 +11,7 @@ section.projects
 
 		//- Project Card Component
 		div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug")
-			div.project-card-image(:style="{ backgroundImage: `url('${project.acf.header_thumbnail.sizes.large}')`}")
+			div.project-card-image(:style=" { 'loaded': images.isLoaded } " :data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
 			div.project-card-information
 				a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
 					h2 {{ project.title.rendered }}
@@ -38,6 +38,9 @@ export default {
 	data() {
 		return {
 			projectData: [],
+			images: {
+				isLoaded: false
+			},
 			loading: false,
 			complete: false,
 			error: false,
@@ -56,6 +59,7 @@ export default {
 					this.loading = false;
 					this.complete = true;
 				})
+				// .then(() => { this.lazyLoadImages(); })
 				.catch(error => {
 					window.sessionStorage.removeItem("ProjectData");
 					this.error = true;
@@ -63,6 +67,15 @@ export default {
 					this.completed = false;
 				});
 		},
+
+		lazyLoadImages() {
+			let imageElms = [...document.querySelectorAll('.project-card-image')];
+
+			imageElms.forEach((el, index) => {
+				console.log(el.dataset.dataUrl);
+			})
+		},
+
 
 		fireBackgroundAnimation(event) {
 			let projectCardComponent = {
@@ -95,7 +108,6 @@ export default {
 				that.$router.push({ name: "projectSingle", params: { slug: `${projectCardComponent.id}` } });
 				backgroundElement.removeEventListener("animationend", navigateRouter);
 			}
-
 			initElement();
 			animateElement();
 		}
@@ -103,7 +115,13 @@ export default {
 
 	computed: {},
 
-	directives: {},
+	directives: {
+		lazyLoadBackgroundImage: {
+			inserted(el) {
+
+			}
+		}
+	},
 	filters: {},
 
 	created() {
@@ -113,6 +131,7 @@ export default {
 			this.complete = true;
 			this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
 		}
+
 	}
 
 	// mounted() {
@@ -161,7 +180,7 @@ export default {
 		z-index: 1;
 
 		animation-name: var(--animation);
-		animation-duration: 0.2s;
+		animation-duration: 0.3s;
 		animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
 		animation-direction: normal;
 		animation-fill-mode: forwards;
@@ -173,12 +192,12 @@ export default {
 				transform: scale(0);
 			}
 			5% {
-				opacity: 0.85;
+				opacity: 0.9;
 			}
 
 			100% {
 				transform: scale(1);
-				opacity: 0.85;
+				opacity: 0.9;
 			}
 		}
 	}
@@ -222,22 +241,24 @@ export default {
 
 		& .project-card-image {
 			// background-image: linear-gradient(to bottom, hsla(0,19%,88%,.7), rgba(102,51,153,.7));
-			background-blend-mode: multiply;
-
 			border-radius: inherit;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
-
 			background-color: #f8f8f8;
 			background-size: cover;
 			background-position: center;
-
 			box-shadow: inset 0px -3px 6px 1px rgba(0, 0, 0, 0.05);
-
 			flex-basis: 250px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			opacity: 0;
+
+			transition: opacity 0.4s ease-in-out;
+
+			&.loaded {
+				opacity: 1;
+			}
 		}
 
 		& .project-card-information {

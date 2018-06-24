@@ -1,11 +1,11 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import index from './router';
+import Vue from "vue";
+import App from "./App";
+import router from "./router";
+import index from "./router";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.prototype.$eventBus = new Vue();
 
@@ -17,29 +17,56 @@ Vue.prototype.$hostname = {
     return numOfProjects === undefined ? `${this.name}Projects` : `${this.name}Projects?per_page=${numOfProjects}`;
   },
   returnPosts(numOfPosts) {
-    return (numOfPosts === undefined) ? `${this.name}Posts` : `${this.name}Posts?per_page=${numOfPosts}`;
+    return numOfPosts === undefined ? `${this.name}Posts` : `${this.name}Posts?per_page=${numOfPosts}`;
   }
 };
 
 Vue.directive("trim", {
-  inserted: el => el.textContent = el.textContent.substr(0, 130)
+  inserted: el => (el.textContent = el.textContent.substr(0, 130))
 });
 
 Vue.directive("formatDate", {
-  inserted: el => el.textContent = new Date(el.textContent).toDateString()
+  inserted: el => (el.textContent = new Date(el.textContent).toDateString())
 });
 
 Vue.directive("lazyLoadImg", {
-  inserted: (el) => {
-    el.addEventListener("click", function() { console.log("loaded") });
+  inserted: el => {
+    let backgroundImageURL = el.dataset.url;
+
+    let options = {
+      rootMargin: "0px",
+      threshold: 0
+    };
+
+    let observer = new IntersectionObserver(observerCallback, options);
+
+    function observerCallback(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          lazyLoad();
+        }
+      });
+    }
+
+    function lazyLoad() {
+      el.style.backgroundImage = `url(${backgroundImageURL})`;
+
+      setTimeout(() => {
+        el.classList.add("loaded");
+      }, 200);
+      
+    }
+
+    observer.observe(el);
   }
 });
 
-
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: "#app",
   router,
   components: { App },
-  template: '<App/>'
-})
+  template: "<App/>"
+});

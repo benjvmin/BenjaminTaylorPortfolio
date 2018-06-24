@@ -89,7 +89,7 @@ export default {
     z-index: 2;
     position: relative;
     background-color: #f8f8f8;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 1);
     padding: 30px 0 0 0;
     height: 100%;
 
@@ -128,7 +128,7 @@ export default {
         & h2 {
           font-weight: 300;
           margin: 0 0 0 20px;
-          color: #494949;
+          color: rgba(80, 80, 80, 1);
         }
       }
 

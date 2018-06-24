@@ -41,9 +41,6 @@ export default {
   align-items: center;
   width: 100%;
   height: 500px;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
   background-image: url('../assets/playstation-pattern.png');
 
   & svg {

@@ -5,17 +5,17 @@
     //- .
     .mini-cards
       .mini-card
-        .mini-card__image(:style="{ backgroundImage: `url('${randomProjects[randomNumber.one].acf.header_thumbnail.sizes.large}')`}")
+        .mini-card__image(:data-url="randomProjects[randomNumber.one].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.one].title.rendered }}
           h3 Subtitle
       .mini-card
-        .mini-card__image(:style="{ backgroundImage: `url('${randomProjects[randomNumber.two].acf.header_thumbnail.sizes.large}')`}")
+        .mini-card__image(:data-url="randomProjects[randomNumber.two].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.two].title.rendered }}
           h3 Subtitle
       .mini-card
-        .mini-card__image(:style="{ backgroundImage: `url('${randomProjects[randomNumber.three].acf.header_thumbnail.sizes.large}')`}")
+        .mini-card__image(:data-url="randomProjects[randomNumber.three].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.three].title.rendered }}
           h3 Subtitle
@@ -137,6 +137,13 @@ export default {
         background-position: top center;
         background-size: cover;
         background-repeat: no-repeat;
+
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+
+        &.loaded {
+          opacity: 1;
+        }
 
         @include respond-to("min-width", 1200px) {
           background-size: 100%;

@@ -178,20 +178,9 @@ header.header {
     position: absolute;
     z-index: 0;
     background-color: white;
-    // background-image: var(--gradient-two), url("../assets/lake.jpg");
-        // background-image: url("../assets/lake.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-
-    & .hot-air-balloon {
-      position: absolute;
-      width: 175px;
-      top: 20%;
-      left: 50%;
-    }
-
-    // background-attachment: fixed;
   }
 
   & .header-title {

@@ -6,7 +6,8 @@
     div(v-if="loading") haha loading
     
     div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
-      div.blog-card__image(:style="{ backgroundImage: `url('${post.better_featured_image.media_details.sizes.medium.source_url}')`}")
+      // div.blog-card__image(:style="{ backgroundImage: `url('${post.better_featured_image.media_details.sizes.medium.source_url}')`}")
+      div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.medium.source_url" v-lazyLoadImg="true")
       div.blog-card__info
         a(href="#" @click.prevent="materialClick($event)") {{ post.title.rendered }}
         h4 By: Benjamin Taylor
@@ -122,6 +123,12 @@ export default {
       background-color: teal;
       background-position: top center;
       background-size: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      &.loaded {
+        opacity: 1;
+      }
     }
 
     &__info {
