@@ -31,35 +31,47 @@ Vue.directive("formatDate", {
 
 Vue.directive("lazyLoadImg", {
   inserted: el => {
+    //URL for each background image, grabbed from the data-url property
     let backgroundImageURL = el.dataset.url;
 
-    let options = {
-      rootMargin: "0px",
-      threshold: 0
-    };
-
-    let observer = new IntersectionObserver(observerCallback, options);
-
-    function observerCallback(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          lazyLoad();
-        }
-      });
-    }
-
+    
+    //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
     function lazyLoad() {
       el.style.backgroundImage = `url(${backgroundImageURL})`;
 
       setTimeout(() => {
         el.classList.add("loaded");
       }, 200);
-      
     }
 
-    observer.observe(el);
+    //If Intersection Observer Support is not currently in your browser, load all images immediately
+    if (!window["IntersectionObserver"]) {
+      lazyLoad();
+
+    } else {
+      // Create New Intersection Observer Instance, for more information on Intersection Observer: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
+      let observer = new IntersectionObserver(observerCallback, options);
+
+      //Options for Intersection Observer
+      let options = {
+        rootMargin: "0px",
+        threshold: 0
+      };
+
+      //Observer callback
+      function observerCallback(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            lazyLoad();
+            observer.unobserve(el);
+          }
+        });
+      }
+
+      observer.observe(el);
+    } // End of Feature Detection Control Statement
   }
 });
 
