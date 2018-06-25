@@ -202,16 +202,6 @@ export default {
 		}
 	}
 
-	& .project-card:nth-child(1) {
-		transition-delay: 50ms;
-	}
-	& .project-card:nth-child(2) {
-		transition-delay: 100ms;
-	}
-	& .project-card:nth-child(3) {
-		transition-delay: 150ms;
-	}
-	
 
 	& .project-card {
 		display: flex;
@@ -233,6 +223,15 @@ export default {
 
 		// 	opacity: 1;
 		// }
+		
+
+		// @for $i from 1 through 15 {
+		// 	&:nth-child(#{$i}) .project-card-image {
+		// 		transition-delay: (10ms + 55ms) * $i;
+		// 	}
+		// }
+
+		
 
 
 		@include respond-to("min-width", large) {

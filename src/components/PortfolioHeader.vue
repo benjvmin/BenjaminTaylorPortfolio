@@ -87,7 +87,7 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  height: 525px;
+  height: 570px;
   background-color: slategray;
   background-image: url("../assets/moonlight.jpg");
   background-size: cover;
@@ -96,6 +96,10 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+
+  @include respond-to("min-width", 580px) {
+    height: 500px;
+  }
 
   @include respond-to("min-width", medium) {
     height: 450px;
@@ -136,19 +140,17 @@ header {
       }
 
       &__photo {
-        width: 220px;
-        height: 220px;
-        min-height: 75px;
-        min-width: 75px;
+        width: 150px;
+        height: 150px;
         background-color: darkgray;
         background-image: url("../assets/tprofile.jpg");
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
-
         border: 6px solid white;
-        margin-bottom: -46px;
+        margin: 0 auto 20px;
+        // margin-bottom: -46px;
         z-index: 2;
         transform: scale(0);
         opacity: 0;
@@ -161,17 +163,23 @@ header {
           opacity: 1;
         }
 
-        @include respond-to("max-width", 1460px) {
-          margin-left: 40px;
+        @include respond-to("min-width", 580px) {
+          margin: 0 0 -56px 40px;
+          width: 180px;
+          height: 180px;
         }
 
-        @include respond-to("max-width", 580px) {
-          margin: 0 auto 20px;
+        @include respond-to("min-width", medium) {
+          margin: 0 0 -56px 70px;
         }
 
-        @include respond-to("max-width", medium) {
-          width: 150px;
-          height: 150px;
+        @include respond-to("min-width", 970px) {
+          margin: 0 0 -56px 40px;
+        }
+
+        @include respond-to("min-width", large) {
+          width: 200px;
+          height: 200px;
         }
       }
 
@@ -179,16 +187,27 @@ header {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding-left: 50px;
+        // padding-left: 50px;
+        text-align: center;
 
-        @include respond-to("max-width", 700px) {
+        @include respond-to("min-width", 580px) {
+          text-align: left;
           padding-left: 30px;
         }
 
-        @include respond-to("max-width", 590px) {
-          padding: 0;
-          text-align: center;
+        @include respond-to("min-width", medium) {
+          // text-align: left;
+          padding-left: 50px;
         }
+
+        // @include respond-to("max-width", 700px) {
+        //   padding-left: 30px;
+        // }
+
+        // @include respond-to("max-width", 590px) {
+        //   padding: 0;
+        //   text-align: center;
+        // }
 
         & h1,
         h2 {
@@ -214,7 +233,7 @@ header {
         & h2 {
           padding: 0 0 35px 0;
           transition-delay: 225ms;
-          @include respond-to("max-width", 590px) {
+          @include respond-to("max-width", 580px) {
             font-size: 1.5rem;
           }
         }
@@ -237,31 +256,33 @@ header {
     }
 
     @include respond-to("min-width", large) {
-      height: 70px;
+      height: 78px;
     }
 
     & nav {
-      --columns: 240px repeat(5, 1fr);
+      --columns: 263px repeat(5, 1fr);
       width: 100%;
       height: 100%;
       max-width: 1400px;
       margin: 0 auto;
       position: relative;
+      display: flex;
 
-      display: grid;
-      grid-template-columns: var(--columns);
-
-      @include respond-to("max-width", 580px) {
-        display: flex;
+      @include respond-to("min-width", 580px) {
+        display: grid;
+        grid-template-columns: var(--columns);
       }
 
       @include respond-to("min-width", medium) {
-        --columns: 320px repeat(5, 1fr);
+        --columns: 310px repeat(5, 1fr);
       }
 
-      @include respond-to("min-width", 1460px) {
-        --columns: 280px repeat(5, 1fr);
-        background-color: white;
+      @include respond-to("min-width", 970px) {
+        --columns: 283px repeat(5, 1fr);
+      }
+
+      @include respond-to("min-width", large) {
+        --columns: 303px repeat(5, 1fr);
       }
 
       & .logo {
@@ -355,7 +376,7 @@ header {
   }
 
   & .tablet-navigation {
-    height: 60px;
+    height: 70px;
     background-color: white;
 
     @include respond-to("min-width", 970px) {

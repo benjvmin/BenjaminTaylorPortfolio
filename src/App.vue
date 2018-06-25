@@ -83,10 +83,10 @@ export default {
 }
 
 #{$buttons} {
-  padding: 13px 33px;
+  padding: 13px 35px;
   color: var(--font-color);
   border: 1.3px solid var(--font-color);
-  border-radius: 4px;
+  border-radius: 2.5px;
   display: inline-block;
   text-decoration: none;
   font-size: 1rem;

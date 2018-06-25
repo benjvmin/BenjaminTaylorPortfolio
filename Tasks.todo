@@ -3,8 +3,8 @@ ToDo:
   ☐ Reduce Complexity Of CSS Selectors, remove inception level nesting
 
   BackEnd:
-    ☐ Add All Projects @high
-
+  ☐ Add All Projects @high
+  ☐ Test Content migration from dev wordpress site to production
   ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
 
   Header Component:
@@ -14,8 +14,10 @@ ToDo:
 
   Projects Component:
     ☐ Add loading spinner and markup
-    ☐ Add Performant Animations on Load
     ☐ Build Out Responsive Images
+
+  Posts Component:
+    ☐ Add Loading Spinner Animation
 
   Footer Component:
     ☐ Build out Rest of Footer Component
