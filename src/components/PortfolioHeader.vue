@@ -200,15 +200,7 @@ header {
           padding-left: 50px;
         }
 
-        // @include respond-to("max-width", 700px) {
-        //   padding-left: 30px;
-        // }
-
-        // @include respond-to("max-width", 590px) {
-        //   padding: 0;
-        //   text-align: center;
-        // }
-
+        
         & h1,
         h2 {
           color: white;
@@ -256,7 +248,7 @@ header {
     }
 
     @include respond-to("min-width", large) {
-      height: 78px;
+      height: 75px;
     }
 
     & nav {

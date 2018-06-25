@@ -23,7 +23,7 @@ footer.contact-wrapper(:class=" { 'active': isActive } ")
 				div.message__buttons
 					button.button-blue(type="Submit") Send
 					button.button-blue(type="Reset") Clear
-		.subfooter Hiring? Chat with me on <a href="https://www.linkedin.com/in/benjamincharlestaylor/" target="blank">LinkedIn.</a>
+		.subfooter Designed and Developed from Scratch By <a href="https://www.linkedin.com/in/benjamincharlestaylor/" target="blank">Benjamin Taylor.</a>
 	
 </template>
 
@@ -88,7 +88,7 @@ export default {
   .form {
     z-index: 2;
     position: relative;
-    background-color: #f8f8f8;
+    // background-color: #f8f8f8;
     background-color: rgba(255, 255, 255, 1);
     padding: 30px 0 0 0;
     height: 100%;
@@ -128,7 +128,7 @@ export default {
         & h2 {
           font-weight: 300;
           margin: 0 0 0 20px;
-          color: rgba(80, 80, 80, 1);
+          color: #343434;
         }
       }
 
@@ -213,15 +213,17 @@ export default {
 
     & .subfooter {
       width: 100%;
-      background-color: #343434;
-
+      background-color: #eee;
       text-align: center;
-
-      color: white;
+      color: #494949;
       padding: 20px 0;
+      font-size: 0.8rem;
+      
+
 
       @include respond-to("min-width", medium) {
         margin: 60px 0 0 0;
+        font-size: 0.85rem;
       }
 
       & a {

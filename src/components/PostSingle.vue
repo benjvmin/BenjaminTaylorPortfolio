@@ -23,7 +23,9 @@ section.post-wrapper
           h5 Benjamin Taylor
           h5(v-formatDate="true") {{ post.date }}
 
-    article.post-content(v-html="post.content.rendered")  
+    article.post-content(v-html="post.content.rendered")
+
+    Hiring
 
 
 </template>
@@ -31,12 +33,15 @@ section.post-wrapper
 
 <script>
 import LoadingSpinner from './LoadingSpinner';
+import Hiring from './Hiring';
+
 
 
 export default {
   name: "PostSingle",
   components: {
-    LoadingSpinner
+    LoadingSpinner,
+    Hiring
 	},
   data() {
     return {

@@ -9,6 +9,7 @@ div#app()
 	// Loading
 	FormContact
 
+
 </template>
 
 <script>
@@ -20,28 +21,30 @@ import OtherProjects from "./components/OtherProjects";
 import PortfolioInfo from "./components/PortfolioInfo";
 import LoadingSpinner from "./components/LoadingSpinner";
 import FormContact from "./components/FormContact";
+import Hiring from "./components/Hiring";
 
 export default {
-  name: "App",
-  components: {
-    ProjectHeader,
-    PortfolioHeader,
-    ProjectSingle,
-    Projects,
-    OtherProjects,
-    PortfolioInfo,
-    LoadingSpinner,
-    FormContact
-  },
-  data() {
-    return {};
-  },
+	name: "App",
+	components: {
+		ProjectHeader,
+		PortfolioHeader,
+		ProjectSingle,
+		Projects,
+		OtherProjects,
+		PortfolioInfo,
+		LoadingSpinner,
+		FormContact,
+		Hiring
+	},
+	data() {
+		return {};
+	},
 
-  methods: {
-    lockScrolling() {},
+	methods: {
+		lockScrolling() {},
 
-    unlockScrolling() {}
-  },
+		unlockScrolling() {}
+	},
 
 	created() {
 		
@@ -72,30 +75,30 @@ export default {
 
 
 #app {
-  --font-color: rgba(41, 49, 48, 1);
+	--font-color: rgba(41, 49, 48, 1);
 
-  margin: 0;
-  padding: 0;
-  background-color: white;
-  background-color: #efefef;
-  background-image: url("./assets/playstation-pattern.png");
-  position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	background-color: #efefef;
+	background-image: url("./assets/playstation-pattern.png");
+	position: relative;
 }
 
 #{$buttons} {
-  padding: 13px 35px;
-  color: var(--font-color);
-  border: 1.3px solid var(--font-color);
-  border-radius: 2.5px;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
+	padding: 13px 35px;
+	color: var(--font-color);
+	border: 1.3px solid var(--font-color);
+	border-radius: 2.5px;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
 
-  &.button-blue {
-    border: 0px;
-    background-color: #44aff1;
-    color: white;
-  }
+	&.button-blue {
+		border: 0px;
+		background-color: #44aff1;
+		color: white;
+	}
 }
 </style>

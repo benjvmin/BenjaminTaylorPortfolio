@@ -1,39 +1,46 @@
 <template lang="pug">
 
-section.projects
-		//- Loading Component
-		// div(v-if="loading") loading
 
-		LoadingSpinner(v-if="loading")
+.project-wrapper
 
-		//- Error Component
-		div(v-if="error") error
+	section.projects
+			//- Loading Component
+			// div(v-if="loading") loading
 
-		//- Project Card Component
-		div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug")
-			div.project-card-image(:style=" { 'loaded': images.isLoaded } " :data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
-			div.project-card-information
-				a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
-					h2 {{ project.title.rendered }}
-				div.project-card-information__description 
-					p {{ project.acf.project_preview_text }}
-				div.project-card-information__tags(v-html="project.acf.project_tags")
-			.project-card__links
-				a.button(href="#") Project
-					.button-transition
-				a.button(href="#") External
-					.button-transition
-		div.background-transition
+			LoadingSpinner(v-if="loading")
+
+			//- Error Component
+			div(v-if="error") error
+
+			//- Project Card Component
+			div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug")
+				div.project-card-image(:style=" { 'loaded': images.isLoaded } " :data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
+				div.project-card-information
+					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
+						h2 {{ project.title.rendered }}
+					div.project-card-information__description 
+						p {{ project.acf.project_preview_text }}
+					div.project-card-information__tags(v-html="project.acf.project_tags")
+				.project-card__links
+					a.button(href="#") Project
+						.button-transition
+					a.button(href="#") External
+						.button-transition
+			div.background-transition
+			
+	Hiring
 
 </template>
 
 <script>
+import Hiring from "./Hiring";
 import LoadingSpinner from './LoadingSpinner';
 
 export default {
 	name: "Projects",
 	components: {
-		LoadingSpinner
+		LoadingSpinner,
+		Hiring
 	},
 	data() {
 		return {

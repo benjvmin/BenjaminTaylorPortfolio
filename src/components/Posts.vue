@@ -1,5 +1,6 @@
 <template lang="pug">
 
+.posts-wrapper
   section.posts(v-if="complete")
     div.error(v-if="error") error bro 
 
@@ -13,13 +14,20 @@
         h4 By: Benjamin Taylor
         p(v-trim="true" v-html="post.excerpt.rendered")
         div.date(v-formatDate="true") {{ post.date }}
+  Hiring
     
 </template>
 
 <script>
+import LoadingSpinner from './LoadingSpinner';
+import Hiring from "./Hiring";
 
 export default {
   name: "Posts",
+  components: {
+		LoadingSpinner,
+		Hiring
+	},
   data() {
     return {
       posts: undefined,

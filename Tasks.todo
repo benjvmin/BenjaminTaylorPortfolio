@@ -21,7 +21,7 @@ ToDo:
 
   Footer Component:
     ☐ Build out Rest of Footer Component
-    ☐ Add Hiring Banner
+    ✔ Add Hiring Banner @done(18-06-25 04:29)
 
 Archive:
   ✔ Add Lazy Load/Opacity Animations For Images On Load @started(18-06-23 15:27) @done(18-06-23 20:25) @lasted(4h58m6s) @project(ToDo.Projects Component)
