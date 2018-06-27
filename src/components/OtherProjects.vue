@@ -8,17 +8,17 @@
         .mini-card__image(:data-url="randomProjects[randomNumber.one].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.one].title.rendered }}
-          h3 Subtitle
+          h3 {{ randomProjects[randomNumber.one].acf.project_sub_header }}
       .mini-card
         .mini-card__image(:data-url="randomProjects[randomNumber.two].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.two].title.rendered }}
-          h3 Subtitle
+          h3 {{ randomProjects[randomNumber.two].acf.project_sub_header }}
       .mini-card
         .mini-card__image(:data-url="randomProjects[randomNumber.three].acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         .mini-card__title
           h2 {{ randomProjects[randomNumber.three].title.rendered }}
-          h3 Subtitle
+          h3 {{ randomProjects[randomNumber.three].acf.project_sub_header }}
   
 </template>
 
@@ -59,10 +59,10 @@ export default {
   methods: {},
 
   created() {
-    fetch(`http://localhost:8888/wp-json/wp/v2/Projects?per_page=20`)
+    fetch(this.$hostname.returnProjects(20))
       .then(response => {
         response.json().then(data => {
-          // console.log(data);
+          console.log(data);
           this.randomProjects = data;
           this.complete = true;
         });

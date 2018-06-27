@@ -26,8 +26,6 @@ section.post-wrapper
     article.post-content(v-html="post.content.rendered")
 
     Hiring
-
-
 </template>
 
 

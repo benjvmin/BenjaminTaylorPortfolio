@@ -14,7 +14,7 @@
 
 			//- Project Card Component
 			div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug")
-				div.project-card-image(:style=" { 'loaded': images.isLoaded } " :data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
+				div.project-card-image(:data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
 				div.project-card-information
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
 						h2 {{ project.title.rendered }}
@@ -45,9 +45,6 @@ export default {
 	data() {
 		return {
 			projectData: [],
-			images: {
-				isLoaded: false
-			},
 			loading: false,
 			complete: false,
 			error: false,
@@ -122,13 +119,7 @@ export default {
 
 	computed: {},
 
-	directives: {
-		lazyLoadBackgroundImage: {
-			inserted(el) {
-
-			}
-		}
-	},
+	directives: {},
 	filters: {},
 
 	created() {
@@ -141,10 +132,6 @@ export default {
 
 	}
 
-	// mounted() {
-
-		
-	// }
 };
 </script>
 
@@ -161,13 +148,14 @@ export default {
 	display: grid;
 	grid-template-columns: var(--columns);
 	position: relative;
+	padding: 10px;
 	
 
 	@include respond-to("min-width", medium) {
 		--columns: repeat(auto-fit, minmax(350px, 1fr));
 		width: calc(100% - 40px);
-		padding: 20px;
-			grid-gap: 10px;
+	
+		grid-gap: 10px;
 
 	}
 

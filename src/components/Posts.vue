@@ -1,10 +1,11 @@
 <template lang="pug">
 
 .posts-wrapper
+  LoadingSpinner(v-if="loading")
+  div.error(v-if="error") error bro 
   section.posts(v-if="complete")
-    div.error(v-if="error") error bro 
 
-    div(v-if="loading") haha loading
+    
     
     div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
       // div.blog-card__image(:style="{ backgroundImage: `url('${post.better_featured_image.media_details.sizes.medium.source_url}')`}")
@@ -19,18 +20,18 @@
 </template>
 
 <script>
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from "./LoadingSpinner";
 import Hiring from "./Hiring";
 
 export default {
   name: "Posts",
   components: {
-		LoadingSpinner,
-		Hiring
-	},
+    LoadingSpinner,
+    Hiring
+  },
   data() {
     return {
-      posts: undefined,
+      posts: undefined, 
       error: false,
       loading: false,
       complete: false,
@@ -55,8 +56,10 @@ export default {
           this.loading = false;
         })
         .catch(error => {
-          console.log(error);
+          window.sessionStorage.removeItem("ProjectData");
           this.error = true;
+          this.loading = false;
+          this.completed = false;
         });
     },
 

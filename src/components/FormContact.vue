@@ -15,7 +15,7 @@ footer.contact-wrapper(:class=" { 'active': isActive } ")
 				label(for="name") Name:
 				input#name(type='text', name='Name' placeholder="Name" required)
 				label(for="email" ) Email:
-				input#email(type='email', name='Email' placeholder="someonecool@example.com" required)
+				input#email(type='email', name='Email' placeholder="cool@cool.com" required)
 
 			section.message
 				label(for="message") Message:
@@ -29,208 +29,208 @@ footer.contact-wrapper(:class=" { 'active': isActive } ")
 
 <script>
 export default {
-  name: "FormContact",
+	name: "FormContact",
 
-  data() {
-    return {
-      isActive: true
-    };
-  },
-  methods: {
-    activateForm() {
-      this.isActive = true;
-    },
-    deactivateForm() {
-      this.isActive = false;
-    }
-  },
+	data() {
+		return {
+			isActive: true
+		};
+	},
+	methods: {
+		activateForm() {
+			this.isActive = true;
+		},
+		deactivateForm() {
+			this.isActive = false;
+		}
+	},
 
-  created() {
-    this.$eventBus.$on("activateForm", this.activateForm);
-  },
-  destroyed() {
-    this.$eventBus.$off("activateForm");
-  }
+	created() {
+		this.$eventBus.$on("activateForm", this.activateForm);
+	},
+	destroyed() {
+		this.$eventBus.$off("activateForm");
+	}
 };
 </script>
 
 <style lang="scss">
 @mixin formStyles() {
-  width: calc(100% - 1.5rem);
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #494949;
-  background-color: #fff;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  font-weight: 400;
-  
+	width: calc(100% - 1.5rem);
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #494949;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	font-weight: 400;
+	
 }
 
 .contact-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-  transition: all 0.4s ease-in-out;
-  opacity: 0;
-  
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	height: 100%;
+	transform: translateY(100%);
+	transition: all 0.4s ease-in-out;
+	opacity: 0;
+	
 
-  &.active {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+	&.active {
+		transform: translateY(0%);
+		opacity: 1;
+	}
 
-  .form {
-    z-index: 2;
-    position: relative;
-    // background-color: #f8f8f8;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 30px 0 0 0;
-    height: 100%;
+	.form {
+		z-index: 2;
+		position: relative;
+		// background-color: #f8f8f8;
+		// background-color: rgba(255, 255, 255, 1);
+		padding: 30px 0 0 0;
+		height: 100%;
 
-    @include respond-to("min-width", medium) {
-      padding: 25px 0 0;
-      height: initial;
-    }
+		@include respond-to("min-width", medium) {
+			padding: 25px 0 0;
+			height: initial;
+		}
 
-    form#contact-form {
-      --columns: 25px 1fr 25px;
-      --rows: 50px 2fr 3fr;
-      display: grid;
-      grid-template-columns: var(--columns);
-      grid-template-rows: var(--rows);
-      padding: 20px 0;
-      height: calc(100% - 97px);
+		form#contact-form {
+			--columns: 33px 1fr 33px;
+			--rows: 50px 2fr 3fr;
+			display: grid;
+			grid-template-columns: var(--columns);
+			grid-template-rows: var(--rows);
+			padding: 20px 0;
+			height: calc(100% - 97px);
 
-      @include respond-to("min-width", medium) {
-        padding: 20px 0 0 0;
-        --columns: repeat(12, 1fr);
-        --rows: auto auto;
-        grid-row-gap: 20px;
-      }
+			@include respond-to("min-width", medium) {
+				padding: 20px 0 0 0;
+				--columns: repeat(12, 1fr);
+				--rows: auto auto;
+				grid-row-gap: 20px;
+			}
 
-      & .form-title {
-        grid-row: 1 / 2;
-        grid-column: 2 / 3;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        @include respond-to("min-width", medium) {
-          grid-row: 1 / 2;
-          grid-column: 2 / 8;
-        }
+			& .form-title {
+				grid-row: 1 / 2;
+				grid-column: 2 / 3;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				@include respond-to("min-width", medium) {
+					grid-row: 1 / 2;
+					grid-column: 2 / 8;
+				}
 
-        & h2 {
-          font-weight: 300;
-          margin: 0 0 0 20px;
-          color: #343434;
-        }
-      }
+				& h2 {
+					font-weight: 300;
+					margin: 0 0 0 20px;
+					color: #343434;
+				}
+			}
 
-      & .form-exit {
-        position: absolute;
-        top: 45px;
-        right: 13px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+			& .form-exit {
+				position: absolute;
+				top: 45px;
+				right: 13px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-        @include respond-to("min-width", medium) {
-          top: 50px;
-          right: 90px;
-        }
-      }
+				@include respond-to("min-width", medium) {
+					top: 50px;
+					right: 90px;
+				}
+			}
 
-      & .information {
-        grid-row: 2 / 3;
-        grid-column: 2 / 3;
+			& .information {
+				grid-row: 2 / 3;
+				grid-column: 2 / 3;
 
-        @include respond-to("min-width", medium) {
-          grid-row: 1 / 2;
-        }
+				@include respond-to("min-width", medium) {
+					grid-row: 1 / 2;
+				}
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 
-        @include respond-to("min-width", medium) {
-          grid-column: 2 / 5;
-          grid-row: 2 / 3;
-        }
-      }
+				@include respond-to("min-width", medium) {
+					grid-column: 2 / 5;
+					grid-row: 2 / 3;
+				}
+			}
 
-      & .message {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
+			& .message {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				grid-column: 2 / 3;
+				grid-row: 3 / 4;
 
-        @include respond-to("min-width", medium) {
-          grid-row: 2 / 3;
-          grid-column: 7 / 12;
-        }
+				@include respond-to("min-width", medium) {
+					grid-row: 2 / 3;
+					grid-column: 7 / 12;
+				}
 
-        & .message__buttons {
-          display: flex;
-          flex-direction: row;
-          margin-top: 10px;
+				& .message__buttons {
+					display: flex;
+					flex-direction: row;
+					margin-top: 10px;
 
-          & button {
-            margin-right: 5px;
-            padding: 9px 24px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-          }
-        }
-      }
+					& button {
+						margin-right: 5px;
+						padding: 9px 24px;
+						font-size: 0.9rem;
+						font-weight: 700;
+						cursor: pointer;
+					}
+				}
+			}
 
-      & label {
-        margin: 10px 0;
-        font-weight: 700;
-        color: #494949;
-      }
+			& label {
+				margin: 10px 0;
+				font-weight: 700;
+				color: #494949;
+			}
 
-      & input[type="text"],
-      input[type="email"] {
-        @include formStyles();
-        margin-bottom: 30px;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      }
+			& input[type="text"],
+			input[type="email"] {
+				@include formStyles();
+				margin-bottom: 30px;
+				transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+			}
 
-      & textarea {
-        @include formStyles();
-        // height: 60%;
-        flex: 1 1 0;
-      }
-    }
+			& textarea {
+				@include formStyles();
+				// height: 60%;
+				flex: 1 1 0;
+			}
+		}
 
-    & .subfooter {
-      width: 100%;
-      background-color: #eee;
-      text-align: center;
-      color: #494949;
-      padding: 20px 0;
-      font-size: 0.8rem;
-      
+		& .subfooter {
+			width: 100%;
+			// background-color: white;
+			background: url('../assets/lashes-dark.png');
+			background-position: center center;
+			text-align: center;
+			color: white;
+			padding: 20px 0;
+			font-size: 0.8rem;
 
+			@include respond-to("min-width", medium) {
+				margin: 60px 0 0 0;
+				font-size: 0.85rem;
+			}
 
-      @include respond-to("min-width", medium) {
-        margin: 60px 0 0 0;
-        font-size: 0.85rem;
-      }
-
-      & a {
-        color: #44aff1;
-        font-weight: 700;
-      }
-    }
-  }
+			& a {
+				color: #44aff1;
+				font-weight: 700;
+			}
+		}
+	}
 }
 </style>

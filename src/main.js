@@ -32,12 +32,19 @@ Vue.directive("formatDate", {
 Vue.directive("lazyLoadImg", {
   inserted: el => {
     //URL for each background image, grabbed from the data-url property
-    let backgroundImageURL = el.dataset.url;
+    let imageURL = el.dataset.url;
 
-    
     //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
     function lazyLoad() {
-      el.style.backgroundImage = `url(${backgroundImageURL})`;
+      // console.log(el.nodeName);
+
+      // (el.nodeName === "DIV") ? console.log("is img") : console.log("is div");
+
+      if (!el.nodeName === "DIV") {
+        el.src = imageURL;
+      } else {
+        el.style.backgroundImage = `url(${imageURL})`;
+      }
 
       setTimeout(() => {
         el.classList.add("loaded");
@@ -47,7 +54,6 @@ Vue.directive("lazyLoadImg", {
     //If Intersection Observer Support is not currently in your browser, load all images immediately
     if (!window["IntersectionObserver"]) {
       lazyLoad();
-
     } else {
       // Create New Intersection Observer Instance, for more information on Intersection Observer: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
       let observer = new IntersectionObserver(observerCallback, options);

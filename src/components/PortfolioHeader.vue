@@ -32,21 +32,21 @@
 
         div.information
           a(href="#" :class=" { 'active': isActive } ").button.button-blue RESUME
-          a(href="#" @click.prevent="$eventBus.$emit('activateForm')", :class=" { 'active': isActive } ").button.button-blue CONTACT
+          a(href="#" :class=" { 'active': isActive } ").button.button-blue CONTACT
 
         div.navigation
           div.navigation-links
-            router-link(to='/', @click.native="showProjectState()") Projects
-            router-link(to='/posts', @click.native="showPostState()") Posts
+            router-link(to='/', @click.native="projectNavState()") Projects
+            router-link(to='/posts', @click.native="postNavState()") Posts
           .selected
-            .selected__bar(:style="projectState")
+            .selected__bar(:class=" { 'isPost': isPost } ")
         
     div.tablet-navigation
       div.navigation-links
-        router-link(to='/', @click.native="showProjectState()") Projects
-        router-link(to='/posts', @click.native="showPostState()") Posts
+        router-link(to='/', @click.native="projectNavState()") Projects
+        router-link(to='/posts', @click.native="postNavState()") Posts
       .selected
-        .selected__bar
+        .selected__bar(:class=" { 'isPost': isPost } ")
   
 </template>
 
@@ -55,9 +55,8 @@ export default {
   name: "PortfolioHeader",
   data() {
     return {
-      greeting: "HI",
       isActive: false,
-      projectState: " "
+      isPost: false
     };
   },
   methods: {
@@ -66,18 +65,31 @@ export default {
         this.isActive = true;
       }, 0);
     },
-    showProjectState() {
-      // this.projectState = "--translate-x: 0%";
+
+    setNavState() {
+      let currentURL = window.location.href;
+      let postRegex = /post/i;
+      
+      if (!currentURL.match(postRegex)) {
+        this.projectNavState();
+      } else { this.postNavState(); } 
     },
 
-    showPostState() {
-      // this.projectState = "--translate-x: 100%";
+    projectNavState() {
+      this.isPost = false;
     },
 
-    logSomething() {
-      console.log("Vue.JS component Method");
+    postNavState() {
+      this.isPost = true;
     }
   },
+
+  created() {
+
+    this.setNavState();
+  },
+
+
   mounted() {
     this.activateAnimations();
   }
@@ -200,7 +212,6 @@ header {
           padding-left: 50px;
         }
 
-        
         & h1,
         h2 {
           color: white;
@@ -306,6 +317,7 @@ header {
           opacity: 0;
           transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           transition-delay: 250ms;
+          font-weight: 700;
           // will-change: transform;
 
           &.active {
@@ -354,13 +366,15 @@ header {
           height: 5px;
 
           &__bar {
-            --translate-x: 0%;
-
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateX(var(--translate-x));
+            
             height: 100%;
             width: 50%;
             background-color: rgba(64, 64, 64, 0.9);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            &.isPost {
+              transform: translateX(100%);
+            }
           }
         }
       }
@@ -395,13 +409,14 @@ header {
       height: 4px;
 
       &__bar {
-        --translate-x: 0%;
-
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transform: translateX(var(--translate-x));
         height: 100%;
         width: 50%;
         background-color: rgba(64, 64, 64, 0.9);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &.isPost {
+          transform: translateX(100%);
+        }
       }
     }
   }
