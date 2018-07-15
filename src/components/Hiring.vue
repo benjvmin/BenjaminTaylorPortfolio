@@ -34,7 +34,7 @@ export default {
   width: 100%;
   height: 350px;
   background-color: white;
-  background: url('../assets/innovation.jpg');
+  background: url('../assets/city-blur.jpg');
   color: white;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
