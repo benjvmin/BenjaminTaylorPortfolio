@@ -8,6 +8,8 @@ $breakpoints: (
     xxlarge: 1920px
 );
 
+$max-content-width: 1420px;
+
 //Breakpoint Mixin
 @mixin respond-to($condition, $breakpoint) { 
   @if map-has-key($breakpoints, $breakpoint) {

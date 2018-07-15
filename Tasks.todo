@@ -1,32 +1,29 @@
 
 ToDo:
-  ☐ Reduce Complexity Of CSS Selectors, remove inception level nesting
-  ☐ Tweak Each page for > 320px wide mobile devices
+  ☐ Reduce Complexity Of CSS Selectors, remove inception level nesting low @low
 
   ☐ Add All Projects @high
   ☐ Test Content migration from dev wordpress site to production
   ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
 
   Header Component:
-    ☐ Add opacity animations for header on load @low
     ☐ Fix Media Queries In Header
 
   Projects Component:
-    ☐ Add loading spinner and markup
     ☐ Build Out Responsive Images
     ☐ Tweak Click Animation
-
-  Project Single:
-    ☐ Fix Layout
-
-  Posts Component:
-    ☐ Add Loading Spinner Animation
+    ☐ Make single photo projects viable
 
   Footer Component:
     ☐ Build out Rest of Footer Component
     ☐ Add more padding for Mobile device users
 
 Archive:
+  ✔ Add opacity animations for header on load @low @done(18-07-01 18:16) @project(ToDo.Header Component)
+  ✔ Add loading spinner and markup @done(18-07-01 18:15) @project(ToDo.Projects Component)
+  ✔ Fix Layout @done(18-07-01 18:15) @project(ToDo.Project Single)
+  ✔ Add Loading Spinner Animation @done(18-07-01 18:15) @project(ToDo.Posts Component)
+  ✔ Tweak Each page for > 320px wide mobile devices @done(18-07-01 18:15) @project(ToDo)
   ✔ Fix Current State Bar @started(18-06-26 03:51) @done(18-06-26 17:22) @lasted(13h31m32s) @project(ToDo.Header Component)
   ✔ Add Hiring Banner @done(18-06-25 04:29) @project(ToDo.Footer Component)
   ✔ Add Lazy Load/Opacity Animations For Images On Load @started(18-06-23 15:27) @done(18-06-23 20:25) @lasted(4h58m6s) @project(ToDo.Projects Component)

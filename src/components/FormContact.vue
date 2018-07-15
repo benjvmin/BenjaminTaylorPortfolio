@@ -23,7 +23,7 @@ footer.contact-wrapper(:class=" { 'active': isActive } ")
 				div.message__buttons
 					button.button-blue(type="Submit") Send
 					button.button-blue(type="Reset") Clear
-		.subfooter Designed and Developed from Scratch By <a href="https://www.linkedin.com/in/benjamincharlestaylor/" target="blank">Benjamin Taylor.</a>
+		.subfooter Designed and Developed By <a href="https://www.linkedin.com/in/benjamincharlestaylor/" target="blank">Benjamin Taylor.</a>
 	
 </template>
 
@@ -78,6 +78,10 @@ export default {
 	transform: translateY(100%);
 	transition: all 0.4s ease-in-out;
 	opacity: 0;
+	margin: 0 auto;
+	border-radius: 4px;
+	// background-color: white;
+	// padding-top: 20px;
 	
 
 	&.active {
@@ -88,8 +92,6 @@ export default {
 	.form {
 		z-index: 2;
 		position: relative;
-		// background-color: #f8f8f8;
-		// background-color: rgba(255, 255, 255, 1);
 		padding: 30px 0 0 0;
 		height: 100%;
 
@@ -106,6 +108,9 @@ export default {
 			grid-template-rows: var(--rows);
 			padding: 20px 0;
 			height: calc(100% - 97px);
+			max-width: $max-content-width;
+			margin: 0 auto;
+
 
 			@include respond-to("min-width", medium) {
 				padding: 20px 0 0 0;
@@ -206,21 +211,19 @@ export default {
 
 			& textarea {
 				@include formStyles();
-				// height: 60%;
 				flex: 1 1 0;
 			}
 		}
 
 		& .subfooter {
 			width: 100%;
-			// background-color: white;
-			background: url('../assets/lashes-dark.png');
+			background-color: transparent;
 			background-position: center center;
 			text-align: center;
-			color: white;
+			background-color: white;
+			color: #282828;
 			padding: 20px 0;
 			font-size: 0.8rem;
-
 			@include respond-to("min-width", medium) {
 				margin: 60px 0 0 0;
 				font-size: 0.85rem;

@@ -34,10 +34,15 @@ export default {
   width: 100%;
   height: 350px;
   background-color: white;
-  background: url('../assets/lashes-dark.png');
-  // color: #343434;
+  background: url('../assets/innovation.jpg');
   color: white;
-
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  max-width: $max-content-width;
+  margin: 10px auto 10px;
+  padding: 20px 0 20px;
+  border-radius: 4px;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,16 +50,14 @@ export default {
 
   &__icon {
     width: 100px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px 30px;
   }
 
   & h1 {
     font-weight: 200;
     margin: 20px 0;
-  }
-
-  & h4 {
-    // font-weight: 300;
-
   }
 
   & a {

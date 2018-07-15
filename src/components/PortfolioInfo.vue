@@ -98,13 +98,13 @@ export default {
       // requestAnimationFrame(() => {
       //   
       // })
-      // document.body.classList.add('modal-open');
+      document.body.classList.add('modal-open');
 
     },
 
     closeState() {
       this.isActive = false;
-      // document.body.classList.remove('modal-open');
+      document.body.classList.remove('modal-open');
     }
   },
 

@@ -5,10 +5,7 @@
   div.error(v-if="error") error bro 
   section.posts(v-if="complete")
 
-    
-    
     div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
-      // div.blog-card__image(:style="{ backgroundImage: `url('${post.better_featured_image.media_details.sizes.medium.source_url}')`}")
       div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.medium.source_url" v-lazyLoadImg="true")
       div.blog-card__info
         a(href="#" @click.prevent="materialClick($event)") {{ post.title.rendered }}
@@ -107,7 +104,7 @@ export default {
   grid-gap: 10px;
   padding: 10px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  max-width: 1920px;
+  max-width: $max-content-width;
   margin: 0 auto;
   position: relative;
 
@@ -131,7 +128,7 @@ export default {
 
     &__image {
       flex: 2 1 0;
-      background-color: teal;
+      background-color: #494949;
       background-position: top center;
       background-size: cover;
       opacity: 0;

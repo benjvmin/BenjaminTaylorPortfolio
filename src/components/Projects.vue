@@ -19,7 +19,8 @@
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
 						h2 {{ project.title.rendered }}
 					div.project-card-information__description 
-						p {{ project.acf.project_preview_text }}
+						// p {{ project.acf.project_preview_text }}
+						p(v-html="project.acf.project_preview_text")
 					div.project-card-information__tags(v-html="project.acf.project_tags")
 				.project-card__links
 					a.button(href="#") Project
@@ -72,14 +73,6 @@ export default {
 				});
 		},
 
-		lazyLoadImages() {
-			let imageElms = [...document.querySelectorAll('.project-card-image')];
-
-			imageElms.forEach((el, index) => {
-				console.log(el.dataset.dataUrl);
-			})
-		},
-
 
 		fireBackgroundAnimation(event) {
 			let projectCardComponent = {
@@ -101,6 +94,7 @@ export default {
 				backgroundElement.style.setProperty("--height", `${height}px`);
 				backgroundElement.style.setProperty("--top", `${top}px`);
 				backgroundElement.style.setProperty("--left", `${left}px`);
+
 				backgroundElement.addEventListener("animationend", navigateRouter);
 			}
 
@@ -109,7 +103,8 @@ export default {
 			}
 
 			function navigateRouter() {
-				that.$router.push({ name: "projectSingle", params: { slug: `${projectCardComponent.id}` } });
+				setTimeout(() => { that.$router.push({ name: "projectSingle", params: { slug: `${projectCardComponent.id}` } }); }, 150)
+				
 				backgroundElement.removeEventListener("animationend", navigateRouter);
 			}
 			initElement();
@@ -144,12 +139,11 @@ export default {
 	width: 100%;
 	margin: auto;
 	width: calc(100%);
-	max-width: 1420px;
+	max-width: $max-content-width;
 	display: grid;
 	grid-template-columns: var(--columns);
 	position: relative;
-	padding: 10px;
-	
+	padding-top: 10px;
 
 	@include respond-to("min-width", medium) {
 		--columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -176,7 +170,7 @@ export default {
 
 		animation-name: var(--animation);
 		animation-duration: 0.3s;
-		animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
 		animation-direction: normal;
 		animation-fill-mode: forwards;
 		opacity: 0;
@@ -184,14 +178,14 @@ export default {
 
 		@keyframes expand {
 			0% {
-				transform: scale(0);
+				transform: scale3d(1, 0, 0);
 			}
 			5% {
-				opacity: 0.9;
+				opacity: 0.98;
 			}
 
 			100% {
-				transform: scale(1);
+				transform: scale3d(1, 1, 1);
 				opacity: 0.9;
 			}
 		}

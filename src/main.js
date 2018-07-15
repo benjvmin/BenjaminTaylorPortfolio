@@ -36,9 +36,7 @@ Vue.directive("lazyLoadImg", {
 
     //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
     function lazyLoad() {
-      // console.log(el.nodeName);
 
-      // (el.nodeName === "DIV") ? console.log("is img") : console.log("is div");
 
       if (!el.nodeName === "DIV") {
         el.src = imageURL;

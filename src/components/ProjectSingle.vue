@@ -15,21 +15,24 @@
 							h1 {{ project.title.rendered }}
 							h3 {{ project.acf.project_sub_header }}
 						h3 {{ project.acf.project_subtitle_one }}
-						p {{ project.acf.project_paragraph_one }}
+						p(v-html="project.acf.project_paragraph_one")
+
 					.project-information__capsule
 						h3 {{ project.acf.project_subtitle_two }}
-						p {{ project.acf.project_paragraph_two }}
+						p(v-html="project.acf.project_paragraph_two")
 
 					.project-information__tags(v-html="project.acf.project_tags")
 					.project-information__links
-						a.button(href="#") Internal
-						a.button(href="#") External
+						// a.button(href="#") Internal
+						a.button(:href="project.acf.file" target="_blank") Project 
+						a.button(:href="project.acf.link" target="_blank") External
+						
 						
 				.project-images
 					// .project-images__image(:data-url="project.acf.project_image_one.url" v-lazyLoadImg="true")
 					// .project-images__image(:data-url="project.acf.project_image_two.url" v-lazyLoadImg="true")
 					img(:src="project.acf.project_image_one.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
-					img(:src="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
+					img(:src="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
 
 			OtherProjects
 </template>
@@ -119,23 +122,21 @@ export default {
 
 .project-single {
   background-color: white;
-  padding-top: 20px;
+  // padding-top: 20px;
   & .featured-image {
     background-size: cover;
-    background-position: top center;
+    background-position: center center;
     width: 100%;
     height: 400px;
     background-color: #f8f8f8;
     margin: 20px auto 10px;
 		border-radius: 4px;
-		
-		// @include respond-to("min-width", small) {
-		// 	width: 90%;
-		// }
+
     @include respond-to("min-width", medium) {
+			background-position: center center;;
       width: 90%;
       height: 400px;
-      margin: 0px auto 50px;
+      margin: 5px auto 50px;
       // max-width: 1700px;
     }
   }
@@ -146,11 +147,13 @@ export default {
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(4, auto);
+		grid-template-rows: repeat(4, auto);
+
 
     @include respond-to("min-width", large) {
       grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: initial;
+			grid-template-rows: initial;
+			padding: 0;
     }
 
     & .project-images {
@@ -207,13 +210,25 @@ export default {
     }
 
     & .project-information {
-      // background-color: steelblue;
+			// background-color: steelblue;
+			padding: 0;
+			
+
+			@include respond-to("min-width", 600px) {
+				padding: 0 10%;
+      }
+
       @include respond-to("min-width", large) {
-        grid-column: 1 / 7;
+				grid-column: 1 / 7;
+				padding: 0;
       }
 
       & .project-information__capsule {
-        margin: 30px 0;
+				margin: 30px 0;
+				
+				& p {
+					margin: 5px 0;
+				}	
 
         & .project-title {
           text-align: center;

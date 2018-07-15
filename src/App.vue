@@ -98,6 +98,7 @@ export default {
 	&.button-blue {
 		border: 0px;
 		background-color: #44aff1;
+		// background-color: #5597F2;
 		color: white;
 	}
 }
