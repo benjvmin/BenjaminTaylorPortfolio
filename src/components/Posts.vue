@@ -6,7 +6,7 @@
   section.posts(v-if="complete")
 
     div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
-      div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.medium.source_url" v-lazyLoadImg="true")
+      div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.large.source_url" v-lazyLoadImg="true")
       div.blog-card__info
         a(href="#" @click.prevent="materialClick($event)") {{ post.title.rendered }}
         h4 By: Benjamin Taylor

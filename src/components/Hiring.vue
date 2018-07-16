@@ -39,8 +39,7 @@ export default {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   max-width: $max-content-width;
-  margin: 10px auto 10px;
-  padding: 20px 0 20px;
+  // padding: 20px 0 20px;
   border-radius: 4px;
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   display: flex;

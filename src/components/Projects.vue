@@ -4,8 +4,6 @@
 .project-wrapper
 
 	section.projects
-			//- Loading Component
-			// div(v-if="loading") loading
 
 			LoadingSpinner(v-if="loading")
 
@@ -19,13 +17,12 @@
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
 						h2 {{ project.title.rendered }}
 					div.project-card-information__description 
-						// p {{ project.acf.project_preview_text }}
 						p(v-html="project.acf.project_preview_text")
 					div.project-card-information__tags(v-html="project.acf.project_tags")
 				.project-card__links
-					a.button(href="#") Project
+					a.button(:href="project.acf.file" target="_blank") Project
 						.button-transition
-					a.button(href="#") External
+					a.button(:href="project.acf.link" target="_blank") External
 						.button-transition
 			div.background-transition
 			
@@ -55,7 +52,6 @@ export default {
 	methods: {
 		fetchAndStoreData() {
 			this.loading = true;
-			// fetch("http://localhost:8888/wp-json/wp/v2/Projects?per_page=20")
 			fetch(this.$hostname.returnProjects(20))
 				.then(response => response.json())
 				.then(data => {
@@ -64,7 +60,6 @@ export default {
 					this.loading = false;
 					this.complete = true;
 				})
-				// .then(() => { this.lazyLoadImages(); })
 				.catch(error => {
 					window.sessionStorage.removeItem("ProjectData");
 					this.error = true;
@@ -104,7 +99,6 @@ export default {
 
 			function navigateRouter() {
 				setTimeout(() => { that.$router.push({ name: "projectSingle", params: { slug: `${projectCardComponent.id}` } }); }, 150)
-				
 				backgroundElement.removeEventListener("animationend", navigateRouter);
 			}
 			initElement();

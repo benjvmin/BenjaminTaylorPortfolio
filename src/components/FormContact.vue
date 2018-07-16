@@ -80,7 +80,7 @@ export default {
 	opacity: 0;
 	margin: 0 auto;
 	border-radius: 4px;
-	// background-color: white;
+	background-color: white;
 	// padding-top: 20px;
 	
 
@@ -199,7 +199,7 @@ export default {
 			& label {
 				margin: 10px 0;
 				font-weight: 700;
-				color: #494949;
+				color: #484848;
 			}
 
 			& input[type="text"],

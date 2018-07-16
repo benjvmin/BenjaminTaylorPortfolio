@@ -86,7 +86,7 @@ export default {
 }
 
 .post {
-  margin: 0px 0 0 0;
+  margin: 0 0 0 0;
   background-color: white;
 
   & .post-image-wrapper {
@@ -191,21 +191,21 @@ export default {
   & .post-content {
     padding: 0 40px;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 10px;
     border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
 
     @include respond-to("min-width", medium) {
-      padding: 20px 20px;
+      padding: 10px 10px;
     }
+
+    & a { text-decoration: none; color: #4AB0EF; } 
 
     & pre {
       background-color: rgba(2, 22, 38, 1);
       border-radius: 2px;
       padding: 20px 30px;
       overflow: scroll;
-      // width: 100vw;
-
-      // width: 100%;
 
       @include respond-to("min-width", medium) {
         // padding: 20px;
@@ -230,12 +230,12 @@ export default {
     h4,
     h5,
     h6 {
-      margin: 30px 0 20px;
+      margin: 20px 0 20px;
       font-weight: 300;
     }
 
     & p {
-      margin: 10px 0 40px 0;
+      margin: 20px 0 20px 0;
       font-size: 1.1rem;
       line-height: 1.555;
     }
