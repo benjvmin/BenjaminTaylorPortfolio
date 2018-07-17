@@ -1,12 +1,9 @@
 <template lang="pug">
-div#app()
-	//- ProjectHeader
+div#app
 	PortfolioInfo
 	PortfolioHeader
-	// transition(name="slide-up" mode="out-in")
-	router-view(name="default")
-	
-	// Loading
+	// transition(name="fade-in" mode="out-in")
+	router-view(name="default", :key="$route.fullPath")
 	FormContact
 
 
@@ -58,6 +55,20 @@ export default {
 
 
 <style lang="scss">
+.fade-in-enter,
+.fade-in-leave-to {
+  opacity: 0;
+}
+
+.fade-in-enter-to,
+.fade-in-leave {
+  opacity: 1;
+}
+
+.fade-in-enter-active,
+.fade-in-leave-active {
+  transition: opacity 0.4s ease-in-out;
+}
 
 .slide-up-enter, .slide-up-leave-to {
 	transform: translateY(15px);
@@ -97,8 +108,7 @@ export default {
 
 	&.button-blue {
 		border: 0px;
-		background-color: #44aff1;
-		// background-color: #5597F2;
+		background-color: $light-blue;
 		color: white;
 	}
 }

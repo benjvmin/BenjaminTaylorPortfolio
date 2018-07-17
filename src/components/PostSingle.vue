@@ -24,7 +24,6 @@ section.post-wrapper
           h5(v-formatDate="true") {{ post.date }}
 
     article.post-content(v-html="post.content.rendered")
-
     Hiring
 </template>
 
@@ -112,7 +111,6 @@ export default {
 
       @include respond-to("min-width", large) {
         height: 400px;
-        // max-width: 1100px;
       }
     }
   }
@@ -213,7 +211,6 @@ export default {
       overflow: scroll;
 
       @include respond-to("min-width", medium) {
-        // padding: 20px;
         width: initial;
         overflow: initial;
       }

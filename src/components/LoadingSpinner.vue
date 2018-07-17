@@ -41,8 +41,6 @@ export default {
   align-items: center;
   width: 100%;
   height: 400px;
-  // background-color: white;
-  // background-image: url('../assets/playstation-pattern.png');
 
   & svg {
     animation: rotate;

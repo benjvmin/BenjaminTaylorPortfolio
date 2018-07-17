@@ -95,9 +95,6 @@ export default {
   methods: {
     openState() {
       this.isActive = true;
-      // requestAnimationFrame(() => {
-      //   
-      // })
       document.body.classList.add('modal-open');
 
     },
@@ -127,25 +124,21 @@ export default {
   left: 0;
   z-index: 3;
   overflow: auto;
-  // background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
   width: 100%;
-
   height: 100%;
-  // transform: translate3d(0,-100%,0);
   transform: translateY(-100%);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 
 
-  @include respond-to("min-width", small) {
+  @include respond-to("min-width", xsmall) {
     justify-content: space-around;
   }
 
   &.active {
-    // transform: translate3d(0, 0, 0);
     transform: translateY(0%);
   }
 
@@ -157,13 +150,8 @@ export default {
     height: 100%;
     background-color: rgba(248, 248, 248, 0.98);
     opacity: 1;
-    // transform: translateY(-100%);
 
-    // transform: translateY(-100%);
-    
-
-    &.active {
-      // transform: translateY(0%); 
+    &.active { 
       opacity: 1;
     }
   }
@@ -178,7 +166,6 @@ export default {
     opacity: 0;
     transition: 0.4s ease-in-out;
     will-change: opacity;
-    // cursor: pointer;
 
     @include respond-to("min-width", medium) {
       top: 20px;
@@ -213,7 +200,7 @@ export default {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     will-change: transform;
 
-    @include respond-to("min-width", small) {
+    @include respond-to("min-width", xsmall) {
       width: 100%;
       max-width: 300px;
       margin: 0 auto;
@@ -237,7 +224,7 @@ export default {
       text-align: left;
       padding-left: 12px;
 
-      @include respond-to("min-width", small) {
+      @include respond-to("min-width", xsmall) {
         padding-left: 0;
         text-align: left;
       }
@@ -266,7 +253,7 @@ export default {
       text-align: center;
       margin: 10px 0;
 
-      @include respond-to("min-width", small) {
+      @include respond-to("min-width", xsmall) {
         font-weight: 600;
         text-align: left;
       }
@@ -283,7 +270,7 @@ export default {
       margin: 0;
       justify-content: center;
 
-      @include respond-to("min-width", small) {
+      @include respond-to("min-width", xsmall) {
         justify-content: flex-start;
       }
 
@@ -298,23 +285,18 @@ export default {
         font-weight: 700;
         border: 1px solid white;
         background-color: white;
-        color: #44aff1;
+        color: $light-blue;
 
         @include respond-to("min-width", medium) {
-          border: 1px solid #44aff1;
+          border: 1px solid $light-blue;
         }
       }
     }
 
     &__divider {
-      // margin: 5px auto;
       width: 100%;
-      // height: 2px;
-      // background-color: rgba(73, 73, 73, 1);
-      // display: none;
 
-      @include respond-to("min-width", small) {
-        // margin: 5px 0 20px 0;
+      @include respond-to("min-width", xsmall) {
         width: 100%;
         display: block;
       }
@@ -325,11 +307,10 @@ export default {
       flex-flow: row wrap;
       justify-content: center;
 
-      @include respond-to("min-width", small) {
+      @include respond-to("min-width", xsmall) {
         justify-content: flex-start;
       }
 
-      // @include
 
       & .info-module-list-item {
         display: flex;
@@ -338,7 +319,6 @@ export default {
         padding: 5px;
         border-radius: 4px;
         margin: 2px;
-        // margin: 1px auto;
 
         & .info-module-list-item__icon {
           width: 50px;

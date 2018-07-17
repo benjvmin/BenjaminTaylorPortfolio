@@ -97,7 +97,7 @@ export default {
 .posts {
   margin: 0;
   padding: 0;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   display: grid;
   grid-gap: 10px;
   padding: 10px;
@@ -105,11 +105,7 @@ export default {
   max-width: $max-content-width;
   margin: 0 auto;
   position: relative;
-
-  @include respond-to("min-width", 400px) {
-    // grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  }
-
+  
   @include respond-to("min-width", medium) {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   }
@@ -118,8 +114,6 @@ export default {
     background-color: white;
     box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
     display: flex;
-    // height: 200px;
-    // padding: 20px 0;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -154,11 +148,11 @@ export default {
     &__info {
       padding: 30px 25px;
       overflow: hidden;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-content: center;
+      
       @include respond-to("min-width", medium) {
         flex: 3 1 0;
       }
@@ -196,10 +190,6 @@ export default {
     }
 
     & .material-click {
-      // --width: initial;
-      // --height: initial;
-      // --top: initial;
-      // --left: initial;
       --animation: initial;
 
       width: 100px;
@@ -213,7 +203,6 @@ export default {
 
       animation: var(--animation);
       animation-duration: 0.3s;
-      // animation-duration: 4s;
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
 

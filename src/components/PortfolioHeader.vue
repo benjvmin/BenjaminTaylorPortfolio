@@ -8,7 +8,6 @@
         path(d='M16.5 33C7.402 33 0 25.598 0 16.5 0 7.402 7.402 0 16.5 0 25.598 0 33 7.402 33 16.5 33 25.598 25.598 33 16.5 33zm0-32C7.953 1 1 7.953 1 16.5S7.953 32 16.5 32 32 25.047 32 16.5 25.047 1 16.5 1z')
         path(d='M16.5 33a16.38 16.38 0 0 1-9.549-3.06.5.5 0 1 1 .116-.876c4.146-1.535 4.815-2.781 4.815-5.169 0-.631-.142-.838-.398-1.214-.339-.494-.803-1.171-1.129-2.939-.048-.254-.089-.274-.316-.384-.606-.292-1.163-.712-1.309-2.628 0-.928.32-1.441.585-1.708-.058-.33-.153-.899-.242-1.519-.453-2.777-.473-6.178 3.433-7.759 3.404-1.38 6.121-.626 6.974.273.604.019 2.162.177 3.246 1.438 1.668 1.94 1.137 6.363.955 7.562.266.261.589.767.589 1.675-.146 1.954-.703 2.375-1.31 2.666-.228.11-.269.129-.316.384-.326 1.768-.789 2.445-1.128 2.939-.257.375-.398.583-.398 1.214 0 2.388.669 3.634 4.815 5.169a.498.498 0 0 1 .116.876A16.38 16.38 0 0 1 16.5 33zm-8.183-3.349A15.362 15.362 0 0 0 16.5 32c2.911 0 5.721-.809 8.183-2.349-3.474-1.426-4.565-2.864-4.565-5.755 0-.941.278-1.348.573-1.779.304-.444.682-.996.971-2.556.139-.754.576-.964.865-1.103.311-.149.631-.303.744-1.803-.001-.764-.344-.972-.358-.98a.533.533 0 0 1-.264-.537c.248-1.329.656-5.474-.681-7.031-.913-1.062-2.352-1.091-2.626-1.08-.046-.004-.091-.005-.134-.016-.13-.033-.35-.146-.417-.262-.272-.466-2.641-1.403-5.91-.08-3.231 1.308-3.238 4.112-2.819 6.682.138.957.289 1.784.29 1.788a.5.5 0 0 1-.283.544c.003 0-.339.209-.339 1.008.112 1.461.433 1.616.743 1.765.289.139.727.349.866 1.103.288 1.56.666 2.112.97 2.556.296.431.574.838.574 1.779 0 2.894-1.091 4.332-4.566 5.757z')
 
-
     a(href="https://github.com/benjvmin" target="blank").github-link
       svg(viewBox='0 0 24 24', width="40px" height="40px" xmlns='http://www.w3.org/2000/svg' fill="rgba(255, 255, 255, 0.9)")
         title#github-icon
@@ -115,7 +114,7 @@ header {
   justify-content: flex-end;
   position: relative;
 
-  @include respond-to("min-width", 580px) {
+  @include respond-to("min-width", 610px) {
     height: 500px;
   }
 
@@ -153,7 +152,7 @@ header {
       max-width: 1400px;
       margin: 0 auto;
 
-      @include respond-to("max-width", 580px) {
+      @include respond-to("max-width", 610px) {
         flex-direction: column;
       }
 
@@ -170,7 +169,6 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2;
         transform: scale(0);
         opacity: 0;
         transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -182,14 +180,16 @@ header {
           opacity: 1;
         }
 
-        @include respond-to("min-width", 580px) {
+        @include respond-to("min-width", 610px) {
           margin: 0 0 -56px 40px;
-          width: 180px;
-          height: 180px;
+          width: 160px;
+          height: 160px;
         }
 
         @include respond-to("min-width", medium) {
           margin: 0 0 -56px 70px;
+          width: 180px;
+          height: 180px;
         }
 
         @include respond-to("min-width", 970px) {
@@ -215,16 +215,14 @@ header {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        // padding-left: 50px;
         text-align: center;
 
-        @include respond-to("min-width", 580px) {
+        @include respond-to("min-width", 610px) {
           text-align: left;
           padding-left: 30px;
         }
 
         @include respond-to("min-width", medium) {
-          // text-align: left;
           padding-left: 50px;
         }
 
@@ -250,15 +248,11 @@ header {
         }
 
         & h2 {
-          padding: 0 0 30px 0;
-          
+          margin: 0 0 50px 0;
           transition-delay: 225ms;
 
-          @include respond-to("min-width", medium) {
-            padding-bottom: 20px;
-          }
-          @include respond-to("max-width", 580px) {
-            font-size: 1.5rem;
+          @include respond-to("min-width", 610px) {
+            margin-bottom: 30px;
           }
         }
 
@@ -283,7 +277,7 @@ header {
     }
 
     & nav {
-      --columns: 263px repeat(5, 1fr);
+      --columns: 245px repeat(5, 1fr);
       width: 100%;
       height: 100%;
       max-width: 1400px;
@@ -291,13 +285,13 @@ header {
       position: relative;
       display: flex;
 
-      @include respond-to("min-width", 580px) {
+      @include respond-to("min-width", 610px) {
         display: grid;
         grid-template-columns: var(--columns);
       }
 
       @include respond-to("min-width", medium) {
-        --columns: 310px repeat(5, 1fr);
+        --columns: 317px repeat(5, 1fr);
       }
 
       @include respond-to("min-width", 970px) {
@@ -305,7 +299,7 @@ header {
       }
 
       @include respond-to("min-width", large) {
-        --columns: 303px repeat(5, 1fr);
+        --columns: 307px repeat(5, 1fr);
       }
 
       & .logo {
@@ -328,7 +322,7 @@ header {
         align-items: center;
         transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-        @include respond-to("max-width", 580px) {
+        @include respond-to("max-width", 610px) {
           margin: 0 auto;
         }
 
@@ -338,7 +332,6 @@ header {
           transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           transition-delay: 250ms;
           font-weight: 700;
-          // will-change: transform;
 
           &.active {
             transform: scale(1);

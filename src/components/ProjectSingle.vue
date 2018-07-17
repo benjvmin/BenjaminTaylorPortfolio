@@ -31,17 +31,20 @@
 					img(:src="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
 
 			OtherProjects
+			Hiring
 </template>
 
 <script>
 import OtherProjects from "./OtherProjects";
 import LoadingSpinner from "./LoadingSpinner";
+import Hiring from "./Hiring";
 
 export default {
   name: "Posts",
   components: {
     OtherProjects,
-    LoadingSpinner
+    LoadingSpinner,
+    Hiring
   },
   data() {
     return {
@@ -54,7 +57,6 @@ export default {
 
   methods: {
     fetchProject() {
-      // this.loading = true;
       fetch(`${this.$hostname.name}Projects/?slug=${this.$route.params.slug}`)
         .then(response => {
           response.json().then(json => {
@@ -71,6 +73,9 @@ export default {
         });
     }
   },
+  // beforeRouteUpdate(to, from, next) {
+	// 	next();
+  // },
 
   created() {
     this.fetchProject();
@@ -80,21 +85,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.fade-in-enter,
-.fade-in-leave-to {
-  opacity: 0;
-}
-
-.fade-in-enter-to,
-.fade-in-leave {
-  opacity: 1;
-}
-
-.fade-in-enter-active,
-.fade-in-leave-active {
-  transition: opacity 0.4s ease-in-out;
-}
-
 .slide-up-enter {
   transform: translateY(100px);
   opacity: 0;
@@ -108,7 +98,6 @@ export default {
 
 .slide-up-enter-active,
 .slide-up-leave-active {
-  // transform: translateY(0px);
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -118,7 +107,6 @@ export default {
 
 .project-single {
   background-color: white;
-  // padding-top: 20px;
   & .featured-image {
     background-size: cover;
     background-position: center center;
@@ -126,14 +114,13 @@ export default {
     height: 400px;
     background-color: #f8f8f8;
     margin: 20px auto 10px;
-		border-radius: 4px;
+    border-radius: 4px;
 
     @include respond-to("min-width", medium) {
-			background-position: center center;;
+      background-position: center center;
       width: 90%;
       height: 400px;
       margin: 5px auto 50px;
-      // max-width: 1700px;
     }
   }
 
@@ -143,44 +130,42 @@ export default {
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto;
-		grid-template-rows: repeat(4, auto);
-
+    grid-template-rows: repeat(4, auto);
 
     @include respond-to("min-width", large) {
       grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: initial;
-			padding: 0;
+      grid-template-rows: initial;
+      padding: 0;
     }
 
     & .project-images {
-			display: flex;
-			flex-direction: column;
+      display: flex;
+      flex-direction: column;
       justify-content: space-around;
-			align-items: center;
-			padding: 10px 0;
-			
-			@include respond-to("min-width", medium) {
-				flex-direction: row;
-				padding: 20px 0;
+      align-items: center;
+      padding: 10px 0;
 
-			}
+      @include respond-to("min-width", medium) {
+        flex-direction: row;
+        padding: 20px 0;
+      }
 
       @include respond-to("min-width", large) {
         grid-column: 8 / 13;
-				text-align: center;
-				padding: 0;
-				
+        text-align: center;
+        padding: 0;
+
         flex-direction: column;
       }
 
       & img {
-				margin: 0 0 10px 0;
+        margin: 0 0 10px 0;
         width: 300px;
-				border-radius: 4px;
-				opacity: 0;
-				transition: opacity 0.4s ease-in-out;
-				
-				&.loaded {
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+
+        &.loaded {
           opacity: 1;
         }
       }
@@ -206,28 +191,26 @@ export default {
     }
 
     & .project-information {
-			// background-color: steelblue;
-			padding: 0;
-			
+      padding: 0;
 
-			@include respond-to("min-width", 600px) {
-				padding: 0 10%;
+      @include respond-to("min-width", 600px) {
+        padding: 0 10%;
       }
 
       @include respond-to("min-width", large) {
-				grid-column: 1 / 7;
-				padding: 0;
+        grid-column: 1 / 7;
+        padding: 0;
       }
 
       & .project-information__capsule {
-				margin: 30px 0;
-				
-				& p {
-					margin: 5px 0;
+        margin: 35px 0;
+
+        & p {
+          margin: 5px 0;
           @include respond-to("min-width", large) {
-            max-width: 475px;
+            max-width: 500px;
           }
-				}	
+        }
 
         & .project-title {
           text-align: center;
@@ -235,9 +218,6 @@ export default {
 
           @include respond-to("min-width", large) {
             text-align: initial;
-          }
-
-          & h1 {
           }
 
           & h3 {
@@ -251,9 +231,7 @@ export default {
       .project-information__tags {
         display: flex;
         flex-flow: row wrap;
-				justify-content: flex-start;
-				// background-color: pink;
-
+        justify-content: flex-start;
 
         & span {
           display: block;
@@ -282,8 +260,9 @@ export default {
         & .button {
           border-radius: 4px;
           margin: 0 10px 0 0;
-          border: 1px solid #1a9fee;
-          color: #1a9fee;
+          border: 1px solid $light-blue;
+          background-color: $light-blue;
+          color: white;
           padding: 10px 25px;
           font-size: 1rem;
           font-weight: 600;

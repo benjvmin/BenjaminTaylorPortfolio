@@ -11,36 +11,28 @@ export default new Router({
   routes: [
     {
       path: "/",
-      // name: "Projects",
       component: Projects
     },
     {
       path: "/posts",
-      // name: "Posts",
       component: Posts
     },
     {
       path: "/project/:slug",
       name: "projectSingle",
-      // components: {
-      //   singleton: ProjectSingle
-      // },
       component: ProjectSingle
     },
     {
       path: "/post/:title",
       name: "postSingle",
-      // components: {
-      //   singleton: ProjectSingle
-      // },
       component: PostSingle
+    },
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
     }
-  ]
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (savedPosition) {
-  //     return savedPosition;
-  //   } else {
-  //     return { x: 0, y: 0 };
-  //   }
-  // }
+  }
 });

@@ -132,17 +132,21 @@ export default {
 	padding: 0;
 	width: 100%;
 	margin: auto;
-	width: calc(100%);
+	width: 100%;
 	max-width: $max-content-width;
 	display: grid;
 	grid-template-columns: var(--columns);
 	position: relative;
 	padding-top: 10px;
 
+	@include respond-to("min-width", 600px) {
+		width: 80%;
+		grid-gap: 20px;
+	}
+
 	@include respond-to("min-width", medium) {
 		--columns: repeat(auto-fit, minmax(350px, 1fr));
 		width: calc(100% - 40px);
-	
 		grid-gap: 10px;
 
 	}
@@ -195,34 +199,12 @@ export default {
 		padding: 0 0 30px;
 		margin: 0px auto;
 		transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-		// transform: translate3d(0, 100px, 0);
-		// opacity: 0;
-		// will-change: transform;
 
-
-
-		// &.slide-in {
-		// 	transform: translate3d(0, 0%, 0);
-
-		// 	opacity: 1;
-		// }
-		
-
-		// @for $i from 1 through 15 {
-		// 	&:nth-child(#{$i}) .project-card-image {
-		// 		transition-delay: (10ms + 55ms) * $i;
-		// 	}
-		// }
-
-		
-
-
-		@include respond-to("min-width", large) {
+		@include respond-to("min-width", 600px) {
 			border-radius: 4px;
 		}
 
 		& .project-card-image {
-			// background-image: linear-gradient(to bottom, hsla(0,19%,88%,.7), rgba(102,51,153,.7));
 			border-radius: inherit;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
@@ -321,7 +303,6 @@ export default {
 	h1 {
 		margin: 0;
 		padding: 0;
-		// color: white;
 	}
 }
 </style>
