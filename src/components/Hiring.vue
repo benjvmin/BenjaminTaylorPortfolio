@@ -46,6 +46,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 
   &__icon {
     width: 100px;

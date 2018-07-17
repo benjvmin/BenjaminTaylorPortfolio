@@ -23,14 +23,10 @@
 
 					.project-information__tags(v-html="project.acf.project_tags")
 					.project-information__links
-						// a.button(href="#") Internal
 						a.button(:href="project.acf.file" target="_blank") Project 
 						a.button(:href="project.acf.link" target="_blank") External
-						
-						
+
 				.project-images
-					// .project-images__image(:data-url="project.acf.project_image_one.url" v-lazyLoadImg="true")
-					// .project-images__image(:data-url="project.acf.project_image_two.url" v-lazyLoadImg="true")
 					img(:src="project.acf.project_image_one.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
 					img(:src="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
 
@@ -228,6 +224,9 @@ export default {
 				
 				& p {
 					margin: 5px 0;
+          @include respond-to("min-width", large) {
+            max-width: 475px;
+          }
 				}	
 
         & .project-title {
@@ -276,7 +275,7 @@ export default {
         margin: 30px 0;
         padding: 10px 0px 10px;
         text-align: center;
-        @include respond-to("min-width", medium) {
+        @include respond-to("min-width", large) {
           text-align: initial;
         }
 

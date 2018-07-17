@@ -40,8 +40,9 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 500px;
-  background-image: url('../assets/playstation-pattern.png');
+  height: 400px;
+  // background-color: white;
+  // background-image: url('../assets/playstation-pattern.png');
 
   & svg {
     animation: rotate;

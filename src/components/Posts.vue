@@ -4,13 +4,12 @@
   LoadingSpinner(v-if="loading")
   div.error(v-if="error") error bro 
   section.posts(v-if="complete")
-
     div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
       div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.large.source_url" v-lazyLoadImg="true")
       div.blog-card__info
         a(href="#" @click.prevent="materialClick($event)") {{ post.title.rendered }}
         h4 By: Benjamin Taylor
-        p(v-trim="true" v-html="post.excerpt.rendered")
+        p(v-trim="true" v-html="post.content.rendered")
         div.date(v-formatDate="true") {{ post.date }}
   Hiring
     
@@ -28,7 +27,7 @@ export default {
   },
   data() {
     return {
-      posts: undefined, 
+      posts: undefined,
       error: false,
       loading: false,
       complete: false,
@@ -44,7 +43,6 @@ export default {
     fetchData() {
       this.loading = true;
       fetch(this.$hostname.returnPosts())
-      // fetch('http://localhost:8888/wp-json/wp/v2/Posts')
         .then(response => response.json())
         .then(data => {
           this.posts = data;
@@ -108,8 +106,8 @@ export default {
   margin: 0 auto;
   position: relative;
 
-  @include respond-to("min-width", 450px) {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  @include respond-to("min-width", 400px) {
+    // grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   }
 
   @include respond-to("min-width", medium) {
@@ -125,14 +123,28 @@ export default {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+    flex-direction: column;
+
+    @include respond-to("min-width", medium) {
+      flex-direction: row;
+    }
 
     &__image {
-      flex: 2 1 0;
+      height: 200px;
       background-color: #494949;
       background-position: top center;
       background-size: cover;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
+
+      @include respond-to("min-width", 545px) {
+        height: 250px;
+      }
+
+      @include respond-to("min-width", medium) {
+        height: initial;
+        flex: 2 1 0;
+      }
 
       &.loaded {
         opacity: 1;
@@ -140,7 +152,6 @@ export default {
     }
 
     &__info {
-      flex: 3 1 0;
       padding: 30px 25px;
       overflow: hidden;
 
@@ -148,6 +159,9 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-content: center;
+      @include respond-to("min-width", medium) {
+        flex: 3 1 0;
+      }
 
       & .date {
         display: block;

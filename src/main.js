@@ -22,7 +22,7 @@ Vue.prototype.$hostname = {
 };
 
 Vue.directive("trim", {
-  inserted: el => (el.textContent = el.textContent.substr(0, 130))
+  inserted: el => (el.textContent = el.textContent.substr(0, 180))
 });
 
 Vue.directive("formatDate", {
@@ -73,6 +73,7 @@ Vue.directive("lazyLoadImg", {
           }
         });
       }
+
 
       observer.observe(el);
     } // End of Feature Detection Control Statement

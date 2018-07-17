@@ -250,8 +250,13 @@ header {
         }
 
         & h2 {
-          padding: 0 0 25px 0;
+          padding: 0 0 30px 0;
+          
           transition-delay: 225ms;
+
+          @include respond-to("min-width", medium) {
+            padding-bottom: 20px;
+          }
           @include respond-to("max-width", 580px) {
             font-size: 1.5rem;
           }

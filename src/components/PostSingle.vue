@@ -128,6 +128,7 @@ export default {
 
     & .post-title {
       text-align: center;
+      color: #282828;
       
 
       @include respond-to("min-width", medium) {
@@ -201,6 +202,10 @@ export default {
 
     & a { text-decoration: none; color: #4AB0EF; } 
 
+    & img {
+      margin: 10px 0;
+    }
+
     & pre {
       background-color: rgba(2, 22, 38, 1);
       border-radius: 2px;
@@ -230,12 +235,12 @@ export default {
     h4,
     h5,
     h6 {
-      margin: 20px 0 20px;
+      margin: 25px 0 10px;
       font-weight: 300;
     }
 
     & p {
-      margin: 20px 0 20px 0;
+      margin: 10px 0 20px;
       font-size: 1.1rem;
       line-height: 1.555;
     }
