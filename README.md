@@ -5,22 +5,49 @@
 ## Features
 ![Vue.js](./static/README_assets/vue.svg)
 #### Vue.js + Vue Router
-I embraced Vue.js as a step up from working with Vanilla Object Oriented programming, due to it's progressive nature I started with simple string templates and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on the black hole that can be build tooling equals lost time actually developing. I still did have to configure [scss imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project.
+I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to easily handle DOM manipulation. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [scss imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the structure of Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
 
-#### Styling without CSS Frameworks
-Instead of opting to use a CSS framework I decided to use a mixture of modern web standards for layout, resonsive typography based on [The Elements of Typographic Style](https://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326), 
+![Images](./static/README_assets/BEM.svg)
+#### Styling without CSS Frameworks + BEM
+Instead of opting to use a CSS framework I decided to style everything from scratch. Using a mixture of modern web standards for layout, resonsive typography based on [The Elements of Typographic Style](https://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881791326), and simple breakpoint mixins, I was able to effectively control every aspect of my design down to the last pixel. I made sure to learn and integrate BEM to the best of my ability, the benefits of styling components with a tight integration between Sass are apparent. Styling components such as 
+```scss
+
+.component {
+  //Block Styles Here
+
+  &__element {
+    // Block -> Element relationship using ' & ' in SCSS
+  }
+}
+```
+was highly beneficial in the organization of my markup, and was a joy to write. That being said, I did get carried away with some benefits of nesting styles in sass, breaking the "inception" rule a couple times. This methodology is best used when aware of the inherent downsides, as it's tendency to push you towards creating ultra specific markup for one-off styles where you are not sharing component "blocks" between each other. Due to my choice of rapidly protoying components in the browser, I couldn't accurately depict what styles I needed to duplicate until the components were finished. I couldn't help but think about the recent developments in [functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/), and why it would make incredible sense break down css into smaller bits that morph together to create usable components.
+
+I've toyed with building a flexbox based utility grid, and it's benefits for rapidly protoying in the browser are obvious. I think we are at weird place with CSS, where both approaches provide ample benefits and drawbacks, but with a disconnect between both approaches working together. This begs the question that I plan on researching further, where we only extract specific values to use as utilities (display properties for example) for rapid developement while also having the ability to structure our CSS with a methodology such as BEM. Whether it's a silly idea or not, it's certainly worth exploring, and may be my next venture. 
+
 
 ![Vue.js](./static/README_assets/wordpress-logo.svg)
 #### Headless Content Management via Wordpress REST API
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-#### Performance & Load Times
+#### Performance & Load Times 
+Beginning this project, I set out on a goal to ship < 1MB of data for the initial site load. I'm extremely excited to hit this mark, even without text compression. Lazy loading images played a huge part in keeping the initial payload low,and I've utilized browser APIs such as sessionStorage for data persistence. I talk more on data persistence a bit more below. Performance itself has been something that I have began to stress a lot lately, especially those buttery smooth animations. Given my routine interations with native applications and performant gaming, I settle for nothing less than 60fps animations. To my delight, profiling the performance of a drop down menu animation looked pretty darn good to me!
+
+![Performance](./static/README_assets/animations.jpg)
+
+ Any animation that is choppy or janky gives me a quesy feeling in my stomach. I took a deep dive in this project learning how to correctly profile animation performance in Chrome Devtools, and learned how I can efficiently spot and handle bottlenecks in the perfomance panel. I stuck directly to CSS animations to keep animation work off of the main thread, and animated properties that only trigger style recalculation and compositing stages of the browser rendering pipeline. Speaking of compositing, here is a 3D render of every element that is promoted to it's own layer, in the layers panel! Notice how the use of ```css will-change``` automatically promotes the element to it's own compositing layer. There can be various
+
+![Layers Panel](./static/README_assets/layersPanel.jpg)
+
+
+
+
+
 
 #### Font Management
 
 ### Fully Featured Blog
 
-![Images](./static/README_assets/BEM.svg)
+
 #### Learning BEM Methodology
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
@@ -28,13 +55,13 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 #### Lazy Loading Images & Syntax Highlighting
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-## Challenges
+### Challenges
 
 #### Standardizing Print and Development Projects
 
-## Roadmap
+### Roadmap
 
-
+### Wrapping Up
 
 
 

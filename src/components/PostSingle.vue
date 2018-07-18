@@ -85,6 +85,7 @@ export default {
 
 .post-wrapper {
   position: relative;
+  padding-top: 10px;
 }
 
 .post {
@@ -241,7 +242,7 @@ export default {
     }
 
     & p {
-      margin: 5px 0 25px;
+      margin: 5px 0 28px;
       font-size: 1.1rem;
       line-height: 1.555;
     }

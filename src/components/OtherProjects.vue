@@ -58,7 +58,6 @@ export default {
         response.json().then(data => {
           this.randomProjects = this.returnThreeRandomProjects(data, this.generateThreeRandomNumbers());
           this.complete = true;
-          console.log(this.randomProjects);
         });
       })
       .catch(error => {

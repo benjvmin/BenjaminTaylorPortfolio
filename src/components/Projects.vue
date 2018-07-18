@@ -25,7 +25,6 @@
 					a.button(:href="project.acf.link" target="_blank") External
 						.button-transition
 			div.background-transition
-			
 	Hiring
 
 </template>
@@ -118,9 +117,7 @@ export default {
 			this.complete = true;
 			this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
 		}
-
 	}
-
 };
 </script>
 
@@ -148,7 +145,6 @@ export default {
 		--columns: repeat(auto-fit, minmax(350px, 1fr));
 		width: calc(100% - 40px);
 		grid-gap: 10px;
-
 	}
 
 	& .background-transition {
@@ -162,7 +158,6 @@ export default {
 		height: var(--height);
 		top: var(--top);
 		left: var(--left);
-
 		position: absolute;
 		z-index: 1;
 
@@ -184,7 +179,7 @@ export default {
 
 			100% {
 				transform: scale3d(1, 1, 1);
-				opacity: 0.9;
+				opacity: 0.99;
 			}
 		}
 	}

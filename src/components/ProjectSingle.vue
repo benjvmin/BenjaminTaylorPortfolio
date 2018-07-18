@@ -143,7 +143,7 @@ export default {
     @include respond-to("min-width", large) {
       grid-template-columns: repeat(12, 1fr);
       grid-template-rows: initial;
-      padding: 0;
+      padding: 0 0 30px 0;
     }
 
     & .project-images {
@@ -237,15 +237,14 @@ export default {
       }
 
       .project-information__tags {
+        & h4 {
+          border-top: 1px solid #eee;
+          width: 100%;
+          font-weight: 800;
+          padding-top: 15px;
 
-				& h4 {
-					border-top: 1px solid #eee;
-					width: 100%;
-					font-weight: 800;
-					padding-top: 15px;
-
-					margin: 10px 0;
-				}
+          margin: 10px 0;
+        }
 
         & .tags {
           display: flex;
@@ -271,10 +270,10 @@ export default {
 
       .project-information__links {
         padding: 20px 0px 20px;
-				text-align: center;
+        text-align: center;
         @include respond-to("min-width", large) {
           text-align: initial;
-				}
+        }
 
         & .button {
           border-radius: 2px;
@@ -285,10 +284,10 @@ export default {
           padding: 10px 27px;
           font-size: 1rem;
           font-weight: 600;
-          transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
-          
+          transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
           &:hover {
-            transform: scale(1.10);
+            transform: scale(1.1);
           }
           &:active {
             transform: scale(1);
@@ -298,5 +297,4 @@ export default {
     }
   }
 }
-
 </style>

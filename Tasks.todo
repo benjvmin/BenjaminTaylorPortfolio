@@ -6,19 +6,17 @@ ToDo:
   ☐ Test Content migration from dev wordpress site to production
   ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
 
-  Header Component:
-    ☐ Fix Media Queries In Header
-
   Projects Component:
     ☐ Build Out Responsive Images
     ☐ Tweak Click Animation
-    ☐ Make single photo projects viable
 
   Footer Component:
     ☐ Build out Rest of Footer Component
-    ☐ Add more padding for Mobile device users
 
 Archive:
+  ✔ Make single photo projects viable @done(18-07-17 20:25) @project(ToDo.Projects Component)
+  ✔ Add more padding for Mobile device users @done(18-07-17 20:25) @project(ToDo.Footer Component)
+  ✔ Fix Media Queries In Header @done(18-07-17 20:25) @project(ToDo.Header Component)
   ✔ Add opacity animations for header on load @low @done(18-07-01 18:16) @project(ToDo.Header Component)
   ✔ Add loading spinner and markup @done(18-07-01 18:15) @project(ToDo.Projects Component)
   ✔ Fix Layout @done(18-07-01 18:15) @project(ToDo.Project Single)
