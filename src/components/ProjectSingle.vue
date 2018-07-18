@@ -129,12 +129,16 @@ export default {
   }
 
   & .project-capsule {
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: repeat(4, auto);
+
+    @include respond-to("min-width", small) {
+      width: 80%;
+    }
 
     @include respond-to("min-width", large) {
       grid-template-columns: repeat(12, 1fr);

@@ -129,6 +129,8 @@ export default {
     & .post-title {
       text-align: center;
       color: #282828;
+      padding: 0 20px;
+      margin: 15px 0;
       
 
       @include respond-to("min-width", medium) {

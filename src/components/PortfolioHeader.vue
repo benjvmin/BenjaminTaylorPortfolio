@@ -104,7 +104,7 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  height: 570px;
+  height: 590px;
   background-color: slategray;
   background-image: url("../assets/moonlight.jpg");
   background-size: cover;
@@ -343,7 +343,7 @@ header {
         & a:nth-child(2) {
           margin-left: 10px;
           transition-delay: 300ms;
-          @include respond-to("max-width", 970px) {
+          @include respond-to("min-width", xsmall) {
             margin-left: 20px;
           }
         }
