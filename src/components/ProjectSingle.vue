@@ -20,8 +20,12 @@
 					.project-information__capsule
 						h3 {{ project.acf.project_subtitle_two }}
 						p(v-html="project.acf.project_paragraph_two")
-
-					.project-information__tags(v-html="project.acf.project_tags")
+					
+		
+					.project-information__tags
+						h4 Tags & Project Links
+						div.tags(v-html="project.acf.project_tags")
+					
 					.project-information__links
 						a.button(:href="project.acf.file" target="_blank") Project 
 						a.button(:href="project.acf.link" target="_blank") External
@@ -74,7 +78,7 @@ export default {
     }
   },
   // beforeRouteUpdate(to, from, next) {
-	// 	next();
+  // 	next();
   // },
 
   created() {
@@ -118,7 +122,7 @@ export default {
 
     @include respond-to("min-width", medium) {
       background-position: center center;
-      width: 90%;
+      width: 100%;
       height: 400px;
       margin: 5px auto 50px;
     }
@@ -229,17 +233,29 @@ export default {
       }
 
       .project-information__tags {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
+
+				& h4 {
+					border-top: 1px solid #eee;
+					width: 100%;
+					font-weight: 800;
+					padding-top: 15px;
+
+					margin: 10px 0;
+				}
+
+        & .tags {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: flex-start;
+        }
 
         & span {
           display: block;
           color: #262d32;
-          font-size: 13.5px;
+          font-size: 12.5px;
           font-weight: 700;
           border-radius: 0.25rem;
-          padding: 10px 25px;
+          padding: 9px 26px;
           margin: 5px 5px 5px 0px;
           background-color: #efefef;
 
@@ -250,25 +266,33 @@ export default {
       }
 
       .project-information__links {
-        margin: 30px 0;
-        padding: 10px 0px 10px;
-        text-align: center;
+        padding: 20px 0px 20px;
+				text-align: center;
         @include respond-to("min-width", large) {
           text-align: initial;
-        }
+				}
 
         & .button {
-          border-radius: 4px;
+          border-radius: 2px;
           margin: 0 10px 0 0;
           border: 1px solid $light-blue;
           background-color: $light-blue;
           color: white;
-          padding: 10px 25px;
+          padding: 10px 27px;
           font-size: 1rem;
           font-weight: 600;
+          transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+          
+          &:hover {
+            transform: scale(1.10);
+          }
+          &:active {
+            transform: scale(1);
+          }
         }
       }
     }
   }
 }
+
 </style>

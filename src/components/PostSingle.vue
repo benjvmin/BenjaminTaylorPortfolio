@@ -24,6 +24,7 @@ section.post-wrapper
           h5(v-formatDate="true") {{ post.date }}
 
     article.post-content(v-html="post.content.rendered")
+    OtherProjects
     Hiring
 </template>
 
@@ -31,6 +32,7 @@ section.post-wrapper
 <script>
 import LoadingSpinner from './LoadingSpinner';
 import Hiring from './Hiring';
+import OtherProjects from './OtherProjects';
 
 
 
@@ -38,7 +40,8 @@ export default {
   name: "PostSingle",
   components: {
     LoadingSpinner,
-    Hiring
+    Hiring,
+    OtherProjects
 	},
   data() {
     return {
@@ -97,7 +100,6 @@ export default {
       background-position: center center;
       box-shadow: inset 0px -3px 6px 1px rgba(0, 0, 0, 0.05);
       border-radius: 4px;
-
       display: flex;
       flex-direction: row;
       justify-content: center;

@@ -159,7 +159,7 @@ header {
       &__photo {
         width: 150px;
         height: 150px;
-        background-image: url("../assets/tprofile.jpg");
+        background-image: url("../assets/tprofile2.jpg");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -197,8 +197,9 @@ header {
         }
 
         @include respond-to("min-width", large) {
-          width: 200px;
-          height: 200px;
+          // width: 200px;
+          // height: 200px;
+          margin: 0 0 -56px 58px;
         }
 
         & svg {

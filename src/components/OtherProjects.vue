@@ -102,6 +102,7 @@ export default {
       margin: 20px 0.6%;
       max-width: 400px;
       background-color: white;
+      transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 
       @include respond-to("min-width", medium) {
         width: 60%;
@@ -110,6 +111,14 @@ export default {
       @include respond-to("min-width", large) {
         flex: 0 0 28%;
         margin: 0 1%;
+      }
+
+      &:hover {
+        transform: translateY(-10px); 
+      }
+
+      &:active {
+        transform: translateY(0px);
       }
 
       &__image {
