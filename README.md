@@ -4,7 +4,7 @@
 ## Features
 ![Vue.js](./static/README_assets/vue.svg)
 ## Vue.js + Vue Router
-I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to make manual DOM manipulation nonexistent. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [scss imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project I embark on in the future. I come from a background of using SCSS and PUG templating, so leveraging these templating languages in SFC was an absolute joy. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
+I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to make manual DOM manipulation nonexistent. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [scss imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project I embark on in the future. I come from a background of using SCSS and PUG templating, so leveraging these templating languages in single file components was an absolute joy. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
 
 ![BEM](./static/README_assets/BEM.svg)
 ## Styling without CSS Frameworks + BEM
@@ -31,18 +31,37 @@ I've toyed with building a flexbox based utility grid, and it's benefits for rap
 ## Headless Content Management via Wordpress REST API
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
+![Performance](./static/README_assets/performance.svg)
 ## Performance & Load Times 
 Starting this project, I set out on a goal to ship < 1MB of data for the initial site load. I'm extremely excited to hit this mark, even without text compression. Lazy loading images played a huge part in keeping the initial payload low, and I've utilized browser APIs such as sessionStorage for data persistence. I talk more on data persistence a bit more below. Performance itself has been something that I have began to stress a lot lately, especially buttery smooth animations. Given my routine interations with native applications and performant gaming, I settle for nothing less than 60fps animations. To my delight, profiling performance of the porfolio's drop down menu animation looked pretty darn good to me!
 
 ![Performance](./static/README_assets/animations.jpg)
 
  Any animation that is choppy or janky gives me a quesy feeling in my stomach. I took a deep dive in this project learning how to correctly profile animation performance in Chrome Devtools, and learned how I can efficiently spot and handle bottlenecks in the perfomance panel. I stuck directly to CSS animations to keep animation work off of the main thread, and animated properties that only trigger style recalculation and compositing stages of the browser rendering pipeline. Speaking of compositing, below is a 3D render of every element that is promoted to it's own layer, in the layers panel! Notice how the use of ``` will-change``` and ```transform: translate3d() ```automatically promotes the element to it's own layer. Due to this promotion, these elements will get a boost from the GPU when animating. Also visually seeing how much memory a promoted element may take up is a visual reminder not to go crazy on promoting everything that animates. My restricted use of promoting elements cost about 4MB total overall. Profiling performance is something that I am excited in learning to get better at, and leveraging developer tools in this way essentially fulfills the inner nerd in me.
+
 ![Layers Panel](./static/README_assets/layersPanel.jpg)
 
-
+![Data](./static/README_assets/data.svg)
 ## Data Persistence
+Since my portfolio relies on interaction with Wordpress to send and recieve JSON, I wanted to take a step further and try and reduce networks requests where I can, and utilize existing browser technologies such as [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). This allowed me to store these responses for both my main "Projects" and "Posts" page. This is incredibly cool! Both landmark pages, despite relying on AJAX to provide content, will render instantly, as the data is read from storage instead of traversing the network to receive what would be the same exact response. Images still need to load, but thats OK knowing that I have lazy loading to fall back on. 
 
+Diving a bit deeper this is what it looks like. 
 
+```js
+created() {
+		if (!sessionStorage["ProjectData"]) {
+			this.fetchAndStoreData();
+		} else {
+			this.complete = true;
+			this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
+		}
+	}
+
+```
+
+During the ```created()``` lifecycle event, I'm checking if my Project Data (the JSON response) exists. If it does not, we need to fetch it, and store it in sessionStorage for future use. If it does, awesome! We stop the the loading state, and then set the components data equal to the object that lives in sessionStorage! That provides instant rendering of the component upon repeat visits, and much better user experience.
+
+I opted for sessionStorage over localStorage, as localStorage was hard to debug due to it's super persistent nature, and I would like for the user to recieve a fresh copy of data each time they close and re-open my portfolio. Ideally in the future I would like to use localStorage, and AJAX to silently check if the JSON response contains new data, and if so, render it.
 
 
 ![Font Management](./static/README_assets/font.svg)
@@ -50,6 +69,7 @@ Starting this project, I set out on a goal to ship < 1MB of data for the initial
 I took a progressive approach to font management this time around, which was to utilize system fonts and abstain from loading any external fonts at all. This special font declaration allowed me to do so. 
 
 ```--font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;```
+
 How and why would I take this approach though? There are numerous advantages over traditionally loading font files or relying on external resources for fonts. 
 * Reduce load times by not having to ship various font weights and combinations down the network
 * Resolves font loading & font-dislay issues instantly, [FOIT or FOUT](https://css-tricks.com/fout-foit-foft/)
@@ -57,7 +77,7 @@ How and why would I take this approach though? There are numerous advantages ove
 * Existing user familiarity
 * Save time not writing @fontface declarations
 
-Native system fonts are also great for consumption of content due to the familiarity already established by their existing hardware device. Given these benefits in exchange for sacrificing a little bit of design identity were more than enough for me to consider using this at the very least a backup font selection moving forward with future projects. 
+Native system fonts are also great for consumption of content due to the familiarity already established by the relationship between the user and their existing hardware device. Given these benefits in exchange for sacrificing a little bit of design identity were more than enough for me to consider using this at the very least a backup font selection moving forward with future projects. 
 
 ## Fully Featured Blog
 
@@ -75,22 +95,4 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 ## Wrapping Up
 
-
-
-
-## Build Setup 
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
