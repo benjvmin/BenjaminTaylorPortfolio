@@ -234,12 +234,12 @@ export default {
     h4,
     h5,
     h6 {
-      margin: 25px 0 10px;
+      margin: 5px 0 15px;
       font-weight: 300;
     }
 
     & p {
-      margin: 10px 0 20px;
+      margin: 5px 0 25px;
       font-size: 1.1rem;
       line-height: 1.555;
     }
@@ -257,7 +257,7 @@ export default {
 
     & ul,
     ol {
-      margin: 10px 0 0 10px;
+      margin: 0px 0 20px 10px;
 
       & li {
         padding: 3px;

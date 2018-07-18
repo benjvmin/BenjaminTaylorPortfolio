@@ -266,8 +266,8 @@ export default {
 			& .button {
 				border-radius: 4px;
 				margin: 0 10px 0 0;
-				border: 1px solid #1a9fee;
-				color: #1a9fee;
+				border: 1px solid $light-blue;
+				color: $light-blue;
 				padding: 10px 25px;
 				font-size: 1rem;
 				font-weight: 600;
