@@ -6,9 +6,10 @@
 # Features
 ![Vue.js](./static/README_assets/vue.svg)
 ## Vue.js + Vue Router
-I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to make manual DOM manipulation nonexistent. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [SCSS imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project I embark on in the future.
+I embraced Vue.js as a step up from working with regular Javascript, partly due to it's progressive nature and my own curiosity. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [SCSS imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability to load extra variables and mixins in Sass built in.
 
- I come from a background of using SCSS and PUG templating, so leveraging these templating languages in single file components was an absolute joy. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
+
+ I come from a background of using Sass and Pug templating, so leveraging these templating / preprocessing languages in single file components was immediately comfortable. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a parallel manner with JSX. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
 
 ![BEM](./static/README_assets/BEM.svg)
 ## Styling without CSS Frameworks + BEM
@@ -24,22 +25,22 @@ Instead of opting to use a CSS framework I decided to style everything from scra
 }
 ```
 
-was highly beneficial in the organization of my markup, and was a joy to write. I also stayed away from scoped styling, as with BEM I was not worried about name collisions, & asychronously updated HTML with existing style hooks would not work, since scoped styling adds extra data attributes to achieve the "scoped" functionality. 
+was highly beneficial in the organization of my markup, and was a joy to write. I also stayed away from scoped styling this time, as with BEM I was not worried about name collisions
 
-That being said, I did get carried away with the ability to nest styles in sass, breaking the "inception" rule a couple times. This methodology is best used when aware of the inherent downsides, as it's tendency to push you towards creating ultra specific markup for one-off styles where you are not sharing component "blocks" between each other. Due to my choice of rapidly protoying components in the browser, I couldn't accurately depict what styles I needed to duplicate until the components were almost already finished. What's the purpose of an abstraction if it can be applied after the fact, right? I couldn't help but think about the recent developments in [functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/), and why it would make incredible sense break down CSS into smaller bits that morph together to create re-usable components. Not only that, hand writing all my styles has given me the ability to appreciate how using a CSS framework would have save likely saved a lot of time and boilerplate code.
+That being said, I did get carried away with the ability to nest styles in sass, breaking the "inception" rule a couple times. This methodology is best used when aware of the inherent downsides, as it's tendency to push you towards creating ultra specific markup for one-off styles where you are not sharing component "blocks" between each other. Due to my choice of rapidly protoying components in the browser, I couldn't accurately depict what styles I needed to duplicate until I've finsished building the component. I couldn't help but think about the recent developments in [functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/), and why it would make incredible sense break down CSS into smaller bits that morph together to create re-usable components. Not only that, hand writing all my styles has given me the ability to appreciate how using a CSS framework would have save likely saved a lot of time and boilerplate code.
 
 I've toyed with building a flexbox based utility grid, and it's benefits for rapidly protoying in the browser were immediately obvious. I think we are at weird place with CSS, where both approaches provide ample benefits and drawbacks, namely a disconnect between both approaches integrating well together. This begs the question that I plan on researching further, where we only extract specific values to use as utilities (display properties for example) for rapid developement while also having the ability to structure our CSS with a methodology such as BEM. Whether it's a silly idea or not, it's certainly worth exploring, and may be my next venture. 
 
 
 ![Vue.js](./static/README_assets/wordpress-logo.svg)
 ## Headless Content Management via Wordpress REST API
-Choosing to use headless Wordpress was a combination of familiarity with Wordpress websites in my past experiences, and a disdain for dealing with PHP as a templating language in Wordpress's ecosystem. Choosing my own Front End stack provides me with the freedom of Wordpress's baggage and allows me to thrive by focusing on simply HTML, CSS, & Javascript. 
+Choosing to use headless Wordpress was a combination of familiarity with Wordpress environments in my past experience, and a disdain for dealing with PHP as a templating language. Choosing my own Front End stack provides me with the freedom of Wordpress's baggage and allows me to thrive by simply focusing on the front end.
 
-Stepping into the REST API was a freeing feeling. I inspected network responses using [Postman](https://www.getpostman.com/) during development, and organized network responses by abstracting requests using Javascript. The code snippet below allowed me to save a bit of time managing network requests and not dealing with string concatenation. It wasn't perfect, and by my own admission, slightly underdeveloped. This is only because I was inches away from just branching out and building a full fledged object oriented abstraction for managing Wordpress REST API calls. This would have taken immense amounts of time though, and wasn't the focus for this project.
+Stepping into the REST API was a freeing feeling. I inspected network responses using [Postman](https://www.getpostman.com/) during development, and organized network responses by abstracting requests using Javascript. The code snippet below allowed me to reuse common REST API fetch requests, and avoid messing with strings. It wasn't perfect, and by my own admission, slightly underdeveloped. This is only because I was inches away from just branching out and building a full fledged object oriented abstraction for managing Wordpress REST API calls. This would have taken immense amounts of time though, and wasn't the focus for this project.
 
 ```js
 Vue.prototype.$hostname = {
-  name: "http://benjvmin.dx.am/wp-json/wp/v2/",
+  name: "http://mywordpressinstall/wp-json/wp/v2/",
   returnProjects(numOfProjects) {
     return numOfProjects === undefined ? `${this.name}Projects` : `${this.name}Projects?per_page=${numOfProjects}`;
   },
@@ -49,30 +50,20 @@ Vue.prototype.$hostname = {
 };
 ```
 
-This was good for most common use cases though. I've added an object to Vue's instance that provided me with URL to the resource ```$hostname.name``` and two methods to retrieve Posts and Projects. I have the ability to pass a parameter to specify the amount of Post/Projects I would like to fetch. If I didn't supply a parameter, it would just retrieve the default amount. Sweet! Except, it would need further abstraction to fetch individual posts / projects, and just about every other argument I could throw at it. This is part of the "underdeveloped" part, and in the future I may focus on building a full fledged module to handle this.
+This was good for most common use cases though. I've added an object to Vue's instance that provided me with URL to the resource ```$hostname.name``` and two methods to retrieve posts and projects. I added the ability to pass a parameter to specify the amount of post/projects I would like to fetch as well. If I didn't supply a parameter, it would just retrieve the default amount. Sweet! Except, it would need further abstraction to fetch individual posts / projects, and just about every other argument I could throw at it. This is part of the "underdeveloped" part, and in the future I may focus on building a full fledged module to handle this.
 
+#### Custom Post Types & Plugins
+Working with Wordpress, I've thought deeply about the purpose and application of plugins, and how they enhance both the developer and end user's experience. This led me to the belief that the best practical application of plugins would be to enhance the "back end" by giving the adminstrator (me) numerous tools to extend the administration experience. These below plugins extended the functionality of Wordpress, and the REST API.
 
-####Custom Post Types & Plugins
-Working with Wordpress, I've thought deeply about the purpose and application of plugins, and how they enhance both the developer and end user's experience. This led me to the belief that the best practical application of plugins would be to enhance the "back end" by giving the adminstrator (me) numerous tools to create and manage content (among other various things). These below plugins extended the functionality of Wordpress REST API and gave me a superior development and administration experience.
+__Advanced Custom Fields:__ Allowed me to create the exact custom fields I needed for my portfolio pieces.
+__ACF to REST API:__ Exposed each Advanced Custom Field I created to be consumed by the REST API.
+__Advanced Markdown Editor:__ Replaces Wordpress's regular markdown editor with a superior editor. (Makes blogging a joy).
+__Better REST API Featured Images:__ Exposes a better mechanism for displaying "featured image" for posts, as the default one is not very good.
+__FakerPress:__ Automatically created filler content during development process.
+__All-in-one WP Migration:__ Allowed me to seamlessly migrate my local development site to a hosted provider.
 
-* Advanced Custom Fields
-Allowed me to create the exact custom fields I needed for my portfolio pieces.
-* ACF to REST API
-Exposed each Advanced Custom Field I created to be consumed by the REST API.
-* Advanced Markdown Editor
-Replaces Wordpress's regular markdown editor with a superior editor. (Makes blogging a joy).
-* Better REST API Featured Images
-Exposes a better mechanism for displaying "featured image" for posts, as the default one is not very good.
-* FakerPress
-Automatically created filler content during development process.
-* All-in-one WP Migration
-Allowed me to seamlessly migrate my local development site to a hosted provider.
-
-
-#### Challenges 
-
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+#### Challenges
+The biggest challenge I ran into was more of a project oriented issue, as I had to standardize a format in Advanced Custom Fields to facilitate a mixture of Print Design & Web assets. With web projects I would like to utlize different formats to display content (like SVG) rather than just images, but with my print projects, I could only work with images of them.
 
 ![Performance](./static/README_assets/performance.svg)
 ## Performance & Load Times 
@@ -97,12 +88,12 @@ created() {
   } else { 
     this.complete = true;
     this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
-		}
-  }
+    }
+}
 
 ```
 
-During the ```created()``` lifecycle event, I'm checking if my Project Data (the JSON response) exists. If it does not, we need to fetch it, and store it in sessionStorage for future use. If it does, awesome! We stop the the loading state, and then set the components data equal to the object that lives in sessionStorage! That provides instant rendering of the component upon repeat visits, and a much better user experience.
+During the ```created()``` lifecycle event, I'm checking if my Project Data (the JSON response) exists. If it does not, we need to fetch it, and store it in sessionStorage for future use. If it does, awesome! We stop the the loading state, and then set the components data equal to the object that lives in sessionStorage. That provides instant rendering of the component upon repeat visits, and a much better user experience.
 
 I opted for sessionStorage over localStorage, as localStorage was hard to debug due to it's super persistent nature, and I would like for the user to recieve a fresh copy of data each time they close and re-open my portfolio. Ideally in the future I would like to use localStorage, and AJAX to silently check if the JSON response contains new data, and if so, render it.
 
@@ -115,27 +106,75 @@ I took a progressive approach to font management this time around, which was to 
 
 How and why would I take this approach though? There are numerous advantages over traditionally loading font files or relying on external resources for fonts. 
 * Reduce load times by not having to ship various font weights and combinations down the network
-* Resolves font loading & font-dislay issues instantly, [FOIT or FOUT](https://css-tricks.com/fout-foit-foft/)
+* Remove font loading & font-dislay issues, [FOIT or FOUT](https://css-tricks.com/fout-foit-foft/)
 * Flexibity when selecting font-weight
 * Existing user familiarity
 * Save time not writing @fontface declarations
 
-Native system fonts are also great for consumption of content due to the familiarity already established by the relationship between the user and their existing hardware device. Given these benefits in exchange for sacrificing a little bit of design identity were more than enough for me to consider using this at the very least a backup font selection moving forward with future projects. 
-
-## Fully Featured Blog
-
+Native system fonts are also great for consumption of content due to the familiarity already established between the user and their existing hardware device. Given these benefits in exchange for sacrificing a little bit of design identity were more than enough for me to consider using this at the very least a backup font selection moving forward with future projects. 
 
 
 ![Images](./static/README_assets/picture.svg)
 ## Lazy Loading Images & Syntax Highlighting
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+This was one area of development that interested me greatly, the ability to lazy load assets on demand. I have always toyed around the idea of building a small library that assisted me with that with smaller projects, but with something on this scale, it was an absolute requirement.
 
-## Challenges
+Luckily, Vue.js is pretty darn awesome. [Custom Directives](https://vuejs.org/v2/guide/custom-directive.html#ad) allowed me to build this type of plugin functionality on the spot. Combining this with the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) I was able to build out a mechanism for lazy loading both regular images and background images. I speak more in depth on my [blog](), but I essentially attach this custom directive to anything with a valid resource as a data url: ``` <img data-src="http://someresource.com" alt="mypicture"> ```. The code snippet is exactly what was implemented. 
 
-## Standardizing Print and Development Projects
+```js
+Vue.directive("lazyLoadImg", {
+  inserted: el => {
+    //URL for each background image, grabbed from the data-url property
+    let imageURL = el.dataset.url;
 
-## Roadmap
+    //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
+    function lazyLoad() {
+
+      //Detects if the node is an image element, or a background image
+      if (!el.nodeName === "DIV") {
+        el.src = imageURL;
+      } else {
+        el.style.backgroundImage = `url(${imageURL})`;
+      }
+
+
+      //After a short period of time, add the loaded class the element
+      setTimeout(() => {
+        el.classList.add("loaded");
+      }, 200);
+    }
+
+    //If Intersection Observer Support is not currently in your browser, load all images immediately
+    if (!window["IntersectionObserver"]) {
+      lazyLoad();
+    } else {
+      // Create New Intersection Observer Instance, for more information on Intersection Observer: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
+      let observer = new IntersectionObserver(observerCallback, options);
+
+      //Options for Intersection Observer
+      let options = {
+        rootMargin: "0px",
+        threshold: 0
+      };
+
+      //Observer callback, make sure to unobserve the element once it's loaded
+      function observerCallback(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            lazyLoad();
+            observer.unobserve(el);
+          }
+        });
+      }
+
+      observer.observe(el);
+    } // End of Feature Detection Control Statement
+
+```
+It looks like a lot, but I'm essentially just taking the data-src attribute and appending it to the element once it's in the viewport, with the added comfort of feature detection. The Intersection Observer API is incredibly awesome, but requires a tiny bit of boilerplate. 
 
 ## Wrapping Up
 
+So far everything I've talked about is a landmark development experience building my portfolio, but there were a ton of smaller learning experiences that shaped outcome
 
