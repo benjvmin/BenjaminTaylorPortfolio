@@ -37,7 +37,6 @@ Vue.directive("lazyLoadImg", {
     //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
     function lazyLoad() {
 
-
       if (!el.nodeName === "DIV") {
         el.src = imageURL;
       } else {
@@ -73,7 +72,6 @@ Vue.directive("lazyLoadImg", {
           }
         });
       }
-
 
       observer.observe(el);
     } // End of Feature Detection Control Statement

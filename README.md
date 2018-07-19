@@ -1,3 +1,4 @@
+![Logo](./static/README_assets/logo.svg)
 # Benjamin Taylor Portfolio
 
 ## Introduction
@@ -6,10 +7,10 @@
 # Features
 ![Vue.js](./static/README_assets/vue.svg)
 ## Vue.js + Vue Router
-I embraced Vue.js as a step up from working with regular Javascript, partly due to it's progressive nature and my own curiosity. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [SCSS imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability to load extra variables and mixins in Sass built in.
+I embraced Vue.js as a step up from working with regular Javascript, partly due to it's progressive nature and my own curiosity. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [Sass imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability to load extra variables and mixins in Sass built in.
 
 
- I come from a background of using Sass and Pug templating, so leveraging these templating / preprocessing languages in single file components was immediately comfortable. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a parallel manner with JSX. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
+ I come from a background of using Sass and [Pug](https://pugjs.org/api/getting-started.html) templating, so leveraging these templating / preprocessing languages in single file components was immediately comfortable. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a parallel manner with JSX. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
 
 ![BEM](./static/README_assets/BEM.svg)
 ## Styling without CSS Frameworks + BEM
@@ -77,7 +78,7 @@ Starting this project, I set out on a goal to ship < 1MB of data for the initial
 
 ![Data](./static/README_assets/data.svg)
 ## Data Persistence
-Since my portfolio relies on interaction with Wordpress to send and recieve JSON, I wanted to take a step further and try and reduce networks requests where I can, and utilize existing browser technologies such as [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). This allowed me to store these responses for both my main "Projects" and "Posts" page. This is incredibly cool! Both landmark pages, despite relying on AJAX to provide content, will render instantly, as the data is read from storage instead of traversing the network to receive what would be the same exact response. Images still need to load, but thats OK knowing that I have lazy loading to fall back on. 
+Since my portfolio relies on interaction with Wordpress to send and recieve JSON, I wanted to take a step further and try to reduce networks requests where I can, and utilize existing browser technologies such as [sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). This allowed me to store these responses for both my main "Projects" and "Posts" page. This is incredibly cool! Both landmark pages, despite relying on AJAX to provide content, will render instantly, as the data is read from storage instead of traversing the network to receive what would be the same exact response. Images still need to load, but thats OK knowing that I have lazy loading to fall back on. 
 
 Diving a bit deeper this is what it looks like. 
 
@@ -178,7 +179,7 @@ It looks like a lot, but I'm essentially just taking the data-src attribute and 
 
 So far everything I've talked about is a landmark development experience building my portfolio, but there were a ton of smaller learning experiences that when added together, make up for a significant boost in both my abilities and mindset regarding front end development. My hope is that this is a living document that I can revisit and document changes as they come. Just like software- writing is something that can be improved on. Also my code is far from perfect :) If you see something you have questions about, please reach out to me! 
 
-* Twitter](https://twitter.com/benjvmintay)
+* [Twitter](https://twitter.com/benjvmintay)
 * [Instagram](https://www.instagram.com/benjvmintaylor/)
 * [LinkedIn](https://www.linkedin.com/in/benjamincharlestaylor/)
 
