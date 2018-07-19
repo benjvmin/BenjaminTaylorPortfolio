@@ -259,11 +259,10 @@ export default {
 			padding: 10px 30px 10px;
 
 			& .button {
-				border-radius: 2px;
+				border-radius: 4px;
 				margin: 0 10px 0 0;
 				border: 1px solid $light-blue;
-				background-color: $light-blue;
-				color: white;
+				color: $light-blue;
 				padding: 10px 25px;
 				font-size: 1rem;
 				font-weight: 600;
@@ -273,7 +272,7 @@ export default {
 				transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 				&:hover {
-					color: $light-blue;
+					color: white;
 				}
 
 				&:hover .button-transition {
@@ -286,7 +285,7 @@ export default {
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background-color: white;
+					background-color: #4ab0ef;
 					transform: translateY(100%);
 					transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 					z-index: -1;

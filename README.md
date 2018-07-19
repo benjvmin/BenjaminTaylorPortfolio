@@ -1,4 +1,20 @@
 ![Logo](./static/README_assets/logo.svg)
+
+__Warning: Until I Push This Live on Github Pages__
+You have to clone the repository and run locally. Simply
+* Download Dependencies
+```
+npm install
+```
+* Run Dev Sever
+```
+npm run dev
+```
+* Build for production
+```
+npm run build
+```
+
 # Benjamin Taylor Portfolio
 
 ## Introduction
@@ -64,7 +80,7 @@ Working with Wordpress, I've thought deeply about the purpose and application of
 * __All-in-one WP Migration:__ Allowed me to seamlessly migrate my local development site to a hosted provider.
 
 #### Challenges
-The biggest challenge I ran into was more of a project oriented issue, as I had to standardize a format in Advanced Custom Fields to facilitate a mixture of Print Design & Web assets. With web projects I would like to utlize different formats to display content (like SVG) rather than just images, but with my print projects, I could only work with images of them.
+The biggest challenge I ran into was more of a project oriented issue, as I had to standardize a format in Advanced Custom Fields to facilitate a mixture of Print Design & Web assets. With web projects I would like to utilize different formats to display content (like SVG) rather than just images, but with my print projects, I could only work with images of them.
 
 ![Performance](./static/README_assets/performance.svg)
 ## Performance & Load Times 
@@ -183,5 +199,5 @@ So far everything I've talked about is a landmark development experience buildin
 * [Instagram](https://www.instagram.com/benjvmintaylor/)
 * [LinkedIn](https://www.linkedin.com/in/benjamincharlestaylor/)
 
-Cheers!
+__Cheers!__
 

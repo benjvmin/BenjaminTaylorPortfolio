@@ -29,10 +29,24 @@ export default new Router({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
+
+    // Function that determines the amount of scroll the next page starts with
+    function returnXCoordinate() {
+      let pageScrolled = window.scrollY;
+      let headerHeight = document.querySelector('header').clientHeight;
+      if (pageScrolled > headerHeight) {
+        console.log(headerHeight);
+        return headerHeight;
+      } else {
+        console.log(pageScrolled);
+        return pageScrolled;
+      }
+    }
+
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return { x: 0, y: returnXCoordinate() };
     }
   }
 });

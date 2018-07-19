@@ -55,7 +55,7 @@
   
     h3.info-module__title About
     .info-module__divider
-    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quae aliquam sequi iusto sint nam! Quam sunt, deleniti nostrum ducimus reprehenderit, beatae culpa minima accusantium, et quo labore cumque corporis! 
+    p I’m a 24 year old Front End Developer from the lovely state of Pennsylvania. I have been obsessed with building for the web since I was a small kid. I seek to unify communication design and modern web standards to solve problems. I love skateboarding, music, and computers! 
   
   //Contact
   .info-module(:class="{ 'active': isActive }")
