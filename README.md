@@ -27,7 +27,7 @@ Instead of opting to use a CSS framework I decided to style everything from scra
 
 was highly beneficial in the organization of my markup, and was a joy to write. I also stayed away from scoped styling this time, as with BEM I was not worried about name collisions
 
-That being said, I did get carried away with the ability to nest styles in sass, breaking the "inception" rule a couple times. This methodology is best used when aware of the inherent downsides, as it's tendency to push you towards creating ultra specific markup for one-off styles where you are not sharing component "blocks" between each other. Due to my choice of rapidly protoying components in the browser, I couldn't accurately depict what styles I needed to duplicate until I've finsished building the component. I couldn't help but think about the recent developments in [functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/), and why it would make incredible sense break down CSS into smaller bits that morph together to create re-usable components. Not only that, hand writing all my styles has given me the ability to appreciate how using a CSS framework would have save likely saved a lot of time and boilerplate code.
+That being said, I did get carried away with the ability to nest styles in sass, breaking the "inception" rule a couple times. This methodology is best used when aware of the inherent downsides, as it's tendency to push you towards creating ultra specific markup for one-off styles where you are not sharing component "blocks" between each other. Due to my choice of rapidly protoying components in the browser, I couldn't accurately depict what styles I needed to duplicate until I've finished building the component. I couldn't help but think about the recent developments in [functional CSS](https://css-tricks.com/lets-define-exactly-atomic-css/), and why it would make incredible sense break down CSS into smaller bits that morph together to create re-usable components. Not only that, hand writing all my styles has given me the ability to appreciate how using a CSS framework would have save likely saved a lot of time and boilerplate code.
 
 I've toyed with building a flexbox based utility grid, and it's benefits for rapidly protoying in the browser were immediately obvious. I think we are at weird place with CSS, where both approaches provide ample benefits and drawbacks, namely a disconnect between both approaches integrating well together. This begs the question that I plan on researching further, where we only extract specific values to use as utilities (display properties for example) for rapid developement while also having the ability to structure our CSS with a methodology such as BEM. Whether it's a silly idea or not, it's certainly worth exploring, and may be my next venture. 
 
@@ -55,12 +55,12 @@ This was good for most common use cases though. I've added an object to Vue's in
 #### Custom Post Types & Plugins
 Working with Wordpress, I've thought deeply about the purpose and application of plugins, and how they enhance both the developer and end user's experience. This led me to the belief that the best practical application of plugins would be to enhance the "back end" by giving the adminstrator (me) numerous tools to extend the administration experience. These below plugins extended the functionality of Wordpress, and the REST API.
 
-*__Advanced Custom Fields:__ Allowed me to create the exact custom fields I needed for my portfolio pieces.
-*__ACF to REST API:__ Exposed each Advanced Custom Field I created to be consumed by the REST API.
-*__Advanced Markdown Editor:__ Replaces Wordpress's regular markdown editor with a superior editor. (Makes blogging a joy).
-*__Better REST API Featured Images:__ Exposes a better mechanism for displaying "featured image" for posts, as the default one is not very good.
-*__FakerPress:__ Automatically created filler content during development process.
-*__All-in-one WP Migration:__ Allowed me to seamlessly migrate my local development site to a hosted provider.
+* __Advanced Custom Fields:__ Allowed me to create the exact custom fields I needed for my portfolio pieces.
+* __ACF to REST API:__ Exposed each Advanced Custom Field I created to be consumed by the REST API.
+* __Advanced Markdown Editor:__ Replaces Wordpress's regular markdown editor with a superior editor. (Makes blogging a joy).
+* __Better REST API Featured Images:__ Exposes a better mechanism for displaying "featured image" for posts, as the default one is not very good.
+* __FakerPress:__ Automatically created filler content during development process.
+* __All-in-one WP Migration:__ Allowed me to seamlessly migrate my local development site to a hosted provider.
 
 #### Challenges
 The biggest challenge I ran into was more of a project oriented issue, as I had to standardize a format in Advanced Custom Fields to facilitate a mixture of Print Design & Web assets. With web projects I would like to utlize different formats to display content (like SVG) rather than just images, but with my print projects, I could only work with images of them.
@@ -178,9 +178,9 @@ It looks like a lot, but I'm essentially just taking the data-src attribute and 
 
 So far everything I've talked about is a landmark development experience building my portfolio, but there were a ton of smaller learning experiences that when added together, make up for a significant boost in both my abilities and mindset regarding front end development. My hope is that this is a living document that I can revisit and document changes as they come. Just like software- writing is something that can be improved on. Also my code is far from perfect :) If you see something you have questions about, please reach out to me! 
 
-*[Twitter](https://twitter.com/benjvmintay)
-*[Instagram](https://www.instagram.com/benjvmintaylor/)
-*[LinkedIn](https://www.linkedin.com/in/benjamincharlestaylor/)
+* Twitter](https://twitter.com/benjvmintay)
+* [Instagram](https://www.instagram.com/benjvmintaylor/)
+* [LinkedIn](https://www.linkedin.com/in/benjamincharlestaylor/)
 
 Cheers!
 
