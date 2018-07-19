@@ -1,10 +1,14 @@
 # Benjamin Taylor Portfolio
+
+## Introduction
  Holy cow! I finally did it! After long months of wearing different hats, I am finally at a point where I can say that the first public verion of my portfolio is ready for the world. I also made a blog! I've built it with some pretty amazing open source technology. You can find a comprehensive list of features, challenges, and miscellaneous writing about my experience below.
 
-## Features
+# Features
 ![Vue.js](./static/README_assets/vue.svg)
 ## Vue.js + Vue Router
-I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to make manual DOM manipulation nonexistent. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [scss imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project I embark on in the future. I come from a background of using SCSS and PUG templating, so leveraging these templating languages in single file components was an absolute joy. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
+I embraced Vue.js as a step up from working with vanilla Object Oriented programming, primarily due to it's progressive nature, and ability to make manual DOM manipulation nonexistent. I started with simple string templates to grasp a solid foundation of how Vue works, and comfortably moved to single file components. I opted for starting with [Vue Cli](https://github.com/vuejs/vue-cli) because constant focus on build tooling equals lost time actually developing. I still did have to configure [SCSS imports](https://github.com/vuejs/vue-loader/issues/328), and it was enough to consider having my own fork of Vue.js with this ability for every project I embark on in the future.
+
+ I come from a background of using SCSS and PUG templating, so leveraging these templating languages in single file components was an absolute joy. In retrospect, Vue has taught me a lot about the current wave of Javascript frameworks. It's pushed me to learn about Virtual DOM, modular programming, and the benefits of well structured Javascript files. It's also allowed me to understand how React tackles these problems in a different manner. I see myself looking into expanding Vue's functionality by learning how to build plugins and am hopeful to continue using it in the future.  
 
 ![BEM](./static/README_assets/BEM.svg)
 ## Styling without CSS Frameworks + BEM
@@ -29,6 +33,45 @@ I've toyed with building a flexbox based utility grid, and it's benefits for rap
 
 ![Vue.js](./static/README_assets/wordpress-logo.svg)
 ## Headless Content Management via Wordpress REST API
+Choosing to use headless Wordpress was a combination of familiarity with Wordpress websites in my past experiences, and a disdain for dealing with PHP as a templating language in Wordpress's ecosystem. Choosing my own Front End stack provides me with the freedom of Wordpress's baggage and allows me to thrive by focusing on simply HTML, CSS, & Javascript. 
+
+Stepping into the REST API was a freeing feeling. I inspected network responses using [Postman](https://www.getpostman.com/) during development, and organized network responses by abstracting requests using Javascript. The code snippet below allowed me to save a bit of time managing network requests and not dealing with string concatenation. It wasn't perfect, and by my own admission, slightly underdeveloped. This is only because I was inches away from just branching out and building a full fledged object oriented abstraction for managing Wordpress REST API calls. This would have taken immense amounts of time though, and wasn't the focus for this project.
+
+```js
+Vue.prototype.$hostname = {
+  name: "http://benjvmin.dx.am/wp-json/wp/v2/",
+  returnProjects(numOfProjects) {
+    return numOfProjects === undefined ? `${this.name}Projects` : `${this.name}Projects?per_page=${numOfProjects}`;
+  },
+  returnPosts(numOfPosts) {
+    return numOfPosts === undefined ? `${this.name}Posts` : `${this.name}Posts?per_page=${numOfPosts}`;
+  }
+};
+```
+
+This was good for most common use cases though. I've added an object to Vue's instance that provided me with URL to the resource ```$hostname.name``` and two methods to retrieve Posts and Projects. I have the ability to pass a parameter to specify the amount of Post/Projects I would like to fetch. If I didn't supply a parameter, it would just retrieve the default amount. Sweet! Except, it would need further abstraction to fetch individual posts / projects, and just about every other argument I could throw at it. This is part of the "underdeveloped" part, and in the future I may focus on building a full fledged module to handle this.
+
+
+####Custom Post Types & Plugins
+Working with Wordpress, I've thought deeply about the purpose and application of plugins, and how they enhance both the developer and end user's experience. This led me to the belief that the best practical application of plugins would be to enhance the "back end" by giving the adminstrator (me) numerous tools to create and manage content (among other various things). These below plugins extended the functionality of Wordpress REST API and gave me a superior development and administration experience.
+
+* Advanced Custom Fields
+Allowed me to create the exact custom fields I needed for my portfolio pieces.
+* ACF to REST API
+Exposed each Advanced Custom Field I created to be consumed by the REST API.
+* Advanced Markdown Editor
+Replaces Wordpress's regular markdown editor with a superior editor. (Makes blogging a joy).
+* Better REST API Featured Images
+Exposes a better mechanism for displaying "featured image" for posts, as the default one is not very good.
+* FakerPress
+Automatically created filler content during development process.
+* All-in-one WP Migration
+Allowed me to seamlessly migrate my local development site to a hosted provider.
+
+
+#### Challenges 
+
+
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
 ![Performance](./static/README_assets/performance.svg)
@@ -49,17 +92,17 @@ Diving a bit deeper this is what it looks like.
 
 ```js
 created() {
-		if (!sessionStorage["ProjectData"]) {
-			this.fetchAndStoreData();
-		} else {
-			this.complete = true;
-			this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
+  if (!sessionStorage["ProjectData"]) { 
+    this.fetchAndStoreData(); 
+  } else { 
+    this.complete = true;
+    this.projectData = JSON.parse(sessionStorage.getItem("ProjectData"));
 		}
-	}
+  }
 
 ```
 
-During the ```created()``` lifecycle event, I'm checking if my Project Data (the JSON response) exists. If it does not, we need to fetch it, and store it in sessionStorage for future use. If it does, awesome! We stop the the loading state, and then set the components data equal to the object that lives in sessionStorage! That provides instant rendering of the component upon repeat visits, and much better user experience.
+During the ```created()``` lifecycle event, I'm checking if my Project Data (the JSON response) exists. If it does not, we need to fetch it, and store it in sessionStorage for future use. If it does, awesome! We stop the the loading state, and then set the components data equal to the object that lives in sessionStorage! That provides instant rendering of the component upon repeat visits, and a much better user experience.
 
 I opted for sessionStorage over localStorage, as localStorage was hard to debug due to it's super persistent nature, and I would like for the user to recieve a fresh copy of data each time they close and re-open my portfolio. Ideally in the future I would like to use localStorage, and AJAX to silently check if the JSON response contains new data, and if so, render it.
 
