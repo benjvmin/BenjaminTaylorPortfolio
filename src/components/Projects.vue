@@ -6,7 +6,6 @@
 	section.projects
 
 			LoadingSpinner(v-if="loading")
-
 			//- Error Component
 			div(v-if="error") error
 

@@ -57,6 +57,7 @@ Vue.directive("lazyLoadImg", {
 
       //Options for Intersection Observer
       let options = {
+        root: el,
         rootMargin: "0px",
         threshold: 0
       };

@@ -193,7 +193,7 @@ export default {
   }
 
   & .post-content {
-    padding: 0 40px;
+    padding: 20px 40px;
     max-width: 700px;
     margin: 0 auto 10px;
     border-top: 1px solid #eeeeee;
@@ -214,6 +214,7 @@ export default {
       border-radius: 2px;
       padding: 20px 30px;
       overflow: scroll;
+      margin: 20px 0;
 
       @include respond-to("min-width", medium) {
         width: initial;
@@ -237,14 +238,21 @@ export default {
     h4,
     h5,
     h6 {
-      margin: 5px 0 15px;
-      font-weight: 300;
+      // margin: 5px 0 15px;
+      color: #282828;
+      margin-top: 10px;
+      font-weight: 600;
     }
 
     & p {
-      margin: 5px 0 28px;
+      // margin: 5px 0 28px;
+      // margin-bottom: 10px;
+      margin: 0;
+      margin: 7px 0 25px 0;
       font-size: 1.1rem;
       line-height: 1.555;
+      line-height: 1.556;
+      // letter-spacing: -.015em;
     }
 
     & img {
@@ -252,15 +260,21 @@ export default {
     }
 
     & blockquote {
-      margin: 0;
-      border-left: 10px solid #eee;
-      padding: 0 0 0 22px;
+      margin: 30px 0;
+      border-left: 10px solid $light-blue;
+      background-color: #f8f8f8;
+      padding: 10px 5px 10px 22px;
       font-style: italic;
+
+      & p {
+        margin: 10px 0;
+        padding: 0;
+      }
     }
 
     & ul,
     ol {
-      margin: 0px 0 20px 10px;
+      margin: 30px 0;
 
       & li {
         padding: 3px;
