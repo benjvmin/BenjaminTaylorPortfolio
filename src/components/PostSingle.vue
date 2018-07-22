@@ -99,7 +99,7 @@ export default {
       height: 300px;
       background-size: cover;
       background-position: center center;
-      box-shadow: inset 0px -3px 6px 1px rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0px -3px 10px 1px rgba(0, 0, 0, 0.02);
       border-radius: 4px;
       display: flex;
       flex-direction: row;
@@ -248,7 +248,7 @@ export default {
       // margin: 5px 0 28px;
       // margin-bottom: 10px;
       margin: 0;
-      margin: 7px 0 25px 0;
+      margin: 8px 0 25px 0;
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
@@ -263,8 +263,14 @@ export default {
       margin: 30px 0;
       border-left: 10px solid $light-blue;
       background-color: #f8f8f8;
-      padding: 10px 5px 10px 22px;
+      padding: 10px 5px 10px 10px;
+      
       font-style: italic;
+
+      @include respond-to("min-width", medium) {
+        padding: 10px 5px 10px 22px;
+
+      }
 
       & p {
         margin: 10px 0;

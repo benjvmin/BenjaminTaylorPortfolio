@@ -35,10 +35,8 @@ export default new Router({
       let pageScrolled = window.scrollY;
       let headerHeight = document.querySelector('header').clientHeight;
       if (pageScrolled > headerHeight) {
-        console.log(headerHeight);
         return headerHeight;
       } else {
-        console.log(pageScrolled);
         return pageScrolled;
       }
     }

@@ -74,10 +74,18 @@ export default {
     setNavState() {
       let currentURL = window.location.href;
       let postRegex = /post/i;
-      
+
       if (!currentURL.match(postRegex)) {
         this.projectNavState();
-      } else { this.postNavState(); } 
+      } else {
+        this.postNavState();
+      }
+    },
+
+    activatePopState() {
+      window.addEventListener("popstate", () => {
+        this.setNavState();
+      });
     },
 
     projectNavState() {
@@ -90,13 +98,12 @@ export default {
   },
 
   created() {
-
     this.setNavState();
   },
 
-
   mounted() {
     this.activateAnimations();
+    this.activatePopState();
   }
 };
 </script>
@@ -205,7 +212,7 @@ header {
         & svg {
           width: 100px;
           display: none;
-          
+
           @include respond-to("min-width", medium) {
             width: 120px;
           }
@@ -380,7 +387,6 @@ header {
           height: 5px;
 
           &__bar {
-            
             height: 100%;
             width: 50%;
             background-color: rgba(64, 64, 64, 0.9);
