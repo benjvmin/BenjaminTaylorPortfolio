@@ -132,6 +132,7 @@ export default {
       color: #282828;
       padding: 0 20px;
       margin: 15px 0;
+      line-height: 1.3;
       
 
       @include respond-to("min-width", medium) {
@@ -238,21 +239,17 @@ export default {
     h4,
     h5,
     h6 {
-      // margin: 5px 0 15px;
       color: #282828;
       margin-top: 10px;
       font-weight: 600;
     }
 
     & p {
-      // margin: 5px 0 28px;
-      // margin-bottom: 10px;
       margin: 0;
       margin: 8px 0 25px 0;
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      // letter-spacing: -.015em;
     }
 
     & img {
@@ -271,7 +268,6 @@ export default {
         padding: 10px 5px 10px 22px;
 
       }
-
       & p {
         margin: 10px 0;
         padding: 0;
