@@ -265,7 +265,7 @@ export default {
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      margin: 10px auto 20px !important;
+      margin: 10px auto 27px !important;
 
       & > img {
         margin: 15px auto !important;
@@ -274,14 +274,15 @@ export default {
 
     & blockquote {
       
-      background-color: #f8f8f8;
+     
       font-style: italic;
 
-      &.warning {
-        border-left-color: #fc413c;
+      &.warning p {
+        border-left-color: rgba(252, 65, 60, 0.8);
       }
 
       & p {
+        background-color: #f8f8f8;
         border-left: 10px solid $light-blue;
         padding: 3% 3% 3% 5%;
 
