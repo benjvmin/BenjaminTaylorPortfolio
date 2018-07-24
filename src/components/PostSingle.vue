@@ -30,11 +30,9 @@ section.post-wrapper
 
 
 <script>
-import LoadingSpinner from './LoadingSpinner';
-import Hiring from './Hiring';
-import OtherProjects from './OtherProjects';
-
-
+import LoadingSpinner from "./LoadingSpinner";
+import Hiring from "./Hiring";
+import OtherProjects from "./OtherProjects";
 
 export default {
   name: "PostSingle",
@@ -42,7 +40,7 @@ export default {
     LoadingSpinner,
     Hiring,
     OtherProjects
-	},
+  },
   data() {
     return {
       post: undefined,
@@ -82,7 +80,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .post-wrapper {
   position: relative;
   padding-top: 10px;
@@ -119,7 +116,6 @@ export default {
   }
 
   & .post-introduction {
-    max-width: 1100px;
     margin: 10px auto;
     max-width: 700px;
     padding: 10px 0;
@@ -133,7 +129,6 @@ export default {
       padding: 0 20px;
       margin: 15px 0;
       line-height: 1.3;
-      
 
       @include respond-to("min-width", medium) {
         margin: 15px 0;
@@ -153,7 +148,7 @@ export default {
         align-items: flex-start;
         width: 140px;
         position: absolute;
-        top: 120px;
+        top: 0px;
         left: -170px;
         height: 100%;
         margin: 0;
@@ -194,31 +189,50 @@ export default {
   }
 
   & .post-content {
-    padding: 20px 40px;
-    max-width: 700px;
-    margin: 0 auto 10px;
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
+    padding: 0px 25px;
 
-    @include respond-to("min-width", medium) {
-      padding: 10px 10px;
+    @include respond-to("min-width", small) {
+      padding: 0 50px;
     }
 
-    & a { text-decoration: none; color: #4AB0EF; } 
+    @include respond-to("min-width", 700px) {
+      padding: 0 20px;
+    }
+
+    & :nth-child(1n):not(pre):not(code) {
+      max-width: 700px;
+      margin: 25px auto;
+
+      & :nth-child(1n) {
+        max-width: initial;
+        margin: initial;
+      }
+    }
+
+    & a {
+      text-decoration: none;
+      margin: 5px auto;
+      color: #4ab0ef;
+    }
 
     & img {
-      margin: 10px 0;
+      width: 100%;
     }
 
     & pre {
-      background-color: rgba(2, 22, 38, 1);
+      background-color: rgba(2, 22, 38, 0.96);
       border-radius: 2px;
       padding: 20px 30px;
       overflow: scroll;
       margin: 20px 0;
+      max-width: 900px;
+      -webkit-overflow-scrolling: touch; 
+
 
       @include respond-to("min-width", medium) {
-        width: initial;
+        margin: 0 auto;
         overflow: initial;
       }
     }
@@ -227,6 +241,9 @@ export default {
       line-height: 1.55;
       background-color: rgba(0, 0, 0, 0);
       font-size: 0.89rem;
+      margin: 20px auto;
+      display: block;
+      max-width: 700px;
 
       @include respond-to("min-width", medium) {
         font-size: 1rem;
@@ -240,43 +257,43 @@ export default {
     h5,
     h6 {
       color: #282828;
-      margin-top: 10px;
+      margin: 10px auto 5px !important;
       font-weight: 600;
     }
 
     & p {
-      margin: 0;
-      margin: 8px 0 25px 0;
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-    }
+      margin: 10px auto 20px !important;
 
-    & img {
-      width: 100%;
+      & > img {
+        margin: 15px auto !important;
+      }
     }
 
     & blockquote {
-      margin: 30px 0;
-      border-left: 10px solid $light-blue;
-      background-color: #f8f8f8;
-      padding: 10px 5px 10px 10px;
       
+      background-color: #f8f8f8;
       font-style: italic;
 
-      @include respond-to("min-width", medium) {
-        padding: 10px 5px 10px 22px;
-
+      &.warning {
+        border-left-color: #fc413c;
       }
+
       & p {
-        margin: 10px 0;
-        padding: 0;
+        border-left: 10px solid $light-blue;
+        padding: 3% 3% 3% 5%;
+
+        @include respond-to("min-width", medium) {
+          padding: 3% 3% 3% 3%;
+        }
       }
     }
 
     & ul,
     ol {
-      margin: 30px 0;
+      list-style-type: disc;
 
       & li {
         padding: 3px;
