@@ -131,7 +131,7 @@ export default {
       line-height: 1.3;
 
       @include respond-to("min-width", medium) {
-        margin: 15px 0;
+        margin: 30px 0;
       }
     }
 
@@ -191,24 +191,19 @@ export default {
   & .post-content {
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
-    padding: 0px 25px;
+    padding: 20px 25px;
 
     @include respond-to("min-width", small) {
-      padding: 0 50px;
+      padding: 20px 50px;
     }
 
     @include respond-to("min-width", 700px) {
-      padding: 0 20px;
+      padding: 20px 20px;
     }
 
-    & :nth-child(1n):not(pre):not(code) {
+    & > * {
       max-width: 700px;
-      margin: 25px auto;
-
-      & :nth-child(1n) {
-        max-width: initial;
-        margin: initial;
-      }
+      margin: 0px auto;
     }
 
     & a {
@@ -223,16 +218,15 @@ export default {
 
     & pre {
       background-color: rgba(2, 22, 38, 0.96);
-      border-radius: 2px;
+      border-radius: 4px;
       padding: 20px 30px;
       overflow: scroll;
       margin: 20px 0;
       max-width: 900px;
-      -webkit-overflow-scrolling: touch; 
-
+      -webkit-overflow-scrolling: touch;
 
       @include respond-to("min-width", medium) {
-        margin: 0 auto;
+        margin: 40px auto;
         overflow: initial;
       }
     }
@@ -257,7 +251,7 @@ export default {
     h5,
     h6 {
       color: #282828;
-      margin: 10px auto 5px !important;
+      margin: 20px auto 5px;
       font-weight: 600;
     }
 
@@ -265,16 +259,14 @@ export default {
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      margin: 10px auto 27px !important;
+      margin: 10px auto 27px;
 
       & > img {
-        margin: 15px auto !important;
+        margin: 15px auto;
       }
     }
 
     & blockquote {
-      
-     
       font-style: italic;
 
       &.warning p {
