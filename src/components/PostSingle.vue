@@ -251,7 +251,7 @@ export default {
     h5,
     h6 {
       color: #282828;
-      margin: 20px auto 5px;
+      margin: 20px auto 0px;
       font-weight: 600;
     }
 
@@ -259,7 +259,15 @@ export default {
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      margin: 10px auto 27px;
+      margin: 20px auto;
+
+      & > code {
+        display: inline;
+        padding: 3px 10px;
+        border-radius: 2px;
+        background-color: #282823;
+        color: #f8f8f8;
+      }
 
       & > img {
         margin: 15px auto;
@@ -276,7 +284,7 @@ export default {
       & p {
         background-color: #f8f8f8;
         border-left: 10px solid $light-blue;
-        padding: 3% 3% 3% 5%;
+        padding: 5% 5% 5% 6%;
 
         @include respond-to("min-width", medium) {
           padding: 3% 3% 3% 3%;
@@ -290,7 +298,18 @@ export default {
 
       & li {
         padding: 3px;
-        font-weight: 700;
+
+        & p {
+          margin: 5px 0;
+        }
+
+        & code {
+          display: inline;
+          padding: 3px 10px;
+          border-radius: 2px;
+          background-color: #282823;
+          color: #f8f8f8;
+        }
       }
     }
   }

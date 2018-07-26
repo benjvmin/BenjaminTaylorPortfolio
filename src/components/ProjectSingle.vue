@@ -31,9 +31,8 @@
 						a.button(:href="project.acf.link" target="_blank") External
 
 				.project-images
-					img(:src="project.acf.project_image_one.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
-					img(:src="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
-
+					img(:data-url="project.acf.project_image_one.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
+					img(:data-url="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
 			OtherProjects
 			Hiring
 </template>
@@ -162,7 +161,6 @@ export default {
         grid-column: 8 / 13;
         text-align: center;
         padding: 0;
-
         flex-direction: column;
       }
 

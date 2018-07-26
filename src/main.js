@@ -36,8 +36,7 @@ Vue.directive("lazyLoadImg", {
 
     //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
     function lazyLoad() {
-
-      if (!el.nodeName === "DIV") {
+      if (el.nodeName === "IMG") {
         el.src = imageURL;
       } else {
         el.style.backgroundImage = `url(${imageURL})`;
@@ -45,7 +44,7 @@ Vue.directive("lazyLoadImg", {
 
       setTimeout(() => {
         el.classList.add("loaded");
-      }, 200);
+      }, 300);
     }
 
     //If Intersection Observer Support is not currently in your browser, load all images immediately
@@ -55,12 +54,8 @@ Vue.directive("lazyLoadImg", {
       // Create New Intersection Observer Instance, for more information on Intersection Observer: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
       let observer = new IntersectionObserver(observerCallback, options);
 
-      //Options for Intersection Observer
-      let options = {
-        root: el,
-        rootMargin: "0px",
-        threshold: 0
-      };
+      // Options for Intersection Observer
+      let options = { root: el, rootMargin: "0px", threshold: 0 };
 
       //Observer callback
       function observerCallback(entries, observer) {
