@@ -213,6 +213,7 @@ export default {
 
         & p {
           margin: 5px 0;
+          line-height: 1.4;
           @include respond-to("min-width", large) {
             max-width: 500px;
           }

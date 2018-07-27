@@ -11,6 +11,8 @@ Vue.prototype.$eventBus = new Vue();
 
 // Vue.prototype.$hostname = "http://benjvmin.dx.am/wp-json/wp/v2/";
 
+
+
 Vue.prototype.$hostname = {
   name: "http://benjvmin.dx.am/wp-json/wp/v2/",
   returnProjects(numOfProjects) {
@@ -20,6 +22,7 @@ Vue.prototype.$hostname = {
     return numOfPosts === undefined ? `${this.name}Posts` : `${this.name}Posts?per_page=${numOfPosts}`;
   }
 };
+
 
 Vue.directive("trim", {
   inserted: el => (el.textContent = el.textContent.substr(0, 180))
@@ -41,7 +44,6 @@ Vue.directive("lazyLoadImg", {
       } else {
         el.style.backgroundImage = `url(${imageURL})`;
       }
-
       setTimeout(() => {
         el.classList.add("loaded");
       }, 300);

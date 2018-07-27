@@ -198,7 +198,7 @@ export default {
     }
 
     @include respond-to("min-width", 700px) {
-      padding: 20px 20px;
+      padding: 20px 20px 60px;
     }
 
     & > * {
@@ -251,7 +251,7 @@ export default {
     h5,
     h6 {
       color: #282828;
-      margin: 20px auto 0px;
+      margin: 20px auto 15px;
       font-weight: 600;
     }
 
@@ -259,11 +259,11 @@ export default {
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      margin: 20px auto;
+      margin: 10px auto 25px;
 
       & > code {
         display: inline;
-        padding: 3px 10px;
+        padding: 1px 10px;
         border-radius: 2px;
         background-color: #282823;
         color: #f8f8f8;
@@ -276,6 +276,7 @@ export default {
 
     & blockquote {
       font-style: italic;
+      margin: 30px auto;
 
       &.warning p {
         border-left-color: rgba(252, 65, 60, 0.8);
