@@ -36,8 +36,8 @@
               path(d='M4175.81-1113.44a44.94,44.94,0,0,1-7.69-.72c-2.84-.48-5.62-1.06-8.62-1.74v65.9h-10v-67.54c-3-.14-3.13-1.46-3.78-1.46h-2a23,23,0,0,0-13.17,3.75c-3,2.08-4.56,6.17-4.56,11.64,0,4.1.46,7.38,1.4,9.54a19.13,19.13,0,0,0,2.84,4.95,14.36,14.36,0,0,1-4.78-.73,9.44,9.44,0,0,1-3.85-2.49,11.9,11.9,0,0,1-2.57-4.55,22.75,22.75,0,0,1-.92-7,20.59,20.59,0,0,1,1.64-8.1,18.15,18.15,0,0,1,5.3-6.92,27.85,27.85,0,0,1,9.45-4.87,47.45,47.45,0,0,1,14.23-1.85,70.1,70.1,0,0,1,7.45.36q3.34,0.36,6.26.82t5.79,0.82a48.71,48.71,0,0,0,6,.36,32.86,32.86,0,0,0,7.23-.67,29.41,29.41,0,0,0,4.87-1.49,21.48,21.48,0,0,1,.31,3.49Q4186.68-1113.44,4175.81-1113.44Z', transform='translate(-4048.33 1163.86)', fill='#fff')
 
         div.information
-          a(href="http://benjvmin.dx.am/wp-content/uploads/2018/07/PortoflioSafeResume.pdf" :class=" { 'active': isActive } " target="_blank").button.button-blue RESUME
-          a(href="#" :class=" { 'active': isActive } ").button.button-blue CONTACT
+          a(href="https://benjvmin.dx.am/wp-content/uploads/2018/07/PortoflioSafeResume.pdf" :class=" { 'active': isActive } " target="_blank").button.button-blue RESUME
+          a(href="#" @click.prevent="scrollToContactForm()" :class=" { 'active': isActive } ").button.button-blue CONTACT
 
         div.navigation
           div.navigation-links
@@ -65,6 +65,9 @@ export default {
     };
   },
   methods: {
+    scrollToContactForm() {
+      document.querySelector('#contact-form').scrollIntoView( { behavior: 'auto' } );
+    },
     activateAnimations() {
       setTimeout(() => {
         this.isActive = true;

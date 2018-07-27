@@ -9,12 +9,9 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$eventBus = new Vue();
 
-// Vue.prototype.$hostname = "http://benjvmin.dx.am/wp-json/wp/v2/";
-
-
 
 Vue.prototype.$hostname = {
-  name: "http://benjvmin.dx.am/wp-json/wp/v2/",
+  name: "https://benjvmin.dx.am/wp-json/wp/v2/",
   returnProjects(numOfProjects) {
     return numOfProjects === undefined ? `${this.name}Projects` : `${this.name}Projects?per_page=${numOfProjects}`;
   },
