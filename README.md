@@ -1,7 +1,7 @@
 ![Logo](./static/README_assets/logo.svg)
 
 # Benjamin Taylor Portfolio
-[https://benjamintaylorportfolio.netlify.com/](My Portfolio!)
+[My Portfolio!](https://benjamintaylorportfolio.netlify.com/)
 
 ## Introduction
  Holy cow! I finally did it! After long months of wearing different hats, I am finally at a point where I can say that the first public verion of my portfolio is ready for the world. I also made a blog! I've built it with some pretty amazing open source technology. You can find a comprehensive list of features, challenges, and miscellaneous writing about my experience below.
