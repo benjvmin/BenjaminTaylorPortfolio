@@ -1,21 +1,7 @@
 ![Logo](./static/README_assets/logo.svg)
 
-__Warning: Until I Push This Live on Github Pages__
-You have to clone the repository and run locally. Simply
-* Download Dependencies
-```
-npm install
-```
-* Run Dev Sever
-```
-npm run dev
-```
-* Build for production
-```
-npm run build
-```
-
 # Benjamin Taylor Portfolio
+[https://benjamintaylorportfolio.netlify.com/](My Portfolio!)
 
 ## Introduction
  Holy cow! I finally did it! After long months of wearing different hats, I am finally at a point where I can say that the first public verion of my portfolio is ready for the world. I also made a blog! I've built it with some pretty amazing open source technology. You can find a comprehensive list of features, challenges, and miscellaneous writing about my experience below.
