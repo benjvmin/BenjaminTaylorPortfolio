@@ -1,6 +1,4 @@
 <template lang="pug">
-
-
   header
     a(href="#").menu-icon(@click.prevent="$eventBus.$emit('openMenu')")
      svg(width='40', height='40', viewBox='0 0 33 33', xmlns='http://www.w3.org/2000/svg')

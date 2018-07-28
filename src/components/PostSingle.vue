@@ -210,6 +210,7 @@ export default {
       text-decoration: none;
       margin: 5px auto;
       color: #4ab0ef;
+      font-weight: 600;
     }
 
     & img {
