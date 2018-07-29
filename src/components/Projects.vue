@@ -1,10 +1,7 @@
 <template lang="pug">
 
-
 .project-wrapper
-
 	section.projects
-
 			LoadingSpinner(v-if="loading")
 			//- Error Component
 			div(v-if="error") error
@@ -87,10 +84,9 @@ export default {
 				backgroundElement.style.setProperty("--height", `${height}px`);
 				backgroundElement.style.setProperty("--top", `${top}px`);
 				backgroundElement.style.setProperty("--left", `${left}px`);
-
 				backgroundElement.addEventListener("animationend", navigateRouter);
 			}
-
+			
 			function animateElement() {
 				backgroundElement.style.setProperty("--animation", "expand");
 			}
@@ -211,7 +207,6 @@ export default {
 			justify-content: center;
 			align-items: center;
 			opacity: 0;
-
 			transition: opacity 0.4s ease-in-out;
 
 			&.loaded {
@@ -236,6 +231,7 @@ export default {
 					font-weight: 500;
 				}
 			}
+
 			& .project-card-information__tags {
 				display: flex;
 				flex-flow: row wrap;
@@ -261,7 +257,8 @@ export default {
 				border-radius: 4px;
 				margin: 0 10px 0 0;
 				border: 1px solid $light-blue;
-				color: $light-blue;
+				color: white;
+				background-color: $light-blue;
 				padding: 10px 25px;
 				font-size: 1rem;
 				font-weight: 600;
@@ -271,21 +268,22 @@ export default {
 				transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 				&:hover {
-					color: white;
+					color: $light-blue;
 				}
 
 				&:hover .button-transition {
-					transform: translateY(0px);
+					transform: scale(1);
 				}
 
 				& .button-transition {
+					
 					position: absolute;
 					top: 0;
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background-color: #4ab0ef;
-					transform: translateY(100%);
+					background-color: white;
+					transform: scale(0);
 					transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 					z-index: -1;
 					border-radius: 2px;
