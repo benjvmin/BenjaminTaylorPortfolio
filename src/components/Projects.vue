@@ -165,16 +165,13 @@ export default {
 		background-color: rgba(255, 255, 255, 1);
 
 		@keyframes expand {
-			0% {
+			from {
 				transform: scale3d(1, 0, 0);
 			}
-			5% {
-				opacity: 0.98;
-			}
 
-			100% {
+			to {
 				transform: scale3d(1, 1, 1);
-				opacity: 0.99;
+				opacity: 1;
 			}
 		}
 	}
