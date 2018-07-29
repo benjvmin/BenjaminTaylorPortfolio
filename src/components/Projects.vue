@@ -166,11 +166,11 @@ export default {
 
 		@keyframes expand {
 			from {
-				transform: scale3d(1, 0, 0);
+				transform: scaleY(0);
 			}
 
 			to {
-				transform: scale3d(1, 1, 1);
+				transform: scaleY(1);
 				opacity: 1;
 			}
 		}
