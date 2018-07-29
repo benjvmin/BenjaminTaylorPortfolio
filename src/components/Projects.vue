@@ -86,7 +86,7 @@ export default {
 				backgroundElement.style.setProperty("--left", `${left}px`);
 				backgroundElement.addEventListener("animationend", navigateRouter);
 			}
-			
+
 			function animateElement() {
 				backgroundElement.style.setProperty("--animation", "expand");
 			}
@@ -254,6 +254,7 @@ export default {
 			padding: 10px 30px 10px;
 
 			& .button {
+				-webkit-font-smoothing: antialiased;
 				border-radius: 4px;
 				margin: 0 10px 0 0;
 				border: 1px solid $light-blue;
@@ -266,6 +267,7 @@ export default {
 				overflow: hidden;
 				z-index: 1;
 				transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+				
 
 				&:hover {
 					color: $light-blue;
