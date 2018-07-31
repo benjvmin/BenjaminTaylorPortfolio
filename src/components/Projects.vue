@@ -171,7 +171,7 @@ export default {
 
 			to {
 				transform: scaleY(1);
-				opacity: 1;
+				opacity: 0.97;
 			}
 		}
 	}
@@ -271,7 +271,7 @@ export default {
 				}
 
 				&:hover .button-transition {
-					transform: scale(1);
+					transform: none;
 				}
 
 				& .button-transition {
@@ -282,7 +282,7 @@ export default {
 					width: 100%;
 					height: 100%;
 					background-color: white;
-					transform: scale(0);
+					transform: translateY(-100%);
 					transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 					z-index: -1;
 					border-radius: 2px;
