@@ -73,7 +73,7 @@
       a.button(href="#") RESUME
       a.button(href="#") CONTACT
 
-  a(href="#").info-exit(:class="{ 'active': isActive }" @click="closeState()")
+  a(href="#").info-exit(:class="{ 'active': isActive }" @click.prevent="closeState()")
     svg(width='40', height='40', viewBox='0 0 52 52', xmlns='http://www.w3.org/2000/svg')
       g(fill-rule='nonzero', fill='#000')
         path(d='M26 0C11.664 0 0 11.663 0 26s11.664 26 26 26 26-11.663 26-26S40.336 0 26 0zm0 50C12.767 50 2 39.233 2 26S12.767 2 26 2s24 10.767 24 24-10.767 24-24 24z')

@@ -36,13 +36,6 @@ export default {
 		};
 	},
 	methods: {
-	},
-
-	created() {
-		this.$eventBus.$on("activateForm", this.activateForm);
-	},
-	destroyed() {
-		this.$eventBus.$off("activateForm");
 	}
 };
 </script>
