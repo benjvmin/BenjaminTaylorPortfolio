@@ -25,9 +25,10 @@ export default {
 
 
 <style lang="scss">
+
 .hiring {
   width: calc(100%);
-  height: 370px;
+  height: 470px;
   background-color: white;
   background: url("../assets/city-blur.jpg");
   color: white;

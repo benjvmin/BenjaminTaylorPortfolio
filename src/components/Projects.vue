@@ -129,7 +129,7 @@ export default {
 	display: grid;
 	grid-template-columns: var(--columns);
 	position: relative;
-	padding-top: 10px;
+	padding: 10px 0;
 
 	@include respond-to("min-width", 600px) {
 		width: 80%;
@@ -275,7 +275,6 @@ export default {
 				}
 
 				& .button-transition {
-					
 					position: absolute;
 					top: 0;
 					left: 0;

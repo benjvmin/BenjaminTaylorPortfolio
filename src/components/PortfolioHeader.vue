@@ -81,6 +81,7 @@ export default {
       } else {
         this.postNavState();
       }
+      
     },
 
     activatePopState() {
