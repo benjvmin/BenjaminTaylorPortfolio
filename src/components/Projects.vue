@@ -7,7 +7,7 @@
 			div(v-if="error") error
 
 			//- Project Card Component
-			div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug")
+			div.project-card(v-if="complete" v-for="(project, index) in projectData" :id="project.slug" v-moveInAnimate="true")
 				div.project-card-image(:data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
 				div.project-card-information
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")

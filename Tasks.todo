@@ -1,7 +1,6 @@
 
 ToDo:
   ☐ Reduce Complexity Of CSS Selectors, remove inception level nesting low @low
-
   ☐ Add All Projects @high
   ☐ Test Content migration from dev wordpress site to production
   ☐ Develop REST API object that supports REST Params as arguments, and set as an instance method to reference inside components
@@ -9,41 +8,11 @@ ToDo:
   Projects Component:
     ☐ Build Out Responsive Images
     ☐ Tweak Click Animation
+  
+  Project Single:
+    ☐ Add animations for individual project nodes with Intersection Observer loading in animations as needed
 
   Footer Component:
     ☐ Build out Rest of Footer Component
 
 Archive:
-  ✔ Make single photo projects viable @done(18-07-17 20:25) @project(ToDo.Projects Component)
-  ✔ Add more padding for Mobile device users @done(18-07-17 20:25) @project(ToDo.Footer Component)
-  ✔ Fix Media Queries In Header @done(18-07-17 20:25) @project(ToDo.Header Component)
-  ✔ Add opacity animations for header on load @low @done(18-07-01 18:16) @project(ToDo.Header Component)
-  ✔ Add loading spinner and markup @done(18-07-01 18:15) @project(ToDo.Projects Component)
-  ✔ Fix Layout @done(18-07-01 18:15) @project(ToDo.Project Single)
-  ✔ Add Loading Spinner Animation @done(18-07-01 18:15) @project(ToDo.Posts Component)
-  ✔ Tweak Each page for > 320px wide mobile devices @done(18-07-01 18:15) @project(ToDo)
-  ✔ Fix Current State Bar @started(18-06-26 03:51) @done(18-06-26 17:22) @lasted(13h31m32s) @project(ToDo.Header Component)
-  ✔ Add Hiring Banner @done(18-06-25 04:29) @project(ToDo.Footer Component)
-  ✔ Add Lazy Load/Opacity Animations For Images On Load @started(18-06-23 15:27) @done(18-06-23 20:25) @lasted(4h58m6s) @project(ToDo.Projects Component)
-  ✔ Create single portfolio/post component @done(18-06-17 18:37) @project(ToDo.Single Project/Post Component)
-  ✔ Create Posts component @done(18-06-17 18:37) @project(ToDo.Posts)
-  ✘ Add scroll animations to truncate header when scrolling / Sticky Nav State for mobile users @cancelled(18-06-17 18:07) @project(ToDo.Header Component)
-  ✔ Add Settings / Openable Nav @done(18-06-17 18:06) @project(ToDo.Header Component)
-  ✔ Add Contact Form Component @done(18-06-17 18:06) @project(ToDo.Header Component)
-  ✔ Add More Beautiful Texture / Animate Background @done(18-06-17 18:06) @project(ToDo.Header Component)
-  ✘ Add Rotating Description In Title @started(18-04-03 12:55) @cancelled(18-04-09 19:02) @wasted(6 days 6 hours 7 minutes 21 seconds) @project(ToDo.Header Component)
-  ✔ Fix responsive images @critical @done(18-04-17 02:03) @project(ToDo.Projects Component)
-  ✔ Add Buttons to View project component externally or internally @started(18-03-30 23:19) @done(18-03-30 23:29) @lasted(10 minutes) @project(ToDo.Projects Component)
-  ✔ Create CSS Grid For Projects @done(18-04-17 02:03) @project(ToDo.Projects Component)
-  ✘ Fix transitions so that it follows the natural movement on the task switcher @cancelled(18-04-17 02:03) @project(ToDo.Projects Component)
-  ✔ Figure out why MAMP isn't working @started(18-04-10 15:34) @done(18-04-10 16:34) @lasted(1 hour 53 seconds) @project(ToDo.BackEnd)
-  ✘ Create Universal V-Directive that monitors all scrolling in viewport / Scroll Event Handler as backup maybe @cancelled(18-06-17 18:05) @project(ToDo.App)
-  ✔ Add Github notification for Github social link @started(18-03-30 15:40) @done(18-03-30 16:00) @lasted(20 minutes 16 seconds)
-  ✔ Fix Selected Menu Bar @started(18-03-30 00:41) @done(18-03-30 00:57) @lasted(16 minutes 17 seconds)
-  ✔ Integrate Events Bus @done(18-03-29 23:09)
-  ✔ Fix Router Transition @started(18-03-29 23:18) @done(18-03-30 00:40) @lasted(1 hour 22 minutes 47 seconds)
-  ✘ Move background image from paint to composite @started(18-03-29 20:39) @cancelled(18-03-29 21:09) @wasted(30 minutes 4 seconds)
-  ✔ Fix social links to be more responsive (and look better) @started(18-03-28 00:34) @done(18-03-28 00:52) @lasted(18 minutes 42 seconds)
-  ✔ Add Standard Buttons @started(18-03-28 00:09) @done(18-03-28 00:28) @lasted(19 minutes 4 seconds)
-  ✔ Move Header to singular component @started(18-03-28 16:07) @done(18-03-28 16:42) @lasted(35 minutes 37 seconds)
-  ✔ Move Selected / Menu Inside Header Component @started(18-03-28 16:45) @done(18-03-28 17:07) @lasted(22 minutes 32 seconds)

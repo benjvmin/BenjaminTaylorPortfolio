@@ -10,9 +10,15 @@
     gtag('js', new Date());
     gtag('config', 'UA-122993130-1');
   </script>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@benjvmintay">
+  <meta name="twitter:url" content="https://benjamintaylorportfolio.netlify.com">
+  <meta name="twitter:title" content="Benjamin Taylor's Portfolio">
+  <meta name="twitter:description" content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts.">
+  <meta name="twitter:image" content="./static/README_assets/logo.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Benjamin Taylor's portfolio featuring projects and technology related blog posts. ">
+  <meta name="description" content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts.">
   <meta name="subject" content="Benjamin Taylor is front end designer and developer from Pennsylvania.">
   <title>Benjamin Taylor's Portfolio</title>
   <style>
@@ -499,6 +505,67 @@
       }
     }
 
+
+    /* Animate.css Forked Inline Styles */
+
+    @keyframes move-in {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .move-in {
+      animation-name: move-in;
+      animation-fill-mode: both;
+      animation-duration: 0.3s;
+      animation-delay: 300ms;
+    }
+
+    .fade-in-down {
+      animation-name: fadeInDown;
+      animation-fill-mode: both;
+    }
+
+    /* .animate {
+      animation-duration: 1s;
+    }
+
+    .animate-100ms {
+      animation-duration: 0.1s;
+    }
+
+    .animate-200ms {
+      animation-duration: 0.2s;
+    }
+
+    .animate-300ms {
+      animation-duration: 0.3s;
+    }
+
+    .animate-400ms {
+      animation-duration: 0.4s;
+    }
+    
+    .animate-500ms {
+      animation-duration: 0.5s;
+    } */
   </style>
   <link rel="icon" sizes="192x192" href="./static/favicon.png">
 </head>

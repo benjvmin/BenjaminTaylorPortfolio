@@ -6,23 +6,23 @@
 		div.error(v-if="error") error
 
 		div.project-single(v-if="complete")
-			.featured-image(:style="{ backgroundImage: `url('${project.acf.header_image}')`}")
+			// .featured-image.move-in(:style="{ backgroundImage: `url('${project.acf.header_image}')`}")
+			img(:src="project.acf.header_image" alt="Featured Project Image")
 
 			.project-capsule
 				.project-information
-					.project-information__capsule
+					.project-information__capsule()
 						.project-title
 							h1 {{ project.title.rendered }}
 							h3 {{ project.acf.project_sub_header }}
 						h3 {{ project.acf.project_subtitle_one }}
-						p(v-html="project.acf.project_paragraph_one")
+						p(v-html="project.acf.project_paragraph_one" v-moveInAnimate="true")
 
 					.project-information__capsule
 						h3 {{ project.acf.project_subtitle_two }}
-						p(v-html="project.acf.project_paragraph_two")
+						p(v-html="project.acf.project_paragraph_two" v-moveInAnimate="true")
 					
-		
-					.project-information__tags
+					.project-information__tags(v-moveInAnimate="true")
 						h4 Tags & Project Links
 						div.tags(v-html="project.acf.project_tags")
 					
@@ -43,257 +43,234 @@ import LoadingSpinner from "./LoadingSpinner";
 import Hiring from "./Hiring";
 
 export default {
-  name: "Posts",
-  components: {
-    OtherProjects,
-    LoadingSpinner,
-    Hiring
-  },
-  data() {
-    return {
-      project: undefined,
-      loading: true,
-      error: false,
-      complete: false
-    };
-  },
+	name: "Posts",
+	components: {
+		OtherProjects,
+		LoadingSpinner,
+		Hiring
+	},
+	data() {
+		return {
+			project: undefined,
+			loading: true,
+			error: false,
+			complete: false
+		};
+	},
 
-  methods: {
-    fetchProject() {
-      fetch(`${this.$hostname.name}Projects/?slug=${this.$route.params.slug}`)
-        .then(response => {
-          response.json().then(json => {
-            this.project = json[0];
-            this.loading = false;
-            this.complete = true;
-          });
-        })
-        .catch(error => {
-          this.loading = false;
-          this.complete = false;
-          this.error = true;
-          console.log(error);
-        });
-    }
-  },
-  // beforeRouteUpdate(to, from, next) {
-  // 	next();
-  // },
+	methods: {
+		logSomething() {
+			console.log(this);
+		},
 
-  created() {
-    this.fetchProject();
-  }
+		fetchProject() {
+			fetch(`${this.$hostname.name}Projects/?slug=${this.$route.params.slug}`)
+				.then(response => {
+					response.json().then(json => {
+						this.project = json[0];
+						this.loading = false;
+						this.complete = true;
+					});
+				})
+				.catch(error => {
+					this.loading = false;
+					this.complete = false;
+					this.error = true;
+					console.log(error);
+				});
+		}
+	},
+	created() {
+		this.fetchProject();
+	}
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.slide-up-enter {
-  transform: translateY(100px);
-  opacity: 0;
-}
-
-.slide-up-enter-to,
-.slide-up-leave-to {
-  transform: translateY(0px);
-  opacity: 1;
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.project-single-wrapper {
-  position: relative;
-}
-
 .project-single {
-  background-color: white;
-  & .featured-image {
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 400px;
-    background-color: #f8f8f8;
-    margin: 20px auto 10px;
-    border-radius: 4px;
+	background-color: white;
 
-    @include respond-to("min-width", medium) {
-      background-position: center center;
-      width: 100%;
-      height: 400px;
-      margin: 5px auto 50px;
-    }
-  }
+	& img {
+		width: 100%;
+		height: 400px;
+		object-fit: cover;
+		margin: 20px auto 10px;
 
-  & .project-capsule {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: repeat(4, auto);
+		@include respond-to("min-width", medium) {
+			margin: 5px auto 50px;
+		}
+	}
 
-    @include respond-to("min-width", small) {
-      width: 80%;
-    }
 
-    @include respond-to("min-width", large) {
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: initial;
-      padding: 0 0 30px 0;
-    }
 
-    & .project-images {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0;
+	& .project-capsule {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: repeat(4, auto);
 
-      @include respond-to("min-width", medium) {
-        flex-direction: row;
-        padding: 20px 0;
-      }
+		@include respond-to("min-width", small) {
+			width: 80%;
+		}
 
-      @include respond-to("min-width", large) {
-        grid-column: 8 / 13;
-        text-align: center;
-        padding: 0;
-        flex-direction: column;
-      }
+		@include respond-to("min-width", large) {
+			grid-template-columns: repeat(12, 1fr);
+			grid-template-rows: initial;
+			padding: 0 0 30px 0;
+		}
 
-      & img {
-        margin: 0 0 10px 0;
-        width: 300px;
-        border-radius: 4px;
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out;
+		& .project-images {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			padding: 10px 0;
 
-        &.loaded {
-          opacity: 1;
-        }
-      }
+			@include respond-to("min-width", medium) {
+				flex-direction: row;
+				padding: 20px 0;
+			}
 
-      & .project-images__image {
-        height: 500px;
-        background-size: cover;
-        background-position: top center;
-        background-repeat: no-repeat;
-        margin: 20px 0;
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-        border-radius: 4px;
+			@include respond-to("min-width", large) {
+				grid-column: 8 / 13;
+				text-align: center;
+				padding: 0;
+				flex-direction: column;
+			}
 
-        @include respond-to("min-width", large) {
-          background-size: contain;
-        }
+			& img {
+				margin: 0 0 10px 0;
+				width: 300px;
+				border-radius: 4px;
+				opacity: 0;
+				transition: opacity 0.4s ease-in-out;
 
-        &.loaded {
-          opacity: 1;
-        }
-      }
-    }
+				&.loaded {
+					opacity: 1;
+				}
+			}
 
-    & .project-information {
-      padding: 0;
+			& .project-images__image {
+				height: 500px;
+				background-size: cover;
+				background-position: top center;
+				background-repeat: no-repeat;
+				margin: 20px 0;
+				opacity: 0;
+				transition: all 0.3s ease-in-out;
+				border-radius: 4px;
 
-      @include respond-to("min-width", 600px) {
-        padding: 0 10%;
-      }
+				@include respond-to("min-width", large) {
+					background-size: contain;
+				}
 
-      @include respond-to("min-width", large) {
-        grid-column: 1 / 7;
-        padding: 0;
-      }
+				&.loaded {
+					opacity: 1;
+				}
+			}
+		}
 
-      & .project-information__capsule {
-        margin: 35px 0;
+		& .project-information {
+			padding: 0;
 
-        & p {
-          margin: 5px 0;
-          line-height: 1.4;
-          @include respond-to("min-width", large) {
-            max-width: 500px;
-          }
-        }
+			@include respond-to("min-width", 600px) {
+				padding: 0 10%;
+			}
 
-        & .project-title {
-          text-align: center;
-          margin: 0 0 30px 0;
+			@include respond-to("min-width", large) {
+				grid-column: 1 / 7;
+				padding: 0;
+			}
 
-          @include respond-to("min-width", large) {
-            text-align: initial;
-          }
+			& .project-information__capsule {
+				margin: 35px 0;
 
-          & h3 {
-            margin: 5px auto;
-            font-weight: 300;
-            color: lightslategray;
-          }
-        }
-      }
+				& p {
+					margin: 5px 0;
+					line-height: 1.4;
+					@include respond-to("min-width", large) {
+						max-width: 500px;
+					}
+				}
 
-      .project-information__tags {
-        & h4 {
-          border-top: 1px solid #eee;
-          width: 100%;
-          font-weight: 800;
-          padding-top: 15px;
+				& .project-title {
+					text-align: center;
+					margin: 0 0 30px 0;
 
-          margin: 10px 0;
-        }
+					@include respond-to("min-width", large) {
+						text-align: initial;
+					}
 
-        & .tags {
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: flex-start;
-        }
+					& h3 {
+						margin: 5px auto;
+						font-weight: 300;
+						color: lightslategray;
+					}
+				}
+			}
 
-        & span {
-          display: block;
-          color: #262d32;
-          font-size: 12.5px;
-          font-weight: 700;
-          border-radius: 0.25rem;
-          padding: 9px 26px;
-          margin: 5px 5px 5px 0px;
-          background-color: #efefef;
+			.project-information__tags {
+				& h4 {
+					border-top: 1px solid #eee;
+					width: 100%;
+					font-weight: 800;
+					padding-top: 15px;
 
-          @include respond-to("min-width", medium) {
-            padding: 12px 28px;
-          }
-        }
-      }
+					margin: 10px 0;
+				}
 
-      .project-information__links {
-        padding: 20px 0px 20px;
-        text-align: center;
-        @include respond-to("min-width", large) {
-          text-align: initial;
-        }
+				& .tags {
+					display: flex;
+					flex-flow: row wrap;
+					justify-content: flex-start;
+				}
 
-        & .button {
-          border-radius: 2px;
-          margin: 0 10px 0 0;
-          border: 1px solid $light-blue;
-          background-color: $light-blue;
-          color: white;
-          padding: 10px 27px;
-          font-size: 1rem;
-          font-weight: 600;
-          transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+				& span {
+					display: block;
+					color: #262d32;
+					font-size: 12.5px;
+					font-weight: 700;
+					border-radius: 0.25rem;
+					padding: 9px 26px;
+					margin: 5px 5px 5px 0px;
+					background-color: #efefef;
 
-          &:hover {
-            transform: scale(1.1);
-          }
-          &:active {
-            transform: scale(1);
-          }
-        }
-      }
-    }
-  }
+					@include respond-to("min-width", medium) {
+						padding: 12px 28px;
+					}
+				}
+			}
+
+			.project-information__links {
+				padding: 20px 0px 20px;
+				text-align: center;
+				@include respond-to("min-width", large) {
+					text-align: initial;
+				}
+
+				& .button {
+					border-radius: 2px;
+					margin: 0 10px 0 0;
+					border: 1px solid $light-blue;
+					background-color: $light-blue;
+					color: white;
+					padding: 10px 27px;
+					font-size: 1rem;
+					font-weight: 600;
+					transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+					&:hover {
+						transform: scale(1.1);
+					}
+					&:active {
+						transform: scale(1);
+					}
+				}
+			}
+		}
+	}
 }
 </style>

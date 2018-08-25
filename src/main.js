@@ -29,6 +29,42 @@ Vue.directive("formatDate", {
   inserted: el => (el.textContent = new Date(el.textContent).toDateString())
 });
 
+
+Vue.directive("moveInAnimate", {
+  inserted: el => {
+    
+
+    if (window["IntersectionObserver"]) {
+      el.style.opacity = "0";
+      const animation = "move-in";
+      const options = { root: null, rootMargin: "0px", threshold: 0.10 };
+      const observer = new IntersectionObserver(observerCallback, options);
+
+      function addAnimation() {
+        el.classList.add(animation);
+      }
+
+      function observerCallback(entries, observer) {
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (entry.isIntersecting) {
+            addAnimation();
+            observer.unobserve(el);
+          }
+        })
+      }
+
+      observer.observe(el);
+
+    } else {
+      return
+    }
+  }
+
+
+});
+
+
 Vue.directive("lazyLoadImg", {
   inserted: el => {
     //URL for each background image, grabbed from the data-url property
