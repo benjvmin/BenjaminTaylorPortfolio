@@ -46,7 +46,6 @@ Vue.directive("moveInAnimate", {
 
       function observerCallback(entries, observer) {
         entries.forEach((entry) => {
-          console.log(entry);
           if (entry.isIntersecting) {
             addAnimation();
             observer.unobserve(el);
