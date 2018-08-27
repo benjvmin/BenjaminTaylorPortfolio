@@ -522,12 +522,12 @@
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translate3d(0, -100%, 0);
+        /* transform: translate3d(0, -100%, 0); */
       }
 
       to {
         opacity: 1;
-        transform: translate3d(0, 0, 0);
+        /* transform: translate3d(0, 0, 0); */
       }
     }
 
@@ -536,36 +536,16 @@
       animation-fill-mode: both;
       animation-duration: 0.3s;
       animation-delay: 300ms;
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .fade-in-down {
       animation-name: fadeInDown;
       animation-fill-mode: both;
-    }
-
-    /* .animate {
-      animation-duration: 1s;
-    }
-
-    .animate-100ms {
-      animation-duration: 0.1s;
-    }
-
-    .animate-200ms {
-      animation-duration: 0.2s;
-    }
-
-    .animate-300ms {
       animation-duration: 0.3s;
-    }
-
-    .animate-400ms {
-      animation-duration: 0.4s;
+      animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     }
     
-    .animate-500ms {
-      animation-duration: 0.5s;
-    } */
   </style>
   <link rel="icon" sizes="192x192" href="./static/favicon.png">
 </head>

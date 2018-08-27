@@ -3,7 +3,7 @@
   .other-projects(v-if="complete")
     h2.other-projects__title Other Projects
     .mini-cards()
-      .mini-card(v-for="randomProject in randomProjects" :id="randomProject.slug")
+      .mini-card(v-for="randomProject in randomProjects" :id="randomProject.slug" v-moveInAnimate="true")
         .mini-card__image(:data-url="randomProject.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
         router-link(:to=" { name: `projectSingle`, params: { slug: `${randomProject.slug}` } } ").mini-card__title
           h2 {{ randomProject.title.rendered }}
@@ -25,6 +25,8 @@ export default {
     };
   },
   methods: {
+
+
     generateThreeRandomNumbers() {
       let randomNums = [];
 
@@ -112,9 +114,9 @@ export default {
         margin: 0 1%;
       }
 
-      &:hover {
-        transform: translateY(-10px); 
-      }
+      // &:hover {
+      //   transform: translateY(-10px); 
+      // }
 
       &:active {
         transform: translateY(0px);

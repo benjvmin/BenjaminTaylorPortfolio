@@ -7,7 +7,8 @@
 
 		div.project-single(v-if="complete")
 			// .featured-image.move-in(:style="{ backgroundImage: `url('${project.acf.header_image}')`}")
-			img(:src="project.acf.header_image" alt="Featured Project Image")
+			img(:class="featuredImage" :src="project.acf.header_image" alt="Featured Project Image" @load="fadeFeaturedImage")
+			//- img(:data-url="project.acf.header_image" alt="Featured Project Image" v-lazyLoadImg="true")
 
 			.project-capsule
 				.project-information
@@ -54,13 +55,14 @@ export default {
 			project: undefined,
 			loading: true,
 			error: false,
-			complete: false
+			complete: false,
+			featuredImage: ""
 		};
 	},
 
 	methods: {
-		logSomething() {
-			console.log(this);
+		fadeFeaturedImage() {
+			this.featuredImage = "fade-in-down"
 		},
 
 		fetchProject() {
@@ -96,6 +98,7 @@ export default {
 		height: 400px;
 		object-fit: cover;
 		margin: 20px auto 10px;
+		opacity: 0;
 
 		@include respond-to("min-width", medium) {
 			margin: 5px auto 50px;

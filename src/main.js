@@ -9,7 +9,6 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$eventBus = new Vue();
 
-
 Vue.prototype.$hostname = {
   name: "https://benjvmin.dx.am/wp-json/wp/v2/",
   returnProjects(numOfProjects) {
@@ -20,7 +19,6 @@ Vue.prototype.$hostname = {
   }
 };
 
-
 Vue.directive("trim", {
   inserted: el => (el.textContent = el.textContent.substr(0, 180))
 });
@@ -29,15 +27,12 @@ Vue.directive("formatDate", {
   inserted: el => (el.textContent = new Date(el.textContent).toDateString())
 });
 
-
 Vue.directive("moveInAnimate", {
   inserted: el => {
-    
-
     if (window["IntersectionObserver"]) {
       el.style.opacity = "0";
       const animation = "move-in";
-      const options = { root: null, rootMargin: "0px", threshold: 0.10 };
+      const options = { root: null, rootMargin: "0px", threshold: 0.1 };
       const observer = new IntersectionObserver(observerCallback, options);
 
       function addAnimation() {
@@ -45,40 +40,41 @@ Vue.directive("moveInAnimate", {
       }
 
       function observerCallback(entries, observer) {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             addAnimation();
             observer.unobserve(el);
           }
-        })
+        });
       }
 
       observer.observe(el);
-
     } else {
-      return
+      return;
     }
   }
-
-
 });
-
 
 Vue.directive("lazyLoadImg", {
   inserted: el => {
     //URL for each background image, grabbed from the data-url property
     let imageURL = el.dataset.url;
 
-    //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
-    function lazyLoad() {
-      if (el.nodeName === "IMG") {
-        el.src = imageURL;
-      } else {
-        el.style.backgroundImage = `url(${imageURL})`;
-      }
+    function setClass() {
       setTimeout(() => {
         el.classList.add("loaded");
       }, 300);
+    }
+
+    //Lazy Load Images by replacing the CSS background URLproperty, with the URL set as a data attribute
+    function lazyLoad() {
+      if (el.nodeName === "IMG") {
+        el.addEventListener("load", setClass);
+        el.src = imageURL;
+      } else {
+        el.style.backgroundImage = `url(${imageURL})`;
+        setClass();
+      }
     }
 
     //If Intersection Observer Support is not currently in your browser, load all images immediately
@@ -89,7 +85,7 @@ Vue.directive("lazyLoadImg", {
       let observer = new IntersectionObserver(observerCallback, options);
 
       // Options for Intersection Observer
-      let options = { root: el, rootMargin: "0px", threshold: 0 };
+      let options = { root: null, rootMargin: "0px", threshold: 0 };
 
       //Observer callback
       function observerCallback(entries, observer) {
