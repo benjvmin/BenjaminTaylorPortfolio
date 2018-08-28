@@ -138,8 +138,9 @@ $skeleton-background-dark: #dfdfdf;
 $skeleton-background-light: #efefef;
 $skeleton-border-radius: 4px;
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
@@ -152,17 +153,17 @@ $skeleton-border-radius: 4px;
   }
   100% {
     transform: scaleX(1);
-		background-color: $skeleton-background-light;
+    background-color: $skeleton-background-light;
   }
 }
 
 .is-loading {
   animation: load-in;
-  animation-duration: 1s;
+  animation-duration: 1.3s;
   animation-direction: normal;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-	animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: 0% 50%;
 }
 
@@ -191,13 +192,17 @@ $skeleton-border-radius: 4px;
     box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
     background-color: white;
     padding: 0 0 30px;
-    height: 650px;
+    height: 475px;
     border-radius: $skeleton-border-radius;
     grid-column: span 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @include respond-to("min-width", medium) {
+      height: 650px;
+    }
 
     & .skeleton-card-image {
       flex-basis: 250px;
@@ -206,22 +211,30 @@ $skeleton-border-radius: 4px;
     }
 
     & .skeleton-card-title {
-      flex-basis: 50px;
+      flex-basis: 5%;
       width: 100%;
       max-width: 90%;
       background-color: $skeleton-background-dark;
       border-radius: 2px;
+
+      @include respond-to("min-width", medium) {
+        flex-basis: 9%;
+      }
     }
 
     & .skeleton-card-description {
-      flex-basis: 100px;
+      flex-basis: 10%;
       width: 100%;
       max-width: 90%;
       background-color: $skeleton-background-dark;
       border-radius: $skeleton-border-radius;
+
+      @include respond-to("min-width", medium) {
+        flex-basis: 15%;
+      }
     }
     & .skeleton-card-tags {
-      flex-basis: 80px;
+      // flex-basis: 7%;
       width: 100%;
       max-width: 90%;
       display: flex;
@@ -232,9 +245,15 @@ $skeleton-border-radius: 4px;
       & span {
         display: block;
         border-radius: 0.25rem;
-        padding: 20px 50px;
+				padding: 15px 30px;
+        
         margin: 5px 5px 5px 0px;
         background-color: $skeleton-background-dark;
+
+
+        @include respond-to("min-width", medium) {
+					padding: 20px 50px;
+        }
       }
     }
 
@@ -248,9 +267,12 @@ $skeleton-border-radius: 4px;
       &__button {
         display: block;
         border-radius: 0.25rem;
-        padding: 25px 60px;
+        padding: 18px 33px;
         margin: 5px 5px 5px 0px;
         background-color: $skeleton-background-dark;
+				@include respond-to("min-width", medium) {
+					padding: 25px 60px;
+        }
       }
     }
   }
