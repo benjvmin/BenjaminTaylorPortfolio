@@ -32,7 +32,7 @@ Vue.directive("moveInAnimate", {
     if (window["IntersectionObserver"]) {
       el.style.opacity = "0";
       const animation = "move-in";
-      const options = { root: null, rootMargin: "0px", threshold: 0.1 };
+      const options = { root: null, rootMargin: "0px", threshold: 0.09 };
       const observer = new IntersectionObserver(observerCallback, options);
 
       function addAnimation() {

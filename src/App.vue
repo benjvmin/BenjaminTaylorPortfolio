@@ -38,9 +38,7 @@ export default {
 	},
 
 	methods: {
-		lockScrolling() {},
 
-		unlockScrolling() {}
 	},
 
 	created() {
