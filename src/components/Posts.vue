@@ -2,9 +2,11 @@
 
 .posts-wrapper
   LoadingSpinner(v-if="loading")
-  div.error(v-if="error") error bro 
+
+  div.error(v-if="error") Error Bro
+
   section.posts(v-if="complete")
-    div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug") 
+    div.blog-card(v-if="complete" v-for="post in posts" :id="post.slug" v-moveInAnimate="true") 
       div.blog-card__image(:data-url="post.better_featured_image.media_details.sizes.large.source_url" v-lazyLoadImg="true")
       div.blog-card__info
         a(href="#" @click.prevent="materialClick($event)") {{ post.title.rendered }}
@@ -125,11 +127,12 @@ export default {
 
     &__image {
       height: 200px;
-      background-color: #494949;
+      background-color: #f6f6f6;
       background-position: top center;
       background-size: cover;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
+      transition-delay: 300ms;
 
       @include respond-to("min-width", 545px) {
         height: 250px;

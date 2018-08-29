@@ -30,7 +30,7 @@ export default {
   width: calc(100%);
   height: 470px;
   background-color: white;
-  background: url("../assets/city-blur.jpg");
+  background: url("../assets/city-blur-2.jpg");
   color: white;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;

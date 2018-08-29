@@ -2,7 +2,11 @@
 
 .project-wrapper
 
+	//- Error Component
+	div(v-if="error") error
 
+
+	//- Skeleton Component
 	transition(name="fade")
 		section.skeleton-projects(v-if="loading")
 			div.skeleton-card(v-for="i in 10")
@@ -15,14 +19,11 @@
 					div.skeleton-card-buttons__button(:class="{ 'is-loading': isAnimating } ")
 					div.skeleton-card-buttons__button(:class="{ 'is-loading': isAnimating } ")
 
-	
+	//- Project Card Component
 	section.projects(v-if="complete")
-
-			div(v-if="error") error
-
-			//- Project Card Component
 			div.project-card(v-for="(project, index) in projectData" :id="project.slug" v-moveInAnimate="true")
-				div.project-card-image(:data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
+				//- div.project-card-image(:data-url="project.acf.header_thumbnail.sizes.large" v-lazyLoadImg="true")
+				img(:data-url="project.acf.header_thumbnail.sizes.large" :alt="project.slug" v-lazyLoadImg="true")
 				div.project-card-information
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
 						h2 {{ project.title.rendered }}
@@ -46,7 +47,6 @@ import LoadingSpinner from "./LoadingSpinner";
 export default {
   name: "Projects",
   components: {
-    LoadingSpinner,
     Hiring
   },
   data() {
@@ -146,10 +146,16 @@ $skeleton-border-radius: 4px;
   opacity: 0;
 }
 
+@keyframes continue-loading {
+  from { background-color: $skeleton-background-dark; }
+  to { background-color: $skeleton-background-light; }
+}
+
 @keyframes load-in {
   0% {
     transform: scaleX(0);
     background-color: $skeleton-background-dark;
+    
   }
   100% {
     transform: scaleX(1);
@@ -157,14 +163,19 @@ $skeleton-border-radius: 4px;
   }
 }
 
+
 .is-loading {
-  animation: load-in;
-  animation-duration: 1.3s;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  transform-origin: 0% 50%;
+  // animation: load-in;
+  // animation-duration: 1.5s;
+  // animation-direction: normal;
+  // animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+  // animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  // animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+  // animation-direction: alternate-reverse;
+  transform-origin: left center;
+  animation: load-in 1.1s cubic-bezier(0.215, 0.610, 0.355, 1) 1, continue-loading 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
+  
 }
 
 /* Skeleton Sass */
@@ -245,14 +256,13 @@ $skeleton-border-radius: 4px;
       & span {
         display: block;
         border-radius: 0.25rem;
-				padding: 15px 30px;
-        
+        padding: 15px 30px;
+
         margin: 5px 5px 5px 0px;
         background-color: $skeleton-background-dark;
 
-
         @include respond-to("min-width", medium) {
-					padding: 20px 50px;
+          padding: 20px 50px;
         }
       }
     }
@@ -270,8 +280,8 @@ $skeleton-border-radius: 4px;
         padding: 18px 33px;
         margin: 5px 5px 5px 0px;
         background-color: $skeleton-background-dark;
-				@include respond-to("min-width", medium) {
-					padding: 25px 60px;
+        @include respond-to("min-width", medium) {
+          padding: 25px 60px;
         }
       }
     }
@@ -351,25 +361,17 @@ $skeleton-border-radius: 4px;
       border-radius: 4px;
     }
 
-    & .project-card-image {
-      border-radius: inherit;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-      background-color: #f8f8f8;
-      background-size: cover;
-      background-position: center;
-      box-shadow: inset 0px -3px 6px 1px rgba(0, 0, 0, 0.05);
-      flex-basis: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
+		& img {
+			width: 100%;
+			height: 250px;
+			object-fit: cover;
+			opacity: 0;
+			transition: opacity 0.2s ease-in-out;
 
-      &.loaded {
-        opacity: 1;
-      }
-    }
+			&.loaded {
+				opacity: 1;
+			}
+		}
 
     & .project-card-information {
       display: flex;

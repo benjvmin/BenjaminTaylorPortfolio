@@ -340,18 +340,24 @@ header {
           transform: scale(0);
           opacity: 0;
           transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          transition-delay: 250ms;
           font-weight: 700;
 
           &.active {
             transform: scale(1);
             opacity: 1;
           }
+
+          &:hover {
+            transform: translateY(-5px);
+          }
+
+          &:active {
+            transform: none;
+          }
         }
 
         & a:nth-child(2) {
           margin-left: 10px;
-          transition-delay: 300ms;
           @include respond-to("min-width", xsmall) {
             margin-left: 20px;
           }

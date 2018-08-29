@@ -6,9 +6,7 @@
 		div.error(v-if="error") error
 
 		div.project-single(v-if="complete")
-			// .featured-image.move-in(:style="{ backgroundImage: `url('${project.acf.header_image}')`}")
 			img(:class="featuredImage" :src="project.acf.header_image" alt="Featured Project Image" @load="fadeFeaturedImage")
-			//- img(:data-url="project.acf.header_image" alt="Featured Project Image" v-lazyLoadImg="true")
 
 			.project-capsule
 				.project-information
@@ -34,6 +32,7 @@
 				.project-images
 					img(:data-url="project.acf.project_image_one.url" :alt="this.$route.params.slug" v-lazyLoadImg="true")
 					img(:data-url="project.acf.project_image_two.url" :alt="this.$route.params.slug" v-if="project.acf.project_image_two.url" v-lazyLoadImg="true")
+					
 			OtherProjects
 			Hiring
 </template>
@@ -104,8 +103,6 @@ export default {
 			margin: 5px auto 50px;
 		}
 	}
-
-
 
 	& .project-capsule {
 		width: 90%;

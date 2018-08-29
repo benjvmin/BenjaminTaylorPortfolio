@@ -2,7 +2,6 @@
 div#app
 	PortfolioInfo
 	PortfolioHeader
-	// transition(name="fade-in" mode="out-in")
 	router-view(name="default", :key="$route.fullPath")
 	FormContact
 

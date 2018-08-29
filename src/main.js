@@ -35,15 +35,27 @@ Vue.directive("moveInAnimate", {
       const options = { root: null, rootMargin: "0px", threshold: 0.09 };
       const observer = new IntersectionObserver(observerCallback, options);
 
-      function addAnimation() {
-        el.classList.add(animation);
+      const addAnimation = () => {
+        return new Promise((resolve, reject) => {
+          el.classList.add(animation);
+          el.classList.contains(animation) ? resolve() : reject();
+        });
+      };
+
+      function cleanUpAnimation() {
+        setTimeout(() => {
+          el.style.opacity = "1";
+          el.classList.remove(animation);
+        }, 1000);
       }
 
       function observerCallback(entries, observer) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            addAnimation();
-            observer.unobserve(el);
+            addAnimation()
+              .then(() => { observer.unobserve(el); })
+              .then(() => { cleanUpAnimation(); })
+              .catch(err => { console.log(err); });
           }
         });
       }
