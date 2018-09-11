@@ -5,7 +5,6 @@ div#app
 	router-view(name="default", :key="$route.fullPath")
 	FormContact
 
-
 </template>
 
 <script>

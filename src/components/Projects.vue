@@ -1,10 +1,8 @@
 <template lang="pug">
 
 .project-wrapper
-
 	//- Error Component
 	div(v-if="error") error
-
 
 	//- Skeleton Component
 	transition(name="fade")

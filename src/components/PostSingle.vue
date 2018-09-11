@@ -202,7 +202,7 @@ export default {
     }
 
     & > * {
-      max-width: 700px;
+      max-width: 750px;
       margin: 0px auto;
     }
 
@@ -219,11 +219,11 @@ export default {
 
     & pre {
       background-color: rgba(2, 22, 38, 0.96);
-      border-radius: 4px;
+      border-radius: 2px;
       padding: 20px 30px;
       overflow: scroll;
       margin: 20px 0;
-      max-width: 900px;
+
       -webkit-overflow-scrolling: touch;
 
       @include respond-to("min-width", medium) {
@@ -252,7 +252,8 @@ export default {
     h5,
     h6 {
       color: #282828;
-      margin: 20px auto 15px;
+      margin: 20px auto 00px;
+      margin-top: 2em;
       font-weight: 600;
     }
 
@@ -260,7 +261,7 @@ export default {
       font-size: 1.1rem;
       line-height: 1.555;
       line-height: 1.556;
-      margin: 10px auto 25px;
+      margin: 1.5rem auto 0;
 
       & > code {
         display: inline;
@@ -297,9 +298,37 @@ export default {
     & ul,
     ol {
       list-style-type: disc;
+      margin: 40px auto;
+      padding: 0;
 
       & li {
-        padding: 3px;
+        position: relative;
+        display: block;
+        padding: 1.2rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+
+        & a {
+          position: relative;
+        }
+
+        & a::after {
+          content: "";
+
+          @include respond-to("min-width", medium) {
+            width: 20px;
+            background-image: url("../assets/anchor.svg");
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            position: absolute;
+            top: 0;
+            right: -30px;
+            height: 100%;
+          }
+        }
 
         & p {
           margin: 5px 0;
