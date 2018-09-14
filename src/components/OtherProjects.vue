@@ -1,6 +1,6 @@
 <template lang="pug">
 
-  .other-projects(v-if="complete")
+  section.other-projects(v-if="complete")
     h2.other-projects__title Other Projects
     .mini-cards()
       .mini-card(v-for="randomProject in randomProjects" :id="randomProject.slug" v-moveInAnimate="true")

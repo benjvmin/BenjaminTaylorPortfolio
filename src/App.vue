@@ -17,6 +17,7 @@ import PortfolioInfo from "./components/PortfolioInfo";
 import LoadingSpinner from "./components/LoadingSpinner";
 import FormContact from "./components/FormContact";
 import Hiring from "./components/Hiring";
+import Sharing from "./components/Sharing";
 
 export default {
 	name: "App",
@@ -29,7 +30,8 @@ export default {
 		PortfolioInfo,
 		LoadingSpinner,
 		FormContact,
-		Hiring
+		Hiring, 
+		Sharing
 	},
 	data() {
 		return {};

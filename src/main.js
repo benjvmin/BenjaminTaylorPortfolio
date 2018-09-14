@@ -20,7 +20,7 @@ Vue.prototype.$hostname = {
 };
 
 Vue.directive("trim", {
-  inserted: el => (el.textContent = el.textContent.substr(0, 180))
+  inserted: el => (el.textContent = el.textContent.substring(0, 180))
 });
 
 Vue.directive("formatDate", {
