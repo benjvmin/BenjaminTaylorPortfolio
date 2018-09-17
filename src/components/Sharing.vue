@@ -120,7 +120,7 @@ export default {
       return `https://www.facebook.com/sharer.php?u=${this.url}`;
     },
     getLinkedInLink() {
-      return `http://www.linkedin.com/shareArticle?mini=true&url=https://stackoverflow.com/questions/10713542/how-to-make-custom-linkedin-share-button/10737122&title=How%20to%20make%20custom%20linkedin%20share%20button&summary=some%20summary%20if%20you%20want&source=stackoverflow.com`;
+      return `http://www.linkedin.com/shareArticle?mini=true&url=${this.url}&title=${this.title}&summary=${this.description}`;
     }
   },
   created() {
