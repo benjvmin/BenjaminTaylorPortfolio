@@ -30,17 +30,17 @@
         svg(height='25', viewBox='0 0 24 24', xmlns='http://www.w3.org/2000/svg')
           g(fill-rule='nonzero', fill='#030104')
             path(d='M5.434 2.734c0 1.417-1.046 2.565-2.768 2.565C1.046 5.3 0 4.151 0 2.734 0 1.282 1.08.168 2.734.168s2.667 1.114 2.7 2.566zM.134 23.83V7.325h5.132v16.507H.135zM8.337 12.59c0-2.058-.068-3.78-.135-5.265h4.455l.237 2.295h.101c.675-1.08 2.33-2.667 5.098-2.667 3.375 0 5.907 2.262 5.907 7.123v9.756h-5.131v-9.149c0-2.126-.743-3.577-2.6-3.577-1.417 0-2.26.978-2.632 1.924-.135.337-.17.81-.17 1.283v9.519h-5.13V12.59z')
-
       .link__title LinkedIn
 
     //- HyperLink
-    a.link(href="#" target="_blank")
+    a.link(href="#" target="_blank" @click.prevent="copyLinkUrl()")
       .link__icon
         svg(height='25', viewBox='0 0 28 28', xmlns='http://www.w3.org/2000/svg')
           g(fill-rule='nonzero', fill='#000')
             path(d='M17.054 10.894a6.52 6.52 0 0 0-4.611-1.91 6.493 6.493 0 0 0-4.611 1.91l-5.924 5.93a6.52 6.52 0 0 0 4.61 11.126 6.479 6.479 0 0 0 4.607-1.9l4.89-4.89a.466.466 0 0 0-.33-.797h-.187a7.84 7.84 0 0 1-2.98-.577.466.466 0 0 0-.508.102L8.493 23.41a2.796 2.796 0 1 1-3.954-3.954l5.948-5.943a2.795 2.795 0 0 1 3.95 0 1.91 1.91 0 0 0 2.617 0c.316-.317.508-.737.54-1.183a1.863 1.863 0 0 0-.54-1.435z')
             path(d='M26.038 1.91a6.52 6.52 0 0 0-9.222 0L11.931 6.79a.466.466 0 0 0 .34.797h.172a7.825 7.825 0 0 1 2.976.582.466.466 0 0 0 .508-.103l3.507-3.502a2.796 2.796 0 1 1 3.954 3.954l-4.369 4.364-.037.042-1.528 1.518a2.795 2.795 0 0 1-3.95 0 1.91 1.91 0 0 0-2.617 0c-.318.32-.51.743-.54 1.193a1.863 1.863 0 0 0 .54 1.434c.54.542 1.17.983 1.863 1.304.098.047.196.084.294.126.097.042.2.075.298.112.098.037.2.07.298.098l.275.074c.186.047.372.084.563.117.23.034.462.056.694.065H15.526l.28-.033c.102-.004.21-.028.33-.028h.159l.321-.046.15-.028.27-.056h.05a6.52 6.52 0 0 0 3.023-1.714l5.93-5.93a6.52 6.52 0 0 0 0-9.221z')
       .link__title Link
+      .link__message(:class=" { 'active': messageActive } ") Copied!
   
 </template>
 
@@ -53,34 +53,81 @@ export default {
     return {
       url: encodeURIComponent(window.location.href),
       title: undefined,
-      description: undefined
+      description: undefined,
+      messageActive: false
     };
   },
   methods: {
     populateSocialLinkData() {
-      this.title = encodeURIComponent((window.sessionStorage['post-title']) ? window.sessionStorage.getItem('post-title') : `Benjamin Taylor's Portfolio`);
-      this.description = encodeURIComponent((window.sessionStorage['post-description']) ? window.sessionStorage.getItem('post-description') : 'Front End Development');
+      this.title = encodeURIComponent(
+        window.sessionStorage["post-title"]
+          ? window.sessionStorage.getItem("post-title")
+          : `Benjamin Taylor's Portfolio`
+      );
+      this.description = encodeURIComponent(
+        window.sessionStorage["post-description"]
+          ? window.sessionStorage.getItem("post-description")
+          : "Front End Development"
+      );
+    },
+    copyLinkUrl() {
+      
+      const activateSharingMessage = () => {
+        this.messageActive = true;
+        setTimeout(() => { this.messageActive = false; }, 2000);
+      };
+
+      const copyURL = () => {
+        // May God Smite Me For This Awful Function
+        let textbox = document.createElement('input');
+
+        textbox.setAttribute('type', 'textbox');
+        textbox.setAttribute('value', this.decodedURL);
+
+        textbox.style.position = 'absolute';
+        textbox.style.top = '-9999px';
+        textbox.style.left = '-9999px';
+        textbox.style.opacity = "0";
+
+        document.body.appendChild(textbox).select();
+        document.execCommand('copy');
+        document.body.removeChild(textbox);
+
+      }
+
+      copyURL();
+      activateSharingMessage();
+      
     }
+
+
+
+
   },
 
   computed: {
+
+    decodedURL() {
+      return decodeURIComponent(this.url);
+    }, 
+    
     getTwitterLink() {
-      return `https://twitter.com/intent/tweet?url=${this.url}&text=${this.title}&hashtags=css,html,frontenddevelopment`
+      return `https://twitter.com/intent/tweet?url=${this.url}&text=${
+        this.title
+      }&hashtags=css,html,frontenddevelopment`;
     },
     getFacebookLink() {
-      return `https://www.facebook.com/sharer.php?u=${this.url}`
+      return `https://www.facebook.com/sharer.php?u=${this.url}`;
     },
     getLinkedInLink() {
-      return `https://www.linkedin.com/shareArticle?mini=true&url=${this.url}&title=${this.title}&summary=${this.description}`
+      return `http://www.linkedin.com/shareArticle?mini=true&url=https://stackoverflow.com/questions/10713542/how-to-make-custom-linkedin-share-button/10737122&title=How%20to%20make%20custom%20linkedin%20share%20button&summary=some%20summary%20if%20you%20want&source=stackoverflow.com`;
     }
-
   },
   created() {
-    this.$eventBus.$on('storeSocialLinkData', this.populateSocialLinkData);
+    this.$eventBus.$on("storeSocialLinkData", this.populateSocialLinkData);
   }
 };
 
-//TO DO computed properties to return full URL Values
 </script>
 
 
@@ -188,6 +235,7 @@ export default {
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease-in-out;
+      position: relative;
       @include respond-to("min-width", medium) {
         grid-column: span 1;
       }
@@ -203,6 +251,30 @@ export default {
         background-color: #efefef;
         padding: 8px 15px;
         border-radius: 2px;
+      }
+
+      &__message {
+        position: absolute;
+        padding: 9px 15px;
+        background-color: #282828;
+        border-radius: 4px;
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: all 0.3s ease-in;
+
+
+        @include respond-to("min-width", medium) {
+          top: -10%;
+          right: -23%;
+        }
+
+        &.active {
+          opacity: 1;
+
+        }
       }
     }
   }
