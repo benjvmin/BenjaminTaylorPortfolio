@@ -115,7 +115,7 @@ header {
   width: 100%;
   height: 590px;
   background-color: slategray;
-  background-image: url("../assets/moonlight.jpg");
+  background-image: url("../assets/balloon-landscape.jpg");
   background-size: cover;
   background-position: 70% 50%;
   display: flex;
@@ -267,7 +267,7 @@ header {
         }
 
         &--title {
-          font-weight: 300;
+          font-weight: 400;
         }
       }
     }
