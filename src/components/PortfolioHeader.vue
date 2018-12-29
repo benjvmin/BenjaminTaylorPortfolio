@@ -1,5 +1,6 @@
 <template lang="pug">
   header
+    img.hot-air-balloon(src="../assets/hot-air-balloon.png", alt="hot-air-balloon")
     a(href="#").menu-icon(@click.prevent="$eventBus.$emit('openMenu')")
      svg(width='40', height='40', viewBox='0 0 33 33', xmlns='http://www.w3.org/2000/svg')
       g(fill-rule='nonzero', fill='#FFF')
@@ -64,7 +65,9 @@ export default {
   },
   methods: {
     scrollToContactForm() {
-      document.querySelector('#contact-form').scrollIntoView( { behavior: 'auto' } );
+      document
+        .querySelector("#contact-form")
+        .scrollIntoView({ behavior: "auto" });
     },
     activateAnimations() {
       setTimeout(() => {
@@ -81,7 +84,6 @@ export default {
       } else {
         this.postNavState();
       }
-      
     },
 
     activatePopState() {
@@ -115,7 +117,7 @@ header {
   width: 100%;
   height: 590px;
   background-color: slategray;
-  background-image: url("../assets/balloon-landscape.jpg");
+  background-image: url("../assets/balloon-background.jpg");
   background-size: cover;
   background-position: 70% 50%;
   display: flex;
@@ -137,6 +139,32 @@ header {
 
   @include respond-to("min-width", 900px) {
     background-position: center center;
+  }
+
+  & .hot-air-balloon {
+    position: absolute;
+    top: 45px;
+    left: 22%;
+    width: 150px;
+    animation: float 4.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+
+    @include respond-to("min-width", medium) {
+      top: 55px;
+      left: 58%;
+      width: 160px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: none;
+      }
+      65% {
+        transform: translate(0, 15px);
+      }
+      100% {
+        transform: none;
+      }
+    }
   }
 
   & .menu-icon {
