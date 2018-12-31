@@ -23,7 +23,7 @@
 				img(:data-url="project.acf.header_thumbnail.sizes.large" :alt="project.slug" v-lazyLoadImg="true")
 				div.project-card-information
 					a.project-card-information__title(href="#" @click.prevent="fireBackgroundAnimation($event)")
-						h2 {{ project.title.rendered }}
+						h3 {{ project.title.rendered }}
 					div.project-card-information__description 
 						p(v-html="project.acf.project_preview_text")
 					div.project-card-information__tags(v-html="project.acf.project_tags")
