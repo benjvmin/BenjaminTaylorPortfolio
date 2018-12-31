@@ -76,10 +76,13 @@ export default {
 		},
 
 		fireBackgroundAnimation(event) {
+
+			const parentEl = event.currentTarget.parentNode.parentNode;
+
 			let projectCardComponent = {
-				element: event.target.parentNode.parentNode.parentNode,
-				id: event.target.parentNode.parentNode.parentNode.id,
-				box: event.target.parentNode.parentNode.parentNode.getBoundingClientRect()
+				element: parentEl,
+				id: parentEl.id,
+				box: parentEl.getBoundingClientRect()
 			};
 
 			let width = projectCardComponent.box.width;
