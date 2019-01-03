@@ -137,43 +137,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-$skeleton-background-dark: #dfdfdf;
-$skeleton-background-light: #efefef;
-$skeleton-border-radius: 4px;
+
 
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.3s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to {
 	opacity: 0;
 }
 
-@keyframes continue-loading {
-	from {
-		background-color: $skeleton-background-dark;
-	}
-	to {
-		background-color: $skeleton-background-light;
-	}
-}
-
-@keyframes load-in {
-	0% {
-		transform: scaleX(0);
-		background-color: $skeleton-background-dark;
-	}
-	100% {
-		transform: scaleX(1);
-		background-color: $skeleton-background-light;
-	}
-}
-
-.is-loading {
-	transform-origin: left center;
-	animation: load-in 1.1s cubic-bezier(0.215, 0.61, 0.355, 1) 1,
-		continue-loading 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
-}
 
 /* Skeleton Sass */
 .skeleton-projects {

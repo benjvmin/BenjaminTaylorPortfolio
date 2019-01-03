@@ -1,7 +1,21 @@
 <template lang="pug">
 
 	section.project-single-wrapper
-		LoadingSpinner(v-if="loading")
+		//- LoadingSpinner(v-if="loading")
+		transition(name="fade")
+			div.project-single-skeleton(v-if="loading")
+				div.skeleton-header.is-loading
+				div.skeleton-project-capsule
+					div.skeleton-project-information
+						div.skeleton-project-information__header.is-loading
+						div.skeleton-project-information__subheader.is-loading
+						div.skeleton-project-information__paragraph
+							span.is-loading(v-for="i in 7")
+						div.skeleton-project-information__header.is-loading
+						div.skeleton-project-information__subheader.is-loading
+						div.skeleton-project-information__paragraph
+							span.is-loading(v-for="i in 7")
+					div.skeleton-project-images.is-loading
 
 		div.error(v-if="error") error
 
@@ -10,7 +24,7 @@
 
 			.project-capsule
 				.project-information
-					.project-information__capsule()
+					.project-information__capsule
 						.project-title
 							h1 {{ project.title.rendered }}
 							h3 {{ project.acf.project_sub_header }}
@@ -89,6 +103,106 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.project-single-skeleton {
+	background: white;
+
+	& .skeleton-header {
+		width: 100%;
+		height: 400px;
+		background: $skeleton-background-dark;
+	}
+
+	& .skeleton-project-capsule {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-row-gap: 20px;
+		width: 90%;
+		margin: 60px 0 0 0;
+		max-width: 1200px;
+		margin: 60px auto 0;
+
+		@include respond-to("min-width", small) {
+			width: 80%;
+		}
+
+		@include respond-to("min-width", large) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		& .skeleton-project-images {
+			
+			background-color: $skeleton-background-dark;
+			border-radius: $skeleton-border-radius;
+			height: 500px;
+			grid-column: 1 / 2;
+
+
+
+			@include respond-to("min-width", medium) {
+				grid-column: 8 / 12;
+				height: 800px;
+				margin: 0;
+				
+			}
+		}
+
+		& .skeleton-project-information {
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			grid-column: 1 / 6;
+
+			&__header, &__subheader {
+				width: 90%;
+				height: 80px;
+				background-color: $skeleton-background-dark;
+				border-radius: $skeleton-border-radius;
+			}
+
+			&__header:nth-child(4) {
+				margin: 60px 0 0 0;
+
+			}
+
+			&__subheader {
+				height: 50px;
+				margin: 20px 0;
+			}
+
+			&__paragraph {
+				height: 250px;
+				width: 90%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				// background-color: purple;
+				& span {
+					width: 100%;
+					display: block;
+					background: $skeleton-background-dark;
+					border-radius: $skeleton-border-radius;
+					height: calc(100% / 13);
+				}
+			}
+		}
+
+	}
+
+}
+
+
+
 .project-single {
 	background-color: white;
 

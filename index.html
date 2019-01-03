@@ -1,557 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122993130-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-122993130-1");
+    </script>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@benjvmintay" />
+    <meta name="twitter:url" content="https://benjamintaylorportfolio.netlify.com" />
+    <meta name="twitter:title" content="Benjamin Taylor's Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts."
+    />
+    <meta name="twitter:image" content="./static/logo.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts."
+    />
+    <meta name="subject" content="Benjamin Taylor is front end designer and developer from Pennsylvania." />
+    <title>Benjamin Taylor's Portfolio</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        --font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+        font-family: var(--font-family);
+        scroll-behavior: smooth;
+      }
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122993130-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-122993130-1');
-  </script>
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:creator" content="@benjvmintay">
-  <meta name="twitter:url" content="https://benjamintaylorportfolio.netlify.com">
-  <meta name="twitter:title" content="Benjamin Taylor's Portfolio">
-  <meta name="twitter:description" content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts.">
-  <meta name="twitter:image" content="./static/logo.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Benjamin Taylor's portfolio featuring front end development projects and related blog posts.">
-  <meta name="subject" content="Benjamin Taylor is front end designer and developer from Pennsylvania.">
-  <title>Benjamin Taylor's Portfolio</title>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      --font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-family: var(--font-family);
-      scroll-behavior: smooth;
-    }
+      body.modal-open {
+        overflow-y: hidden;
+      }
 
-    body.modal-open {
-      overflow-y: hidden;
-    }
+      :root {
+        --font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+          sans-serif;
+      }
 
-    :root {
-      --font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    }
+      html {
+        line-height: 1.15;
+        background-color: #eeeeee;
+        -webkit-text-size-adjust: 100%;
+      }
 
-    html {
-      line-height: 1.15;
-      background-color: #EEEEEE;
-      -webkit-text-size-adjust: 100%;
-    }
+      body {
+        margin: 0;
+      }
 
-    body {
-      margin: 0;
-    }
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
 
-    h1 {
-      font-size: 2em;
-      margin: 0.67em 0;
-    }
+      hr {
+        box-sizing: content-box;
+        /* 1 */
+        height: 0;
+        /* 1 */
+        overflow: visible;
+        /* 2 */
+      }
 
-    hr {
-      box-sizing: content-box;
-      /* 1 */
-      height: 0;
-      /* 1 */
-      overflow: visible;
-      /* 2 */
-    }
-
-    /**
+      /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-    pre {
-      font-family: monospace, monospace;
-      /* 1 */
-      font-size: 1em;
-      /* 2 */
-    }
+      pre {
+        font-family: monospace, monospace;
+        /* 1 */
+        font-size: 1em;
+        /* 2 */
+      }
 
-    /* Text-level semantics
+      /* Text-level semantics
    ========================================================================== */
 
-    /**
+      /**
  * Remove the gray background on active links in IE 10.
  */
 
-    a {
-      background-color: transparent;
-    }
+      a {
+        background-color: transparent;
+      }
 
-    /**
+      /**
  * 1. Remove the bottom border in Chrome 57-
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 
-    abbr[title] {
-      border-bottom: none;
-      /* 1 */
-      text-decoration: underline;
-      /* 2 */
-      text-decoration: underline dotted;
-      /* 2 */
-    }
+      abbr[title] {
+        border-bottom: none;
+        /* 1 */
+        text-decoration: underline;
+        /* 2 */
+        text-decoration: underline dotted;
+        /* 2 */
+      }
 
-    /**
+      /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-    b,
-    strong {
-      font-weight: bolder;
-    }
+      b,
+      strong {
+        font-weight: bolder;
+      }
 
-    /**
+      /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-    code,
-    kbd,
-    samp {
-      font-family: monospace, monospace;
-      /* 1 */
-      font-size: 1em;
-      /* 2 */
-    }
+      code,
+      kbd,
+      samp {
+        font-family: monospace, monospace;
+        /* 1 */
+        font-size: 1em;
+        /* 2 */
+      }
 
-    /**
+      /**
  * Add the correct font size in all browsers.
  */
 
-    small {
-      font-size: 80%;
-    }
+      small {
+        font-size: 80%;
+      }
 
-    /**
+      /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
 
-    sub,
-    sup {
-      font-size: 75%;
-      line-height: 0;
-      position: relative;
-      vertical-align: baseline;
-    }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
 
-    sub {
-      bottom: -0.25em;
-    }
+      sub {
+        bottom: -0.25em;
+      }
 
-    sup {
-      top: -0.5em;
-    }
+      sup {
+        top: -0.5em;
+      }
 
-    /* Embedded content
+      /* Embedded content
    ========================================================================== */
 
-    /**
+      /**
  * Remove the border on images inside links in IE 10.
  */
 
-    img {
-      border-style: none;
-    }
+      img {
+        border-style: none;
+      }
 
-    /* Forms
+      /* Forms
    ========================================================================== */
 
-    /**
+      /**
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
  */
 
-    button,
-    input,
-    optgroup,
-    select,
-    textarea {
-      font-family: inherit;
-      /* 1 */
-      font-size: 100%;
-      /* 1 */
-      line-height: 1.15;
-      /* 1 */
-      margin: 0;
-      /* 2 */
-    }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        /* 1 */
+        font-size: 100%;
+        /* 1 */
+        line-height: 1.15;
+        /* 1 */
+        margin: 0;
+        /* 2 */
+      }
 
-    /**
+      /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
 
-    button,
-    input {
-      /* 1 */
-      overflow: visible;
-    }
+      button,
+      input {
+        /* 1 */
+        overflow: visible;
+      }
 
-    /**
+      /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-    button,
-    select {
-      /* 1 */
-      text-transform: none;
-    }
+      button,
+      select {
+        /* 1 */
+        text-transform: none;
+      }
 
-    /**
+      /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
 
-    button,
-    [type="button"],
-    [type="reset"],
-    [type="submit"] {
-      -webkit-appearance: button;
-    }
+      button,
+      [type="button"],
+      [type="reset"],
+      [type="submit"] {
+        -webkit-appearance: button;
+      }
 
-    /**
+      /**
  * Remove the inner border and padding in Firefox.
  */
 
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner {
-      border-style: none;
-      padding: 0;
-    }
+      button::-moz-focus-inner,
+      [type="button"]::-moz-focus-inner,
+      [type="reset"]::-moz-focus-inner,
+      [type="submit"]::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
 
-    /**
+      /**
  * Restore the focus styles unset by the previous rule.
  */
 
-    button:-moz-focusring,
-    [type="button"]:-moz-focusring,
-    [type="reset"]:-moz-focusring,
-    [type="submit"]:-moz-focusring {
-      outline: 1px dotted ButtonText;
-    }
+      button:-moz-focusring,
+      [type="button"]:-moz-focusring,
+      [type="reset"]:-moz-focusring,
+      [type="submit"]:-moz-focusring {
+        outline: 1px dotted ButtonText;
+      }
 
-    /**
+      /**
  * Correct the padding in Firefox.
  */
 
-    fieldset {
-      padding: 0.35em 0.75em 0.625em;
-    }
+      fieldset {
+        padding: 0.35em 0.75em 0.625em;
+      }
 
-    /**
+      /**
  * 1. Correct the text wrapping in Edge and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
 
-    legend {
-      box-sizing: border-box;
-      /* 1 */
-      color: inherit;
-      /* 2 */
-      display: table;
-      /* 1 */
-      max-width: 100%;
-      /* 1 */
-      padding: 0;
-      /* 3 */
-      white-space: normal;
-      /* 1 */
-    }
+      legend {
+        box-sizing: border-box;
+        /* 1 */
+        color: inherit;
+        /* 2 */
+        display: table;
+        /* 1 */
+        max-width: 100%;
+        /* 1 */
+        padding: 0;
+        /* 3 */
+        white-space: normal;
+        /* 1 */
+      }
 
-    /**
+      /**
  * Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 
-    progress {
-      vertical-align: baseline;
-    }
+      progress {
+        vertical-align: baseline;
+      }
 
-    /**
+      /**
  * Remove the default vertical scrollbar in IE 10+.
  */
 
-    textarea {
-      overflow: auto;
-    }
+      textarea {
+        overflow: auto;
+      }
 
-    /**
+      /**
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
 
-    [type="checkbox"],
-    [type="radio"] {
-      box-sizing: border-box;
-      /* 1 */
-      padding: 0;
-      /* 2 */
-    }
+      [type="checkbox"],
+      [type="radio"] {
+        box-sizing: border-box;
+        /* 1 */
+        padding: 0;
+        /* 2 */
+      }
 
-    /**
+      /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-    [type="number"]::-webkit-inner-spin-button,
-    [type="number"]::-webkit-outer-spin-button {
-      height: auto;
-    }
+      [type="number"]::-webkit-inner-spin-button,
+      [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+      }
 
-    /**
+      /**
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
 
-    [type="search"] {
-      -webkit-appearance: textfield;
-      /* 1 */
-      outline-offset: -2px;
-      /* 2 */
-    }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        /* 1 */
+        outline-offset: -2px;
+        /* 2 */
+      }
 
-    /**
+      /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 
-    [type="search"]::-webkit-search-decoration {
-      -webkit-appearance: none;
-    }
+      [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
 
-    /**
+      /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
 
-    ::-webkit-file-upload-button {
-      -webkit-appearance: button;
-      /* 1 */
-      font: inherit;
-      /* 2 */
-    }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        /* 1 */
+        font: inherit;
+        /* 2 */
+      }
 
-    /* Interactive
+      /* Interactive
    ========================================================================== */
 
-    /*
+      /*
  * Add the correct display in Edge, IE 10+, and Firefox.
  */
 
-    details {
-      display: block;
-    }
+      details {
+        display: block;
+      }
 
-    /*
+      /*
  * Add the correct display in all browsers.
  */
 
-    summary {
-      display: list-item;
-    }
+      summary {
+        display: list-item;
+      }
 
-    /* Misc
+      /* Misc
    ========================================================================== */
 
-    /**
+      /**
  * Add the correct display in IE 10+.
  */
 
-    template {
-      display: none;
-    }
+      template {
+        display: none;
+      }
 
-    /**
+      /**
  * Add the correct display in IE 10.
  */
 
-    [hidden] {
-      display: none;
-    }
-
-    body {
-      font-size: 100%;
-      /* background-color: rgba(38, 45, 50, 1); */
-    }
-
-    body,
-    caption,
-    th,
-    td,
-    input,
-    textarea,
-    select,
-    option,
-    legend,
-    fieldset,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-size-adjust: 0.5;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      font-size: 2em;
-      /* 2x body copy size = 32px */
-      line-height: 1.25;
-      /* 45px / 36px */
-    }
-
-    @media (min-width: 43.75em) {
-      h1 {
-        font-size: 2.5em;
-        /* 2.5x body copy size = 40px */
-        line-height: 1.125;
+      [hidden] {
+        display: none;
       }
-    }
 
-    @media (min-width: 56.25em) {
-      h1 {
-        font-size: 3em;
-        /* 3x body copy size = 48px */
-        line-height: 1.05;
-        /* keep to a multiple of the 20px line height and something more appropriate for display headings */
+      body {
+        font-size: 100%;
+        /* background-color: rgba(38, 45, 50, 1); */
       }
-    }
 
-    h2 {
-      font-size: 1.625em;
-      /* 1.625x body copy size = 26px */
-      line-height: 1.15384615;
-      /* 30px / 26px */
-    }
+      body,
+      caption,
+      th,
+      td,
+      input,
+      textarea,
+      select,
+      option,
+      legend,
+      fieldset,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size-adjust: 0.5;
+        margin: 0;
+        padding: 0;
+      }
 
-    @media (min-width: 43.75em) {
-      h2 {
+      h1 {
         font-size: 2em;
         /* 2x body copy size = 32px */
         line-height: 1.25;
+        /* 45px / 36px */
       }
-    }
 
-    @media (min-width: 56.25em) {
+      @media (min-width: 43.75em) {
+        h1 {
+          font-size: 2.5em;
+          /* 2.5x body copy size = 40px */
+          line-height: 1.125;
+        }
+      }
+
+      @media (min-width: 56.25em) {
+        h1 {
+          font-size: 3em;
+          /* 3x body copy size = 48px */
+          line-height: 1.05;
+          /* keep to a multiple of the 20px line height and something more appropriate for display headings */
+        }
+      }
+
       h2 {
-        font-size: 2.25em;
-        /* 2.25x body copy size = 36px */
-        line-height: 1.25;
+        font-size: 1.625em;
+        /* 1.625x body copy size = 26px */
+        line-height: 1.15384615;
+        /* 30px / 26px */
       }
-    }
 
-    h3 {
-      font-size: 1.375em;
-      /* 1.375x body copy size = 22px */
-      line-height: 1.13636364;
-      /* 25px / 22px */
-    }
+      @media (min-width: 43.75em) {
+        h2 {
+          font-size: 2em;
+          /* 2x body copy size = 32px */
+          line-height: 1.25;
+        }
+      }
 
-    @media (min-width: 43.75em) {
+      @media (min-width: 56.25em) {
+        h2 {
+          font-size: 2.25em;
+          /* 2.25x body copy size = 36px */
+          line-height: 1.25;
+        }
+      }
+
       h3 {
-        font-size: 1.5em;
-        /* 1.5x body copy size = 24px */
-        line-height: 1.25;
+        font-size: 1.375em;
+        /* 1.375x body copy size = 22px */
+        line-height: 1.13636364;
+        /* 25px / 22px */
       }
-    }
 
-    @media (min-width: 56.25em) {
-      h3 {
-        font-size: 1.75em;
-        /* 1.75x body copy size = 28px */
-        line-height: 1.25;
+      @media (min-width: 43.75em) {
+        h3 {
+          font-size: 1.5em;
+          /* 1.5x body copy size = 24px */
+          line-height: 1.25;
+        }
       }
-    }
 
-    h4 {
-      font-size: 1.125em;
-      /* 1.125x body copy size = 18px */
-      line-height: 1.11111111;
-    }
+      @media (min-width: 56.25em) {
+        h3 {
+          font-size: 1.75em;
+          /* 1.75x body copy size = 28px */
+          line-height: 1.25;
+        }
+      }
 
-    @media (min-width: 43.75em) {
       h4 {
-        line-height: 1.22222222;
-        /* (22px / 18px */
+        font-size: 1.125em;
+        /* 1.125x body copy size = 18px */
+        line-height: 1.11111111;
       }
-    }
 
-    blockquote {
-      font-size: 1.25em;
-      /* 20px / 16px */
-      line-height: 1.25;
-      /* 25px / 20px */
-    }
+      @media (min-width: 43.75em) {
+        h4 {
+          line-height: 1.22222222;
+          /* (22px / 18px */
+        }
+      }
 
-    @media (min-width: 43.75em) {
       blockquote {
-        font-size: 1.5em;
-        /* 24px / 16px = */
-        line-height: 1.45833333;
-        /* 35px / 24px */
-      }
-    }
-
-
-    /* Animate.css Forked Inline Styles */
-
-    @keyframes move-in {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        /* transform: translate3d(0, -100%, 0); */
+        font-size: 1.25em;
+        /* 20px / 16px */
+        line-height: 1.25;
+        /* 25px / 20px */
       }
 
-      to {
-        opacity: 1;
-        /* transform: translate3d(0, 0, 0); */
+      @media (min-width: 43.75em) {
+        blockquote {
+          font-size: 1.5em;
+          /* 24px / 16px = */
+          line-height: 1.45833333;
+          /* 35px / 24px */
+        }
       }
-    }
 
-    .move-in {
-      animation-name: move-in;
-      animation-fill-mode: both;
-      animation-duration: 0.3s;
-      animation-delay: 150ms;
-      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+      /* Animate.css Forked Inline Styles */
 
-    .fade-in-down {
-      animation-name: fadeInDown;
-      animation-fill-mode: both;
-      animation-duration: 0.3s;
-      animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-    
-  </style>
-  <link rel="icon" sizes="192x192" href="./static/favicon.png">
-</head>
+      @keyframes move-in {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
 
-<body>
-  <div id="app"></div>
-</body>
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          /* transform: translate3d(0, -100%, 0); */
+        }
 
+        to {
+          opacity: 1;
+          /* transform: translate3d(0, 0, 0); */
+        }
+      }
+
+      @keyframes continue-loading {
+        from {
+          background-color: #dfdfdf;
+        }
+        to {
+          background-color: #efefef;
+        }
+      }
+
+      @keyframes load-in {
+        0% {
+          transform: scaleX(0);
+          background-color: #dfdfdf;
+        }
+        100% {
+          transform: scaleX(1);
+          background-color: #efefef;
+        }
+      }
+
+      .move-in {
+        animation-name: move-in;
+        animation-fill-mode: both;
+        animation-duration: 0.3s;
+        animation-delay: 150ms;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .fade-in-down {
+        animation-name: fadeInDown;
+        animation-fill-mode: both;
+        animation-duration: 0.3s;
+        animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .is-loading {
+        transform-origin: left center;
+        animation: load-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) 1,
+          continue-loading 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
+      }
+
+
+    </style>
+    <link rel="icon" sizes="192x192" href="./static/favicon.png" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
 </html>

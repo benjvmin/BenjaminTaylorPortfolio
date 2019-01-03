@@ -30,7 +30,7 @@ export default new Router({
   ],
   scrollBehavior(to, from, savedPosition) {
 
-    console.log(to.hash);
+    // console.log(to.hash);
 
     // Function that determines the amount of scroll the next page starts with
     function returnYCoordinate() {
@@ -49,6 +49,7 @@ export default new Router({
       return savedPosition;
     } else {
       return { x: 0, y: returnYCoordinate() };
+      // return { x: 0, y: 0 };
     }
   }
 });

@@ -12,6 +12,9 @@ $breakpoints: (
 $max-content-width: 1420px;
 
 $light-blue: #44aff1;
+$skeleton-background-dark: #dfdfdf;
+$skeleton-background-light: #efefef;
+$skeleton-border-radius: 4px;
 
 //Breakpoint Mixin
 @mixin respond-to($condition, $breakpoint) { 
