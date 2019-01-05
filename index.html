@@ -36,7 +36,7 @@
         --font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
           sans-serif;
         font-family: var(--font-family);
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; */
       }
 
       body.modal-open {
@@ -559,6 +559,16 @@
         }
       }
 
+      @keyframes load-in--no-color {
+        0% {
+          transform: scaleX(0);
+
+        }
+        100% {
+          transform: scaleX(1);
+        }
+      }
+
       .move-in {
         animation-name: move-in;
         animation-fill-mode: both;
@@ -578,6 +588,11 @@
         transform-origin: left center;
         animation: load-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) 1,
           continue-loading 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
+      }
+
+      .is-loading--no-color {
+        transform-origin: left center;
+        animation: load-in--no-color 1s cubic-bezier(0.215, 0.61, 0.355, 1) 1;
       }
 
 

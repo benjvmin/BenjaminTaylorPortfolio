@@ -67,7 +67,7 @@ export default {
     scrollToContactForm() {
       document
         .querySelector("#contact-form")
-        .scrollIntoView({ behavior: "auto" });
+        .scrollIntoView({ behavior: "smooth" });
     },
     activateAnimations() {
       setTimeout(() => {

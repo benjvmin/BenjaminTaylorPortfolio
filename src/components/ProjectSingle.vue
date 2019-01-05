@@ -4,6 +4,7 @@
 		//- LoadingSpinner(v-if="loading")
 		transition(name="fade")
 			div.project-single-skeleton(v-if="loading")
+				div.skeleton-loading-bar.is-loading--no-color
 				div.skeleton-header.is-loading
 				div.skeleton-project-capsule
 					div.skeleton-project-information
@@ -114,6 +115,13 @@ export default {
 .project-single-skeleton {
 	background: white;
 
+	& .skeleton-loading-bar {
+		width: 100%;
+		height: 5px;
+		background-color: $light-blue;
+		margin: 5px 0px 0px 0px;
+	}
+
 	& .skeleton-header {
 		width: 100%;
 		height: 400px;
@@ -139,13 +147,10 @@ export default {
 		}
 
 		& .skeleton-project-images {
-			
 			background-color: $skeleton-background-dark;
 			border-radius: $skeleton-border-radius;
 			height: 500px;
 			grid-column: 1 / 2;
-
-
 
 			@include respond-to("min-width", medium) {
 				grid-column: 8 / 12;
@@ -161,10 +166,11 @@ export default {
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-between;
+			align-items: flex-start;
 			grid-column: 1 / 6;
 
 			&__header, &__subheader {
-				width: 90%;
+				width: 100%;
 				height: 80px;
 				background-color: $skeleton-background-dark;
 				border-radius: $skeleton-border-radius;
@@ -176,8 +182,15 @@ export default {
 			}
 
 			&__subheader {
-				height: 50px;
+				height: 40px;
+				width: 55%;
 				margin: 20px 0;
+				align-self: center;
+
+				@include respond-to('min-width', large) {
+					align-self: flex-start;
+
+				}
 			}
 
 			&__paragraph {
@@ -186,7 +199,11 @@ export default {
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				// background-color: purple;
+				align-self: center;
+				@include respond-to('min-width', large) {
+					align-self: flex-start;
+
+				}
 				& span {
 					width: 100%;
 					display: block;
@@ -196,9 +213,7 @@ export default {
 				}
 			}
 		}
-
 	}
-
 }
 
 
