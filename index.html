@@ -541,7 +541,7 @@
 
       @keyframes continue-loading {
         from {
-          background-color: #dfdfdf;
+          background-color: #F8f8f8;
         }
         to {
           background-color: #efefef;
@@ -551,7 +551,7 @@
       @keyframes load-in {
         0% {
           transform: scaleX(0);
-          background-color: #dfdfdf;
+          background-color: #f7f7f7;
         }
         100% {
           transform: scaleX(1);
@@ -587,12 +587,12 @@
       .is-loading {
         transform-origin: left center;
         animation: load-in 1s cubic-bezier(0.215, 0.61, 0.355, 1) 1,
-          continue-loading 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
+          continue-loading 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) infinite alternate;
       }
 
       .is-loading--no-color {
         transform-origin: left center;
-        animation: load-in--no-color 1s cubic-bezier(0.215, 0.61, 0.355, 1) 1;
+        animation: load-in--no-color 1.5s cubic-bezier(0.215, 0.610, 0.355, 1) 1;
       }
 
 
