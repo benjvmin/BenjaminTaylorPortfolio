@@ -126,6 +126,14 @@ export default {
 		width: 100%;
 		height: 400px;
 		background: $skeleton-background-dark;
+
+		margin: 20px auto 10px;
+
+		@include respond-to("min-width", medium) {
+			margin: 5px auto 50px;
+		}
+		
+		
 	}
 
 	& .skeleton-project-capsule {
@@ -134,7 +142,6 @@ export default {
 		grid-template-rows: auto;
 		grid-row-gap: 20px;
 		width: 90%;
-		margin: 60px 0 0 0;
 		max-width: 1200px;
 		margin: 60px auto 0;
 
