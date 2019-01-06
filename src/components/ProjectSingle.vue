@@ -119,7 +119,7 @@ export default {
 		width: 100%;
 		height: 5px;
 		background-color: $light-blue;
-		margin: 5px 0px 0px 0px;
+		margin: 0px 0px 0px 0px;
 	}
 
 	& .skeleton-header {
@@ -130,7 +130,7 @@ export default {
 		margin: 20px auto 10px;
 
 		@include respond-to("min-width", medium) {
-			margin: 5px auto 50px;
+			margin: 0px auto 50px;
 		}
 		
 		
