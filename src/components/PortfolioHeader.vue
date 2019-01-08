@@ -217,6 +217,10 @@ header {
           opacity: 1;
         }
 
+        &:hover {
+          transform: scale(0.95);
+        }
+
         @include respond-to("min-width", 610px) {
           margin: 0 0 -56px 40px;
           width: 160px;
