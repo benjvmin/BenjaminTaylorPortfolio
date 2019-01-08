@@ -308,11 +308,11 @@ export default {
 
 		@keyframes expand {
 			from {
-				transform: scaleY(0);
+				transform: scale(0);
 			}
 
 			to {
-				transform: scaleY(1);
+				transform: scale(1);
 				opacity: 0.97;
 			}
 		}
